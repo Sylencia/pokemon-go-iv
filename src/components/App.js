@@ -1,12 +1,12 @@
 import '../assets/stylesheets/base.scss';
 import React, { Component } from 'react';
-import PokemonSelector from './PokemonSelector';
+import Input from './Input';
 
 export default class App extends Component {
   render() {
     return (
 			<div className="page">
-        <PokemonSelector />
+        <Input />
 			</div>
 		);
   }

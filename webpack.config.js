@@ -10,6 +10,7 @@ module.exports = {
       { test: /\.js?$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.s?css$/, loader: 'style!css!sass' },
       { test: /\.json$/, loader: 'json' },
+      { test: /\.png$/, loader: 'file' },
     ],
   },
   resolve: {
