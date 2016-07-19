@@ -1,0 +1,1059 @@
+[
+  {
+    "name": "Bulbasaur",
+    "number": 1,
+    "baseStam": 90,
+    "baseAtk": 126,
+    "baseDef": 126
+  },
+  {
+    "name": "Ivysaur",
+    "number": 2,
+    "baseStam": 120,
+    "baseAtk": 156,
+    "baseDef": 158
+  },
+  {
+    "name": "Venusaur",
+    "number": 3,
+    "baseStam": 160,
+    "baseAtk": 198,
+    "baseDef": 200
+  },
+  {
+    "name": "Charmander",
+    "number": 4,
+    "baseStam": 78,
+    "baseAtk": 128,
+    "baseDef": 108
+  },
+  {
+    "name": "Charmeleon",
+    "number": 5,
+    "baseStam": 116,
+    "baseAtk": 160,
+    "baseDef": 140
+  },
+  {
+    "name": "Charizard",
+    "number": 6,
+    "baseStam": 156,
+    "baseAtk": 212,
+    "baseDef": 182
+  },
+  {
+    "name": "Squirtle",
+    "number": 7,
+    "baseStam": 88,
+    "baseAtk": 112,
+    "baseDef": 142
+  },
+  {
+    "name": "Wartortle",
+    "number": 8,
+    "baseStam": 118,
+    "baseAtk": 144,
+    "baseDef": 176
+  },
+  {
+    "name": "Blastoise",
+    "number": 9,
+    "baseStam": 158,
+    "baseAtk": 186,
+    "baseDef": 222
+  },
+  {
+    "name": "Caterpie",
+    "number": 10,
+    "baseStam": 90,
+    "baseAtk": 62,
+    "baseDef": 66
+  },
+  {
+    "name": "Metapod",
+    "number": 11,
+    "baseStam": 100,
+    "baseAtk": 56,
+    "baseDef": 86
+  },
+  {
+    "name": "Butterfree",
+    "number": 12,
+    "baseStam": 120,
+    "baseAtk": 144,
+    "baseDef": 144
+  },
+  {
+    "name": "Weedle",
+    "number": 13,
+    "baseStam": 80,
+    "baseAtk": 68,
+    "baseDef": 64
+  },
+  {
+    "name": "Kakuna",
+    "number": 14,
+    "baseStam": 90,
+    "baseAtk": 62,
+    "baseDef": 82
+  },
+  {
+    "name": "Beedrill",
+    "number": 15,
+    "baseStam": 130,
+    "baseAtk": 144,
+    "baseDef": 130
+  },
+  {
+    "name": "Pidgey",
+    "number": 16,
+    "baseStam": 80,
+    "baseAtk": 94,
+    "baseDef": 90
+  },
+  {
+    "name": "Pidgeotto",
+    "number": 17,
+    "baseStam": 126,
+    "baseAtk": 126,
+    "baseDef": 122
+  },
+  {
+    "name": "Pidgeot",
+    "number": 18,
+    "baseStam": 166,
+    "baseAtk": 170,
+    "baseDef": 166
+  },
+  {
+    "name": "Rattata",
+    "number": 19,
+    "baseStam": 60,
+    "baseAtk": 92,
+    "baseDef": 86
+  },
+  {
+    "name": "Raticate",
+    "number": 20,
+    "baseStam": 110,
+    "baseAtk": 146,
+    "baseDef": 150
+  },
+  {
+    "name": "Spearow",
+    "number": 21,
+    "baseStam": 80,
+    "baseAtk": 102,
+    "baseDef": 78
+  },
+  {
+    "name": "Fearow",
+    "number": 22,
+    "baseStam": 130,
+    "baseAtk": 168,
+    "baseDef": 146
+  },
+  {
+    "name": "Ekans",
+    "number": 23,
+    "baseStam": 70,
+    "baseAtk": 112,
+    "baseDef": 112
+  },
+  {
+    "name": "Arbok",
+    "number": 24,
+    "baseStam": 120,
+    "baseAtk": 166,
+    "baseDef": 166
+  },
+  {
+    "name": "Pikachu",
+    "number": 25,
+    "baseStam": 70,
+    "baseAtk": 124,
+    "baseDef": 108
+  },
+  {
+    "name": "Raichu",
+    "number": 26,
+    "baseStam": 120,
+    "baseAtk": 200,
+    "baseDef": 154
+  },
+  {
+    "name": "Sandshrew",
+    "number": 27,
+    "baseStam": 100,
+    "baseAtk": 90,
+    "baseDef": 114
+  },
+  {
+    "name": "Sandslash",
+    "number": 28,
+    "baseStam": 150,
+    "baseAtk": 150,
+    "baseDef": 172
+  },
+  {
+    "name": "Nidoran?",
+    "number": 29,
+    "baseStam": 110,
+    "baseAtk": 100,
+    "baseDef": 104
+  },
+  {
+    "name": "Nidorina",
+    "number": 30,
+    "baseStam": 140,
+    "baseAtk": 132,
+    "baseDef": 136
+  },
+  {
+    "name": "Nidoqueen",
+    "number": 31,
+    "baseStam": 180,
+    "baseAtk": 184,
+    "baseDef": 190
+  },
+  {
+    "name": "Nidoran?",
+    "number": 32,
+    "baseStam": 92,
+    "baseAtk": 110,
+    "baseDef": 94
+  },
+  {
+    "name": "Nidorino",
+    "number": 33,
+    "baseStam": 122,
+    "baseAtk": 142,
+    "baseDef": 128
+  },
+  {
+    "name": "Nidoking",
+    "number": 34,
+    "baseStam": 162,
+    "baseAtk": 204,
+    "baseDef": 170
+  },
+  {
+    "name": "Clefairy",
+    "number": 35,
+    "baseStam": 140,
+    "baseAtk": 116,
+    "baseDef": 124
+  },
+  {
+    "name": "Clefable",
+    "number": 36,
+    "baseStam": 190,
+    "baseAtk": 178,
+    "baseDef": 178
+  },
+  {
+    "name": "Vulpix",
+    "number": 37,
+    "baseStam": 76,
+    "baseAtk": 106,
+    "baseDef": 118
+  },
+  {
+    "name": "Ninetales",
+    "number": 38,
+    "baseStam": 146,
+    "baseAtk": 176,
+    "baseDef": 194
+  },
+  {
+    "name": "Jigglypuff",
+    "number": 39,
+    "baseStam": 230,
+    "baseAtk": 98,
+    "baseDef": 54
+  },
+  {
+    "name": "Wigglytuff",
+    "number": 40,
+    "baseStam": 280,
+    "baseAtk": 168,
+    "baseDef": 108
+  },
+  {
+    "name": "Zubat",
+    "number": 41,
+    "baseStam": 80,
+    "baseAtk": 88,
+    "baseDef": 90
+  },
+  {
+    "name": "Golbat",
+    "number": 42,
+    "baseStam": 150,
+    "baseAtk": 164,
+    "baseDef": 164
+  },
+  {
+    "name": "Oddish",
+    "number": 43,
+    "baseStam": 90,
+    "baseAtk": 134,
+    "baseDef": 130
+  },
+  {
+    "name": "Gloom",
+    "number": 44,
+    "baseStam": 120,
+    "baseAtk": 162,
+    "baseDef": 158
+  },
+  {
+    "name": "Vileplume",
+    "number": 45,
+    "baseStam": 150,
+    "baseAtk": 202,
+    "baseDef": 190
+  },
+  {
+    "name": "Paras",
+    "number": 46,
+    "baseStam": 70,
+    "baseAtk": 122,
+    "baseDef": 120
+  },
+  {
+    "name": "Parasect",
+    "number": 47,
+    "baseStam": 120,
+    "baseAtk": 162,
+    "baseDef": 170
+  },
+  {
+    "name": "Venonat",
+    "number": 48,
+    "baseStam": 120,
+    "baseAtk": 108,
+    "baseDef": 118
+  },
+  {
+    "name": "Venomoth",
+    "number": 49,
+    "baseStam": 140,
+    "baseAtk": 172,
+    "baseDef": 154
+  },
+  {
+    "name": "Diglett",
+    "number": 50,
+    "baseStam": 20,
+    "baseAtk": 108,
+    "baseDef": 86
+  },
+  {
+    "name": "Dugtrio",
+    "number": 51,
+    "baseStam": 70,
+    "baseAtk": 148,
+    "baseDef": 140
+  },
+  {
+    "name": "Meowth",
+    "number": 52,
+    "baseStam": 80,
+    "baseAtk": 104,
+    "baseDef": 94
+  },
+  {
+    "name": "Persian",
+    "number": 53,
+    "baseStam": 130,
+    "baseAtk": 156,
+    "baseDef": 146
+  },
+  {
+    "name": "Psyduck",
+    "number": 54,
+    "baseStam": 100,
+    "baseAtk": 132,
+    "baseDef": 112
+  },
+  {
+    "name": "Golduck",
+    "number": 55,
+    "baseStam": 160,
+    "baseAtk": 194,
+    "baseDef": 176
+  },
+  {
+    "name": "Mankey",
+    "number": 56,
+    "baseStam": 80,
+    "baseAtk": 122,
+    "baseDef": 96
+  },
+  {
+    "name": "Primeape",
+    "number": 57,
+    "baseStam": 130,
+    "baseAtk": 178,
+    "baseDef": 150
+  },
+  {
+    "name": "Growlithe",
+    "number": 58,
+    "baseStam": 110,
+    "baseAtk": 156,
+    "baseDef": 110
+  },
+  {
+    "name": "Arcanine",
+    "number": 59,
+    "baseStam": 180,
+    "baseAtk": 230,
+    "baseDef": 180
+  },
+  {
+    "name": "Poliwag",
+    "number": 60,
+    "baseStam": 80,
+    "baseAtk": 108,
+    "baseDef": 98
+  },
+  {
+    "name": "Poliwhirl",
+    "number": 61,
+    "baseStam": 130,
+    "baseAtk": 132,
+    "baseDef": 132
+  },
+  {
+    "name": "Poliwrath",
+    "number": 62,
+    "baseStam": 180,
+    "baseAtk": 180,
+    "baseDef": 202
+  },
+  {
+    "name": "Abra",
+    "number": 63,
+    "baseStam": 50,
+    "baseAtk": 110,
+    "baseDef": 76
+  },
+  {
+    "name": "Kadabra",
+    "number": 64,
+    "baseStam": 80,
+    "baseAtk": 150,
+    "baseDef": 112
+  },
+  {
+    "name": "Alakazam",
+    "number": 65,
+    "baseStam": 110,
+    "baseAtk": 186,
+    "baseDef": 152
+  },
+  {
+    "name": "Machop",
+    "number": 66,
+    "baseStam": 140,
+    "baseAtk": 118,
+    "baseDef": 96
+  },
+  {
+    "name": "Machoke",
+    "number": 67,
+    "baseStam": 160,
+    "baseAtk": 154,
+    "baseDef": 144
+  },
+  {
+    "name": "Machamp",
+    "number": 68,
+    "baseStam": 180,
+    "baseAtk": 198,
+    "baseDef": 180
+  },
+  {
+    "name": "Bellsprout",
+    "number": 69,
+    "baseStam": 100,
+    "baseAtk": 158,
+    "baseDef": 78
+  },
+  {
+    "name": "Weepinbell",
+    "number": 70,
+    "baseStam": 130,
+    "baseAtk": 190,
+    "baseDef": 110
+  },
+  {
+    "name": "Victreebel",
+    "number": 71,
+    "baseStam": 160,
+    "baseAtk": 222,
+    "baseDef": 152
+  },
+  {
+    "name": "Tentacool",
+    "number": 72,
+    "baseStam": 80,
+    "baseAtk": 106,
+    "baseDef": 136
+  },
+  {
+    "name": "Tentacruel",
+    "number": 73,
+    "baseStam": 160,
+    "baseAtk": 170,
+    "baseDef": 196
+  },
+  {
+    "name": "Geodude",
+    "number": 74,
+    "baseStam": 80,
+    "baseAtk": 106,
+    "baseDef": 118
+  },
+  {
+    "name": "Graveler",
+    "number": 75,
+    "baseStam": 110,
+    "baseAtk": 142,
+    "baseDef": 156
+  },
+  {
+    "name": "Golem",
+    "number": 76,
+    "baseStam": 160,
+    "baseAtk": 176,
+    "baseDef": 198
+  },
+  {
+    "name": "Ponyta",
+    "number": 77,
+    "baseStam": 100,
+    "baseAtk": 168,
+    "baseDef": 138
+  },
+  {
+    "name": "Rapidash",
+    "number": 78,
+    "baseStam": 130,
+    "baseAtk": 200,
+    "baseDef": 170
+  },
+  {
+    "name": "Slowpoke",
+    "number": 79,
+    "baseStam": 180,
+    "baseAtk": 110,
+    "baseDef": 110
+  },
+  {
+    "name": "Slowbro",
+    "number": 80,
+    "baseStam": 190,
+    "baseAtk": 184,
+    "baseDef": 198
+  },
+  {
+    "name": "Magnemite",
+    "number": 81,
+    "baseStam": 50,
+    "baseAtk": 128,
+    "baseDef": 138
+  },
+  {
+    "name": "Magneton",
+    "number": 82,
+    "baseStam": 100,
+    "baseAtk": 186,
+    "baseDef": 180
+  },
+  {
+    "name": "Farfetch'd",
+    "number": 83,
+    "baseStam": 104,
+    "baseAtk": 138,
+    "baseDef": 132
+  },
+  {
+    "name": "Doduo",
+    "number": 84,
+    "baseStam": 70,
+    "baseAtk": 126,
+    "baseDef": 96
+  },
+  {
+    "name": "Dodrio",
+    "number": 85,
+    "baseStam": 120,
+    "baseAtk": 182,
+    "baseDef": 150
+  },
+  {
+    "name": "Seel",
+    "number": 86,
+    "baseStam": 130,
+    "baseAtk": 104,
+    "baseDef": 138
+  },
+  {
+    "name": "Dewgong",
+    "number": 87,
+    "baseStam": 180,
+    "baseAtk": 156,
+    "baseDef": 192
+  },
+  {
+    "name": "Grimer",
+    "number": 88,
+    "baseStam": 160,
+    "baseAtk": 124,
+    "baseDef": 110
+  },
+  {
+    "name": "Muk",
+    "number": 89,
+    "baseStam": 210,
+    "baseAtk": 180,
+    "baseDef": 188
+  },
+  {
+    "name": "Shellder",
+    "number": 90,
+    "baseStam": 60,
+    "baseAtk": 120,
+    "baseDef": 112
+  },
+  {
+    "name": "Cloyster",
+    "number": 91,
+    "baseStam": 100,
+    "baseAtk": 196,
+    "baseDef": 196
+  },
+  {
+    "name": "Gastly",
+    "number": 92,
+    "baseStam": 60,
+    "baseAtk": 136,
+    "baseDef": 82
+  },
+  {
+    "name": "Haunter",
+    "number": 93,
+    "baseStam": 90,
+    "baseAtk": 172,
+    "baseDef": 118
+  },
+  {
+    "name": "Gengar",
+    "number": 94,
+    "baseStam": 120,
+    "baseAtk": 204,
+    "baseDef": 156
+  },
+  {
+    "name": "Onix",
+    "number": 95,
+    "baseStam": 70,
+    "baseAtk": 90,
+    "baseDef": 186
+  },
+  {
+    "name": "Drowzee",
+    "number": 96,
+    "baseStam": 120,
+    "baseAtk": 104,
+    "baseDef": 140
+  },
+  {
+    "name": "Hypno",
+    "number": 97,
+    "baseStam": 170,
+    "baseAtk": 162,
+    "baseDef": 196
+  },
+  {
+    "name": "Krabby",
+    "number": 98,
+    "baseStam": 60,
+    "baseAtk": 116,
+    "baseDef": 110
+  },
+  {
+    "name": "Kingler",
+    "number": 99,
+    "baseStam": 110,
+    "baseAtk": 178,
+    "baseDef": 168
+  },
+  {
+    "name": "Voltorb",
+    "number": 100,
+    "baseStam": 80,
+    "baseAtk": 102,
+    "baseDef": 124
+  },
+  {
+    "name": "Electrode",
+    "number": 101,
+    "baseStam": 120,
+    "baseAtk": 150,
+    "baseDef": 174
+  },
+  {
+    "name": "Exeggcute",
+    "number": 102,
+    "baseStam": 120,
+    "baseAtk": 110,
+    "baseDef": 132
+  },
+  {
+    "name": "Exeggutor",
+    "number": 103,
+    "baseStam": 190,
+    "baseAtk": 232,
+    "baseDef": 164
+  },
+  {
+    "name": "Cubone",
+    "number": 104,
+    "baseStam": 100,
+    "baseAtk": 102,
+    "baseDef": 150
+  },
+  {
+    "name": "Marowak",
+    "number": 105,
+    "baseStam": 120,
+    "baseAtk": 140,
+    "baseDef": 202
+  },
+  {
+    "name": "Hitmonlee",
+    "number": 106,
+    "baseStam": 100,
+    "baseAtk": 148,
+    "baseDef": 172
+  },
+  {
+    "name": "Hitmonchan",
+    "number": 107,
+    "baseStam": 100,
+    "baseAtk": 138,
+    "baseDef": 204
+  },
+  {
+    "name": "Lickitung",
+    "number": 108,
+    "baseStam": 180,
+    "baseAtk": 126,
+    "baseDef": 160
+  },
+  {
+    "name": "Koffing",
+    "number": 109,
+    "baseStam": 80,
+    "baseAtk": 136,
+    "baseDef": 142
+  },
+  {
+    "name": "Weezing",
+    "number": 110,
+    "baseStam": 130,
+    "baseAtk": 190,
+    "baseDef": 198
+  },
+  {
+    "name": "Rhyhorn",
+    "number": 111,
+    "baseStam": 160,
+    "baseAtk": 110,
+    "baseDef": 116
+  },
+  {
+    "name": "Rhydon",
+    "number": 112,
+    "baseStam": 210,
+    "baseAtk": 166,
+    "baseDef": 160
+  },
+  {
+    "name": "Chansey",
+    "number": 113,
+    "baseStam": 500,
+    "baseAtk": 40,
+    "baseDef": 60
+  },
+  {
+    "name": "Tangela",
+    "number": 114,
+    "baseStam": 130,
+    "baseAtk": 164,
+    "baseDef": 152
+  },
+  {
+    "name": "Kangaskhan",
+    "number": 115,
+    "baseStam": 210,
+    "baseAtk": 142,
+    "baseDef": 178
+  },
+  {
+    "name": "Horsea",
+    "number": 116,
+    "baseStam": 60,
+    "baseAtk": 122,
+    "baseDef": 100
+  },
+  {
+    "name": "Seadra",
+    "number": 117,
+    "baseStam": 110,
+    "baseAtk": 176,
+    "baseDef": 150
+  },
+  {
+    "name": "Goldeen",
+    "number": 118,
+    "baseStam": 90,
+    "baseAtk": 112,
+    "baseDef": 126
+  },
+  {
+    "name": "Seaking",
+    "number": 119,
+    "baseStam": 160,
+    "baseAtk": 172,
+    "baseDef": 160
+  },
+  {
+    "name": "Staryu",
+    "number": 120,
+    "baseStam": 60,
+    "baseAtk": 130,
+    "baseDef": 128
+  },
+  {
+    "name": "Starmie",
+    "number": 121,
+    "baseStam": 120,
+    "baseAtk": 194,
+    "baseDef": 192
+  },
+  {
+    "name": "Mr. Mime",
+    "number": 122,
+    "baseStam": 80,
+    "baseAtk": 154,
+    "baseDef": 196
+  },
+  {
+    "name": "Scyther",
+    "number": 123,
+    "baseStam": 140,
+    "baseAtk": 176,
+    "baseDef": 180
+  },
+  {
+    "name": "Jynx",
+    "number": 124,
+    "baseStam": 130,
+    "baseAtk": 172,
+    "baseDef": 134
+  },
+  {
+    "name": "Electabuzz",
+    "number": 125,
+    "baseStam": 130,
+    "baseAtk": 198,
+    "baseDef": 160
+  },
+  {
+    "name": "Magmar",
+    "number": 126,
+    "baseStam": 130,
+    "baseAtk": 214,
+    "baseDef": 158
+  },
+  {
+    "name": "Pinsir",
+    "number": 127,
+    "baseStam": 130,
+    "baseAtk": 184,
+    "baseDef": 186
+  },
+  {
+    "name": "Tauros",
+    "number": 128,
+    "baseStam": 150,
+    "baseAtk": 148,
+    "baseDef": 184
+  },
+  {
+    "name": "Magikarp",
+    "number": 129,
+    "baseStam": 40,
+    "baseAtk": 42,
+    "baseDef": 84
+  },
+  {
+    "name": "Gyarados",
+    "number": 130,
+    "baseStam": 190,
+    "baseAtk": 192,
+    "baseDef": 196
+  },
+  {
+    "name": "Lapras",
+    "number": 131,
+    "baseStam": 260,
+    "baseAtk": 186,
+    "baseDef": 190
+  },
+  {
+    "name": "Ditto",
+    "number": 132,
+    "baseStam": 96,
+    "baseAtk": 110,
+    "baseDef": 110
+  },
+  {
+    "name": "Eevee",
+    "number": 133,
+    "baseStam": 110,
+    "baseAtk": 114,
+    "baseDef": 128
+  },
+  {
+    "name": "Vaporeon",
+    "number": 134,
+    "baseStam": 260,
+    "baseAtk": 186,
+    "baseDef": 168
+  },
+  {
+    "name": "Jolteon",
+    "number": 135,
+    "baseStam": 130,
+    "baseAtk": 192,
+    "baseDef": 174
+  },
+  {
+    "name": "Flareon",
+    "number": 136,
+    "baseStam": 130,
+    "baseAtk": 238,
+    "baseDef": 178
+  },
+  {
+    "name": "Porygon",
+    "number": 137,
+    "baseStam": 130,
+    "baseAtk": 156,
+    "baseDef": 158
+  },
+  {
+    "name": "Omanyte",
+    "number": 138,
+    "baseStam": 70,
+    "baseAtk": 132,
+    "baseDef": 160
+  },
+  {
+    "name": "Omastar",
+    "number": 139,
+    "baseStam": 140,
+    "baseAtk": 180,
+    "baseDef": 202
+  },
+  {
+    "name": "Kabuto",
+    "number": 140,
+    "baseStam": 60,
+    "baseAtk": 148,
+    "baseDef": 142
+  },
+  {
+    "name": "Kabutops",
+    "number": 141,
+    "baseStam": 120,
+    "baseAtk": 190,
+    "baseDef": 190
+  },
+  {
+    "name": "Aerodactyl",
+    "number": 142,
+    "baseStam": 160,
+    "baseAtk": 182,
+    "baseDef": 162
+  },
+  {
+    "name": "Snorlax",
+    "number": 143,
+    "baseStam": 320,
+    "baseAtk": 180,
+    "baseDef": 180
+  },
+  {
+    "name": "Articuno",
+    "number": 144,
+    "baseStam": 180,
+    "baseAtk": 198,
+    "baseDef": 242
+  },
+  {
+    "name": "Zapdos",
+    "number": 145,
+    "baseStam": 180,
+    "baseAtk": 232,
+    "baseDef": 194
+  },
+  {
+    "name": "Moltres",
+    "number": 146,
+    "baseStam": 180,
+    "baseAtk": 242,
+    "baseDef": 194
+  },
+  {
+    "name": "Dratini",
+    "number": 147,
+    "baseStam": 82,
+    "baseAtk": 128,
+    "baseDef": 110
+  },
+  {
+    "name": "Dragonair",
+    "number": 148,
+    "baseStam": 122,
+    "baseAtk": 170,
+    "baseDef": 152
+  },
+  {
+    "name": "Dragonite",
+    "number": 149,
+    "baseStam": 182,
+    "baseAtk": 250,
+    "baseDef": 212
+  },
+  {
+    "name": "Mewtwo",
+    "number": 150,
+    "baseStam": 212,
+    "baseAtk": 284,
+    "baseDef": 202
+  },
+  {
+    "name": "Mew",
+    "number": 151,
+    "baseStam": 200,
+    "baseAtk": 220,
+    "baseDef": 220
+  }
+]

@@ -1,12 +1,13 @@
 import '../assets/stylesheets/base.scss';
 import React, { Component } from 'react';
+import PokemonSelector from './PokemonSelector';
 
-const Hello = React.createClass({
+export default class App extends Component {
   render() {
-    return(
-      <h1>Hello, {this.props.name}!</h1>
-    )
+    return (
+			<div className="page">
+        <PokemonSelector />
+			</div>
+		);
   }
-});
-
-export default Hello;
+}
