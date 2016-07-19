@@ -1,0 +1,15 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "indent": [2],
+    "no-param-reassign": [1, { "props": false }],
+    "react/jsx-closing-bracket-location": [1, 'after-props'],
+    "new-cap": [0],
+    "react/prefer-stateless-function": 0,
+  }
+}
