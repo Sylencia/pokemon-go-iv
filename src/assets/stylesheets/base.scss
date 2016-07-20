@@ -1,19 +1,19 @@
 .page {
-  // margin: auto;
-  font-family: Lato;
+  background-image: linear-gradient(bottom, #FCECC9 50%, #000000 50%);
+  background-image: -o-linear-gradient(bottom, #FCECC9 50%, #FCB0B3 50%);
+  background-image: -moz-linear-gradient(bottom, #FCECC9 50%, #FCB0B3 50%);
+  background-image: -webkit-linear-gradient(bottom, #FCECC9 50%, #FCB0B3 50%);
+  background-image: -ms-linear-gradient(bottom, #FCECC9 50%, #FCB0B3 50%);
 }
 
 .top-section {
   background: #FCECC9;
-  height: 20%;
 }
 
 .middle-section {
   background: #7EB2DD;
-  height:20%;
 }
 
 .bottom-section {
   background: #FCB0B3;
-  height: 60%;
 }

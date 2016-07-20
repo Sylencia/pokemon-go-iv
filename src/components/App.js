@@ -30,10 +30,16 @@ export default class App extends Component {
   render() {
     return (
 			<div className="page">
-        <Header />
-        <Input onValidInputCB={this.onValidInputChange} />
-        <Output pokemon={this.state.pokemon} cp={this.state.cp}
-          hp={this.state.hp} dust={this.state.dust} />
+        <div className="top-section">
+          <Header />
+        </div>
+        <div className="middle-section">
+          <Input onValidInputCB={this.onValidInputChange} />
+        </div>
+        <div className="bottom-section">
+          <Output pokemon={this.state.pokemon} cp={this.state.cp}
+            hp={this.state.hp} dust={this.state.dust} />
+        </div>
 			</div>
 		);
   }

@@ -24,8 +24,8 @@ class Output extends Component {
 
     return (
       <div className="columns output-section">
-        <div className="column col-sm-3"></div>
-        <div className="column col-sm-6">
+        <div className="column col-sm-4"></div>
+        <div className="column col-sm-4">
           <table className="table table-striped table-hover">
             <thead>
               <tr>
@@ -42,7 +42,7 @@ class Output extends Component {
                 <th>1</th>
                 <th>1</th>
                 <th>1</th>
-                <th>1</th>
+                <th>99%</th>
               </tr>
             </tbody>
           </table>

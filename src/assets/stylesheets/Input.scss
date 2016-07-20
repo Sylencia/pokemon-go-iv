@@ -3,5 +3,11 @@
 }
 
 .input-section {
-  background: #7EB2DD;
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-family: Lato;
 }
