@@ -1,5 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Output.scss';
+import Dust from '../assets/data/Dust.json';
+import Multiplier from '../assets/data/Multiplier.json';
+import OutputRow from './OutputRow';
+
+function findLevelRange(input){
+  return Dust.find((dust) =>
+    (dust.cost === input));
+}
 
 class Output extends Component {
   static propTypes = {
@@ -15,8 +23,55 @@ class Output extends Component {
     }).isRequired,
   }
 
+  constructor(props) {
+    super(props);
+
+    this.getSolutions = this.getSolutions.bind(this);
+  }
+
+  getSolutions(minLevel, maxLevel) {
+    const { hp, cp, pokemon } = this.props;
+    const solutions = [];
+
+    for (let l = minLevel; l <= maxLevel; ++l) {
+      for (let s = 0; s <= 15; ++s) {
+        for (let a = 0; a <= 15; ++a) {
+          for (let d = 0; d <= 15; ++d) {
+            const multiplierData = Multiplier.find((data) =>
+              (data.level === l));
+            const m = multiplierData.multiplier;
+
+            const attack = (pokemon.baseAtk + a) * m;
+            const defense = (pokemon.baseDef + d) * m;
+            const stamina = (pokemon.baseStam + s) * m;
+            const calcCP = Math.max(10,
+              Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
+
+            if (calcCP === cp && hp === Math.floor(stamina)) {
+              console.log(m);
+              solutions.push({
+                level: l,
+                stamina: s,
+                attack: a,
+                defense: d,
+              });
+            }
+          }
+        }
+      }
+    }
+    console.log(solutions);
+    return solutions;
+  }
+
   render() {
-    const { hp, cp, dust, pokemon } = this.props;
+    const { dust, pokemon } = this.props;
+
+    const dustData = findLevelRange(dust);
+    let solutions = [];
+    if (dustData !== undefined) {
+      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel);
+    }
 
     if (pokemon.length === 0) {
       return <div></div>;
@@ -26,7 +81,8 @@ class Output extends Component {
       <div className="columns output-section">
         <div className="column col-sm-4"></div>
         <div className="column col-sm-4">
-          <table className="table table-striped table-hover">
+          <h6>Solutions found: {solutions.length}</h6>
+          <table className="table table-hover">
             <thead>
               <tr>
                 <th>lv</th>
@@ -37,16 +93,11 @@ class Output extends Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-                <th>1</th>
-                <th>99%</th>
-              </tr>
+              {solutions.map((solution) => (
+                <OutputRow {...solution} />
+              ))}
             </tbody>
           </table>
-          {hp} {cp} {dust} {pokemon.name}
         </div>
       </div>
     );
