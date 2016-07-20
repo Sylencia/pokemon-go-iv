@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Input.scss';
-import '../assets/stylesheets/Pokemon.scss';
 import Pokemon from '../assets/data/Pokemon.json';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
