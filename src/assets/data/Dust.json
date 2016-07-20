@@ -1,0 +1,102 @@
+[
+  {
+    "dust": 200,
+    "minLevel": 1,
+    "maxLevel": 4
+  },
+  {
+    "dust": 400,
+    "minLevel": 5,
+    "maxLevel": 8
+  },
+  {
+    "dust": 600,
+    "minLevel": 9,
+    "maxLevel": 12
+  },
+  {
+    "dust": 800,
+    "minLevel": 13,
+    "maxLevel": 16
+  },
+  {
+    "dust": 1000,
+    "minLevel": 17,
+    "maxLevel": 20
+  },
+  {
+    "dust": 1300,
+    "minLevel": 21,
+    "maxLevel": 24
+  },
+  {
+    "dust": 1600,
+    "minLevel": 25,
+    "maxLevel": 28
+  },
+  {
+    "dust": 1900,
+    "minLevel": 29,
+    "maxLevel": 32
+  },
+  {
+    "dust": 2200,
+    "minLevel": 33,
+    "maxLevel": 36
+  },
+  {
+    "dust": 2500,
+    "minLevel": 37,
+    "maxLevel": 40
+  },
+  {
+    "dust": 3000,
+    "minLevel": 41,
+    "maxLevel": 44
+  },
+  {
+    "dust": 3500,
+    "minLevel": 45,
+    "maxLevel": 48
+  },
+  {
+    "dust": 4000,
+    "minLevel": 49,
+    "maxLevel": 52
+  },
+  {
+    "dust": 4500,
+    "minLevel": 53,
+    "maxLevel": 56
+  },
+  {
+    "dust": 5000,
+    "minLevel": 57,
+    "maxLevel": 60
+  },
+  {
+    "dust": 6000,
+    "minLevel": 61,
+    "maxLevel": 64
+  },
+  {
+    "dust": 7000,
+    "minLevel": 65,
+    "maxLevel": 68
+  },
+  {
+    "dust": 8000,
+    "minLevel": 69,
+    "maxLevel": 72
+  },
+  {
+    "dust": 9000,
+    "minLevel": 73,
+    "maxLevel": 76
+  },
+  {
+    "dust": 10000,
+    "minLevel": 77,
+    "maxLevel": 80
+  },
+]

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Input.scss';
 import '../assets/stylesheets/Pokemon.scss';
 import Pokemon from '../assets/data/Pokemon.json';
@@ -9,8 +9,12 @@ function validateNumericEntry(number) {
 }
 
 class Input extends Component {
-  constructor() {
-    super();
+  static propTypes = {
+    onValidInputCB: PropTypes.func.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: '',
@@ -25,6 +29,7 @@ class Input extends Component {
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
+    this.checkValidInput = this.checkValidInput.bind(this);
   }
 
   onSubmit(e) {
@@ -40,6 +45,9 @@ class Input extends Component {
       pkmn = {};
     }
 
+    this.checkValidInput({ ...this.state,
+      name: e.target.value, found, pokemon: pkmn });
+
     this.setState({
       name: e.target.value,
       found,
@@ -48,21 +56,43 @@ class Input extends Component {
   }
 
   onCPChange(e) {
+    this.checkValidInput({ ...this.state,
+      CP: e.target.value, validCP: validateNumericEntry(e.target.value) });
+
     this.setState({
+      CP: e.target.value,
       validCP: validateNumericEntry(e.target.value),
     });
   }
 
   onHPChange(e) {
+    this.checkValidInput({ ...this.state,
+      HP: e.target.value, validHP: validateNumericEntry(e.target.value) });
+
     this.setState({
+      HP: e.target.value,
       validHP: validateNumericEntry(e.target.value),
     });
   }
 
   onDustChange(e) {
+    this.checkValidInput({ ...this.state,
+      dust: e.target.value, validDust: validateNumericEntry(e.target.value) });
+
     this.setState({
+      dust: e.target.value,
       validDust: validateNumericEntry(e.target.value),
     });
+  }
+
+  checkValidInput(newState) {
+    const { found, validCP, validHP,
+      validDust, pokemon, CP, HP, dust } = newState;
+    const { onValidInputCB } = this.props;
+
+    if (found && validCP && validHP && validDust) {
+      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust));
+    }
   }
 
   render() {
@@ -84,21 +114,21 @@ class Input extends Component {
           <div className="column col-3" />
           <div className="column col-6">
             <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <span className="form-label">Name</span>
+                <div className="input-group">
+                  <span className="input-group-addon addon-lg">Name</span>
                   <input onChange={this.onChange} className={classes}></input>
                 </div>
                 <div className="columns">
-                  <div className="form-group column col-4">
-                    <span className="form-label">CP</span>
+                  <div className="input-group column col-4">
+                    <span className="input-group-addon addon-lg">CP</span>
                     <input onChange={this.onCPChange} className={cpclasses}></input>
                   </div>
-                  <div className="form-group column col-4">
-                    <span className="form-label ">HP</span>
+                  <div className="input-group column col-4">
+                    <span className="input-group-addon addon-lg">HP</span>
                     <input onChange={this.onHPChange} className={hpclasses}></input>
                   </div>
-                  <div className="form-group column col-4">
-                    <span className="form-label">Dust</span>
+                  <div className="input-group column col-4">
+                    <span className="input-group-addon addon-lg">Dust</span>
                     <input onChange={this.onDustChange} className={dustclasses}></input>
                   </div>
                 </div>
