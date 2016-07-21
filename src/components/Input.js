@@ -178,12 +178,13 @@ class Input extends Component {
                   </div>
                 </div>
                 <div className="columns">
-                  <div className="form-group column col-sm-6">
+                  <div className="column col-sm-3"></div>
+                  <div className="form-group column col-sm-3">
                     <input onChange={this.onWildChange} type="checkbox"
                       checked={this.state.wild}></input>
                     <i className="form-icon"></i> caught in wild?
                   </div>
-                  <div className="form-group column col-sm-6">
+                  <div className="form-group column col-sm-3">
                   <input onChange={this.onTrainedChange} type="checkbox"
                     checked={this.state.trained}></input>
                   <i className="form-icon"></i> powered up?
