@@ -21,6 +21,8 @@ class Output extends Component {
       baseAtk: PropTypes.number,
       baseDef: PropTypes.number,
     }).isRequired,
+    wild: PropTypes.bool.isRequired,
+    trained: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -32,11 +34,15 @@ class Output extends Component {
   getSolutions(minLevel, maxLevel, wild, trained) {
     const { hp, cp, pokemon } = this.props;
     const solutions = [];
+
     let id = 0;
     let levelJump = 1;
-    console.log(wild, trained);
     if (wild && !trained) {
       levelJump = 2;
+    }
+
+    if (!trained && ((!wild && minLevel > 40) || wild && minLevel > 60)) {
+      return solutions;
     }
 
     for (let l = minLevel; l <= maxLevel; l += levelJump) {
@@ -87,12 +93,11 @@ class Output extends Component {
       <div className="columns output-section">
         <div className="column col-sm-4"></div>
         <div className="column col-sm-4">
-          <h6>Solutions found: {solutions.length}</h6>
-          <table className="table table-hover">
+          <table className="table">
             <thead>
               <tr>
                 <th>lv</th>
-                <th><div className="center">iv</div></th>
+                <th><div className="center">ivs ({solutions.length} sets)</div></th>
                 <th><div className="right">%</div></th>
               </tr>
             </thead>

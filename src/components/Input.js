@@ -7,6 +7,14 @@ function validateNumericEntry(number) {
   return number >>> 0 === parseFloat(number);
 }
 
+function getValidityIcon(item) {
+  if (item) {
+    return <i className="fa fa-check" aria-hidden="true"></i>;
+  }
+
+  return <i className="fa fa-times" aria-hidden="true"></i>;
+}
+
 class Input extends Component {
   static propTypes = {
     onValidInputCB: PropTypes.func.isRequired,
@@ -117,17 +125,10 @@ class Input extends Component {
   }
 
   render() {
-    let classes = this.state.found ? 'is-success' : 'is-danger';
-    classes = `${classes} form-input input-lg`;
-
-    let cpclasses = this.state.validCP ? 'is-success' : 'is-danger';
-    cpclasses = `${cpclasses} form-input input-lg`;
-
-    let hpclasses = this.state.validHP ? 'is-success' : 'is-danger';
-    hpclasses = `${hpclasses} form-input input-lg`;
-
-    let dustclasses = this.state.validDust ? 'is-success' : 'is-danger';
-    dustclasses = `${dustclasses} form-input input-lg`;
+    let nameStatus = getValidityIcon(this.state.found);
+    let cpStatus = getValidityIcon(this.state.validCP);
+    let hpStatus = getValidityIcon(this.state.validHP);
+    let dustStatus = getValidityIcon(this.state.validDust);
 
     return (
       <div className="input-section">
@@ -135,34 +136,43 @@ class Input extends Component {
           <div className="column col-sm-3" />
           <div className="column col-sm-6">
             <form onSubmit={this.onSubmit}>
-                <div className="input-group">
-                  <span className="input-group-addon addon-lg">Name</span>
-                  <input onChange={this.onChange} className={classes}></input>
+                <div className="columns">
+                  <div className="column col-sm-3"></div>
+                  <div className="input-group column col-sm-6">
+                    <span className="input-group-addon addon-lg left-addon">name</span>
+                    <input onChange={this.onChange} className="form-input input-lg"></input>
+                    <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
+                  </div>
                 </div>
                 <div className="columns">
                   <div className="input-group column col-sm-4">
-                    <span className="input-group-addon addon-lg">CP</span>
-                    <input onChange={this.onCPChange} className={cpclasses}></input>
+                    <span className="input-group-addon addon-lg left-addon">cp</span>
+                    <input onChange={this.onCPChange} className="form-input input-lg"></input>
+                    <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
                   </div>
                   <div className="input-group column col-sm-4">
-                    <span className="input-group-addon addon-lg">HP</span>
-                    <input onChange={this.onHPChange} className={hpclasses}></input>
+                    <span className="input-group-addon addon-lg left-addon">hp</span>
+                    <input onChange={this.onHPChange} className="form-input input-lg"></input>
+                    <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
                   </div>
                   <div className="input-group column col-sm-4">
-                    <span className="input-group-addon addon-lg">Dust</span>
-                    <input onChange={this.onDustChange} className={dustclasses}></input>
+                    <span className="input-group-addon addon-lg left-addon">
+                      <i className="fa fa-flask" aria-hidden="true"></i>
+                    </span>
+                    <input onChange={this.onDustChange} className="form-input input-lg"></input>
+                    <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
                   </div>
                 </div>
                 <div className="columns">
                   <div className="form-group column col-sm-6">
                     <input onChange={this.onWildChange} type="checkbox"
                       checked={this.state.wild}></input>
-                    <i className="form-icon"></i> Caught in wild?
+                    <i className="form-icon"></i> caught in wild?
                   </div>
                   <div className="form-group column col-sm-6">
                   <input onChange={this.onTrainedChange} type="checkbox"
                     checked={this.state.trained}></input>
-                  <i className="form-icon"></i> Powered Up?
+                  <i className="form-icon"></i> powered up?
                   </div>
                 </div>
             </form>

@@ -1,9 +1,21 @@
-.input-group-addon {
+.left-addon {
   min-width: 20%;
 }
 
 .input-section {
-  padding: 20px;
+  padding: 0px 10px;
   font-family: 'Roboto Mono';
   text-align: center;
+}
+
+.right-addon {
+  width: 45px;
+}
+
+.fa-check {
+  color: #91C7B1;
+}
+
+.fa-times {
+  color: #B33951;
 }
