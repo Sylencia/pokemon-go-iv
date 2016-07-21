@@ -1,10 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Input.scss';
 import Pokemon from '../assets/data/Pokemon.json';
+import Dust from '../assets/data/Dust.json';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
   return number >>> 0 === parseFloat(number);
+}
+
+function validateDustEntry(number) {
+  const dustData = Dust.find((dust) =>
+    (dust.cost === Number(number)));
+  return dustData !== null && dustData !== undefined;
 }
 
 function getValidityIcon(item) {
@@ -88,11 +95,11 @@ class Input extends Component {
 
   onDustChange(e) {
     this.checkValidInput({ ...this.state,
-      dust: e.target.value, validDust: validateNumericEntry(e.target.value) });
+      dust: e.target.value, validDust: validateDustEntry(e.target.value) });
 
     this.setState({
       dust: e.target.value,
-      validDust: validateNumericEntry(e.target.value),
+      validDust: validateDustEntry(e.target.value),
     });
   }
 
@@ -145,17 +152,24 @@ class Input extends Component {
                   </div>
                 </div>
                 <div className="columns">
-                  <div className="input-group column col-sm-4">
+                  <div className="column col-sm-3"></div>
+                  <div className="input-group column col-sm-6">
                     <span className="input-group-addon addon-lg left-addon">cp</span>
                     <input onChange={this.onCPChange} className="form-input input-lg"></input>
                     <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
                   </div>
-                  <div className="input-group column col-sm-4">
+                </div>
+                <div className="columns">
+                  <div className="column col-sm-3"></div>
+                  <div className="input-group column col-sm-6">
                     <span className="input-group-addon addon-lg left-addon">hp</span>
                     <input onChange={this.onHPChange} className="form-input input-lg"></input>
                     <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
                   </div>
-                  <div className="input-group column col-sm-4">
+                </div>
+                <div className="columns">
+                  <div className="column col-sm-3"></div>
+                  <div className="input-group column col-sm-6">
                     <span className="input-group-addon addon-lg left-addon">
                       <i className="fa fa-flask" aria-hidden="true"></i>
                     </span>
