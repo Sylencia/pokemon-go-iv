@@ -18,7 +18,8 @@ const OutputRow = (props) => {
           <i className="fa fa-shield" aria-hidden="true"></i> {d}
         </div>
       </th>
-      <th><div className="right">{percentage}%</div></th>
+      <th>{percentage}%</th>
+      <th>{props.maxCP}</th>
     </tr>
   );
 };
@@ -28,6 +29,7 @@ OutputRow.propTypes = {
   stamina: PropTypes.number.isRequired,
   attack: PropTypes.number.isRequired,
   defense: PropTypes.number.isRequired,
+  maxCP: PropTypes.number.isRequired,
 };
 
 export default OutputRow;

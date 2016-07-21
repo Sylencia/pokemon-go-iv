@@ -59,6 +59,12 @@ class Output extends Component {
             const calcCP = Math.max(10,
               Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
 
+            const maxAtk = (pokemon.baseAtk + 15) * m;
+            const maxDef = (pokemon.baseDef + 15) * m;
+            const maxStam = (pokemon.baseStam + 15) * m;
+            const maxCP = Math.max(10,
+              Math.floor(Math.sqrt(maxStam) * maxAtk * Math.sqrt(maxDef) * 0.1));
+
             if (calcCP === cp && hp === Math.floor(stamina)) {
               solutions.push({
                 level: l,
@@ -66,6 +72,7 @@ class Output extends Component {
                 attack: a,
                 defense: d,
                 id,
+                maxCP,
               });
               id++;
             }
@@ -85,8 +92,19 @@ class Output extends Component {
       solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel, wild, trained);
     }
 
-    if (pokemon.length === 0) {
+    if (Object.keys(pokemon).length === 0 && pokemon.constructor === Object) {
       return <div></div>;
+    }
+
+    if (solutions.length === 0) {
+      return (
+        <div className="columns output-section">
+          <div className="column col-sm-4"></div>
+          <div className="column col-sm-4 no-solutions">
+            <b>no solutions found</b>
+          </div>
+        </div>
+      );
     }
 
     return (
@@ -97,8 +115,9 @@ class Output extends Component {
             <thead>
               <tr>
                 <th>lv</th>
-                <th><div className="center">ivs ({solutions.length} sets)</div></th>
-                <th><div className="right">%</div></th>
+                <th><div className="center">ivs ({solutions.length} found)</div></th>
+                <th>perfection</th>
+                <th>max cp</th>
               </tr>
             </thead>
             <tbody>
