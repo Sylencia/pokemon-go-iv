@@ -65,6 +65,9 @@ class Output extends Component {
             const maxCP = Math.max(10,
               Math.floor(Math.sqrt(maxStam) * maxAtk * Math.sqrt(maxDef) * 0.1));
 
+            // As stamina and defense rely on the square root, they are scaled accordingly
+            const percentage = (Math.sqrt(s) + a + Math.sqrt(d)) / (2 * Math.sqrt(15) + 15) * 100;
+
             if (calcCP === cp && hp === Math.floor(stamina)) {
               solutions.push({
                 level: l,
@@ -73,6 +76,7 @@ class Output extends Component {
                 defense: d,
                 id,
                 maxCP,
+                percentage,
               });
               id++;
             }

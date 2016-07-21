@@ -2,11 +2,10 @@ import React, { PropTypes } from 'react';
 import '../assets/stylesheets/OutputRow.scss';
 
 const OutputRow = (props) => {
-  const percentage = parseFloat((props.stamina + props.attack + props.defense) / 45 * 100)
-    .toFixed(2);
   const s = (props.stamina < 10 ? ' ' : '') + props.stamina;
   const a = (props.attack < 10 ? ' ' : '') + props.attack;
   const d = (props.defense < 10 ? ' ' : '') + props.defense;
+  const p = parseFloat(props.percentage).toFixed(2);
 
   return (
     <tr>
@@ -18,7 +17,7 @@ const OutputRow = (props) => {
           <i className="fa fa-shield" aria-hidden="true"></i> {d}
         </div>
       </th>
-      <th>{percentage}%</th>
+      <th>{p}%</th>
       <th>{props.maxCP}</th>
     </tr>
   );
@@ -30,6 +29,7 @@ OutputRow.propTypes = {
   attack: PropTypes.number.isRequired,
   defense: PropTypes.number.isRequired,
   maxCP: PropTypes.number.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
 
 export default OutputRow;
