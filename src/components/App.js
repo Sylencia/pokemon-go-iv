@@ -13,17 +13,21 @@ export default class App extends Component {
       cp: 0,
       hp: 0,
       dust: 0,
+      wild: true,
+      trained: false,
     };
 
     this.onValidInputChange = this.onValidInputChange.bind(this);
   }
 
-  onValidInputChange(pokemon, cp, hp, dust) {
+  onValidInputChange(pokemon, cp, hp, dust, wild, trained) {
     this.setState({
       pokemon,
       cp,
       hp,
       dust,
+      wild,
+      trained,
     });
   }
 
@@ -37,8 +41,7 @@ export default class App extends Component {
           <Input onValidInputCB={this.onValidInputChange} />
         </div>
         <div className="bottom-section">
-          <Output pokemon={this.state.pokemon} cp={this.state.cp}
-            hp={this.state.hp} dust={this.state.dust} />
+          <Output {...this.state} pokemon={this.state.pokemon} />
         </div>
 			</div>
 		);

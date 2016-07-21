@@ -4,7 +4,7 @@ import Dust from '../assets/data/Dust.json';
 import Multiplier from '../assets/data/Multiplier.json';
 import OutputRow from './OutputRow';
 
-function findLevelRange(input){
+function findLevelRange(input) {
   return Dust.find((dust) =>
     (dust.cost === input));
 }
@@ -29,11 +29,17 @@ class Output extends Component {
     this.getSolutions = this.getSolutions.bind(this);
   }
 
-  getSolutions(minLevel, maxLevel) {
+  getSolutions(minLevel, maxLevel, wild, trained) {
     const { hp, cp, pokemon } = this.props;
     const solutions = [];
+    let id = 0;
+    let levelJump = 1;
+    console.log(wild, trained);
+    if (wild && !trained) {
+      levelJump = 2;
+    }
 
-    for (let l = minLevel; l <= maxLevel; ++l) {
+    for (let l = minLevel; l <= maxLevel; l += levelJump) {
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
@@ -48,29 +54,29 @@ class Output extends Component {
               Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
 
             if (calcCP === cp && hp === Math.floor(stamina)) {
-              console.log(m);
               solutions.push({
                 level: l,
                 stamina: s,
                 attack: a,
                 defense: d,
+                id,
               });
+              id++;
             }
           }
         }
       }
     }
-    console.log(solutions);
     return solutions;
   }
 
   render() {
-    const { dust, pokemon } = this.props;
+    const { dust, pokemon, wild, trained } = this.props;
 
     const dustData = findLevelRange(dust);
     let solutions = [];
     if (dustData !== undefined) {
-      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel);
+      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel, wild, trained);
     }
 
     if (pokemon.length === 0) {
@@ -86,19 +92,18 @@ class Output extends Component {
             <thead>
               <tr>
                 <th>lv</th>
-                <th>s</th>
-                <th>a</th>
-                <th>d</th>
-                <th>%</th>
+                <th><div className="center">iv</div></th>
+                <th><div className="right">%</div></th>
               </tr>
             </thead>
             <tbody>
               {solutions.map((solution) => (
-                <OutputRow {...solution} />
+                <OutputRow {...solution} key={solution.id} />
               ))}
             </tbody>
           </table>
         </div>
+        <div className="column col-sm-4"></div>
       </div>
     );
   }

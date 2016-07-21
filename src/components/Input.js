@@ -22,6 +22,8 @@ class Input extends Component {
       validCP: false,
       validHP: false,
       validDust: false,
+      wild: true,
+      trained: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -29,6 +31,8 @@ class Input extends Component {
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
     this.checkValidInput = this.checkValidInput.bind(this);
+    this.onWildChange = this.onWildChange.bind(this);
+    this.onTrainedChange = this.onTrainedChange.bind(this);
   }
 
   onSubmit(e) {
@@ -84,13 +88,31 @@ class Input extends Component {
     });
   }
 
+  onWildChange(e) {
+    this.checkValidInput({ ...this.state,
+      wild: e.target.checked });
+
+    this.setState({
+      wild: e.target.checked,
+    });
+  }
+
+  onTrainedChange(e) {
+    this.checkValidInput({ ...this.state,
+      trained: e.target.checked });
+
+    this.setState({
+      trained: e.target.checked,
+    });
+  }
+
   checkValidInput(newState) {
     const { found, validCP, validHP,
-      validDust, pokemon, CP, HP, dust } = newState;
+      validDust, pokemon, CP, HP, dust, wild, trained } = newState;
     const { onValidInputCB } = this.props;
 
     if (found && validCP && validHP && validDust) {
-      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust));
+      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust), wild, trained);
     }
   }
 
@@ -110,25 +132,37 @@ class Input extends Component {
     return (
       <div className="input-section">
         <div className="columns">
-          <div className="column col-3" />
-          <div className="column col-6">
+          <div className="column col-sm-3" />
+          <div className="column col-sm-6">
             <form onSubmit={this.onSubmit}>
                 <div className="input-group">
                   <span className="input-group-addon addon-lg">Name</span>
                   <input onChange={this.onChange} className={classes}></input>
                 </div>
                 <div className="columns">
-                  <div className="input-group column col-4">
+                  <div className="input-group column col-sm-4">
                     <span className="input-group-addon addon-lg">CP</span>
                     <input onChange={this.onCPChange} className={cpclasses}></input>
                   </div>
-                  <div className="input-group column col-4">
+                  <div className="input-group column col-sm-4">
                     <span className="input-group-addon addon-lg">HP</span>
                     <input onChange={this.onHPChange} className={hpclasses}></input>
                   </div>
-                  <div className="input-group column col-4">
+                  <div className="input-group column col-sm-4">
                     <span className="input-group-addon addon-lg">Dust</span>
                     <input onChange={this.onDustChange} className={dustclasses}></input>
+                  </div>
+                </div>
+                <div className="columns">
+                  <div className="form-group column col-sm-6">
+                    <input onChange={this.onWildChange} type="checkbox"
+                      checked={this.state.wild}></input>
+                    <i className="form-icon"></i> Caught in wild?
+                  </div>
+                  <div className="form-group column col-sm-6">
+                  <input onChange={this.onTrainedChange} type="checkbox"
+                    checked={this.state.trained}></input>
+                  <i className="form-icon"></i> Powered Up?
                   </div>
                 </div>
             </form>
