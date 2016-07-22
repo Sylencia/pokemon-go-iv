@@ -101,11 +101,12 @@ class Output extends Component {
 
     return (
       <div className="section">
+          {solutions.length} solutions found.
           <table className="table">
             <thead>
               <tr>
                 <th>lv</th>
-                <th><div className="center">ivs ({solutions.length} found)</div></th>
+                <th><div className="center">ivs</div></th>
                 <th><div className="center">perfection</div></th>
                 <th><div className="center">max cp</div></th>
               </tr>

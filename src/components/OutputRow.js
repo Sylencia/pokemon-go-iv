@@ -13,9 +13,11 @@ const OutputRow = (props) => {
       <th>{props.level}</th>
       <th>
         <div className="center">
-          <i className="fa fa-heart" aria-hidden="true"></i> {s}&nbsp;
-          <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {a}&nbsp;
-          <i className="fa fa-shield" aria-hidden="true"></i> {d}
+          <span className="item"><i className="fa fa-heart" aria-hidden="true"></i> {s}</span>
+          <span className="item">
+            <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {a}
+          </span>
+          <span className="item"><i className="fa fa-shield" aria-hidden="true"></i> {d}</span>
         </div>
       </th>
       <th><div className="center">{p}%</div></th>

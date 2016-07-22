@@ -32,12 +32,15 @@ class Input extends Component {
     super(props);
 
     this.state = {
-      name: '',
+      name: 'omanyt',
       found: false,
       pokemon: {},
-      validCP: false,
-      validHP: false,
-      validDust: false,
+      validCP: true,
+      validHP: true,
+      validDust: true,
+      CP: 318,
+      HP: 35,
+      dust: 1000,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -120,22 +123,26 @@ class Input extends Component {
       <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
-          <input onChange={this.onChange} className="form-input input-lg"></input>
+          <input onChange={this.onChange} className="form-input input-lg"
+            value={this.state.name}></input>
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
-          <input onChange={this.onCPChange} className="form-input input-lg"></input>
+          <input onChange={this.onCPChange} className="form-input input-lg"
+            value={this.state.CP}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
-          <input onChange={this.onHPChange} className="form-input input-lg"></input>
+          <input onChange={this.onHPChange} className="form-input input-lg"
+            value={this.state.HP}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">dust</span>
-          <input onChange={this.onDustChange} className="form-input input-lg"></input>
+          <input onChange={this.onDustChange} className="form-input input-lg"
+            value={this.state.dust}></input>
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
       </div>
