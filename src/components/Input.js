@@ -32,15 +32,12 @@ class Input extends Component {
     super(props);
 
     this.state = {
-      name: 'omanyt',
+      name: '',
       found: false,
       pokemon: {},
-      validCP: true,
-      validHP: true,
-      validDust: true,
-      CP: 318,
-      HP: 35,
-      dust: 1000,
+      validCP: false,
+      validHP: false,
+      validDust: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
