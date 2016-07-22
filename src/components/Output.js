@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Output.scss';
+import '../assets/stylesheets/utility.scss';
 import Dust from '../assets/data/Dust.json';
 import Multiplier from '../assets/data/Multiplier.json';
 import OutputRow from './OutputRow';
@@ -92,26 +93,21 @@ class Output extends Component {
 
     if (solutions.length === 0) {
       return (
-        <div className="columns output-section">
-          <div className="column col-sm-4"></div>
-          <div className="column col-sm-4 no-solutions">
+        <div className="section">
             <b>no solutions found</b>
-          </div>
         </div>
       );
     }
 
     return (
-      <div className="columns output-section">
-        <div className="column col-sm-4"></div>
-        <div className="column col-sm-4">
+      <div className="section">
           <table className="table">
             <thead>
               <tr>
                 <th>lv</th>
                 <th><div className="center">ivs ({solutions.length} found)</div></th>
-                <th>perfection</th>
-                <th>max cp</th>
+                <th><div className="center">perfection</div></th>
+                <th><div className="center">max cp</div></th>
               </tr>
             </thead>
             <tbody>
@@ -120,8 +116,6 @@ class Output extends Component {
               ))}
             </tbody>
           </table>
-        </div>
-        <div className="column col-sm-4"></div>
       </div>
     );
   }

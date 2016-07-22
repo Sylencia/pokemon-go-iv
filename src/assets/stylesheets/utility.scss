@@ -1,0 +1,12 @@
+.section {
+  padding: 20px;
+  font-family: 'Roboto Mono';
+  text-align: center;
+}
+
+@media screen and (min-width: 640px) {
+  .section {
+    max-width: 960px;
+    margin: auto;
+  }
+}

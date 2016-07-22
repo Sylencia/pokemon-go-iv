@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import '../assets/stylesheets/Input.scss';
 import Pokemon from '../assets/data/Pokemon.json';
 import Dust from '../assets/data/Dust.json';
+import '../assets/stylesheets/utility.scss';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
@@ -116,47 +117,26 @@ class Input extends Component {
     let dustStatus = getValidityIcon(this.state.validDust);
 
     return (
-      <div className="input-section">
-        <div className="columns">
-          <div className="column col-sm-3" />
-          <div className="column col-sm-6">
-            <form onSubmit={this.onSubmit}>
-                <div className="columns">
-                  <div className="column col-sm-3"></div>
-                  <div className="input-group column col-sm-6">
-                    <span className="input-group-addon addon-lg left-addon">name</span>
-                    <input onChange={this.onChange} className="form-input input-lg"></input>
-                    <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column col-sm-3"></div>
-                  <div className="input-group column col-sm-6">
-                    <span className="input-group-addon addon-lg left-addon">cp</span>
-                    <input onChange={this.onCPChange} className="form-input input-lg"></input>
-                    <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column col-sm-3"></div>
-                  <div className="input-group column col-sm-6">
-                    <span className="input-group-addon addon-lg left-addon">hp</span>
-                    <input onChange={this.onHPChange} className="form-input input-lg"></input>
-                    <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column col-sm-3"></div>
-                  <div className="input-group column col-sm-6">
-                    <span className="input-group-addon addon-lg left-addon">
-                      <i className="fa fa-flask" aria-hidden="true"></i>
-                    </span>
-                    <input onChange={this.onDustChange} className="form-input input-lg"></input>
-                    <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
-                  </div>
-                </div>
-            </form>
-          </div>
+      <div className="section">
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">name</span>
+          <input onChange={this.onChange} className="form-input input-lg"></input>
+          <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
+        </div>
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">cp</span>
+          <input onChange={this.onCPChange} className="form-input input-lg"></input>
+          <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
+        </div>
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">hp</span>
+          <input onChange={this.onHPChange} className="form-input input-lg"></input>
+          <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
+        </div>
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">dust</span>
+          <input onChange={this.onDustChange} className="form-input input-lg"></input>
+          <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
       </div>
     );
