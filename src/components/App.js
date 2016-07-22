@@ -9,18 +9,18 @@ export default class App extends Component {
     super();
 
     this.state = {
-      pokemon: {},
+      name: '',
       cp: 0,
       hp: 0,
       dust: 0,
     };
 
-    this.onValidInputChange = this.onValidInputChange.bind(this);
+    this.onInputSubmission = this.onInputSubmission.bind(this);
   }
 
-  onValidInputChange(pokemon, cp, hp, dust) {
+  onInputSubmission(name, cp, hp, dust) {
     this.setState({
-      pokemon,
+      name,
       cp,
       hp,
       dust,
@@ -32,9 +32,9 @@ export default class App extends Component {
 			<div className="page">
           <Header />
         <div className="middle-section">
-          <Input onValidInputCB={this.onValidInputChange} />
+          <Input onInputSubmitCB={this.onInputSubmission} />
         </div>
-          <Output {...this.state} pokemon={this.state.pokemon} />
+          <Output {...this.state} />
 			</div>
 		);
   }

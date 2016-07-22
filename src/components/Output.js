@@ -3,6 +3,7 @@ import '../assets/stylesheets/Output.scss';
 import '../assets/stylesheets/utility.scss';
 import Dust from '../assets/data/Dust.json';
 import Multiplier from '../assets/data/Multiplier.json';
+import Pokemon from '../assets/data/Pokemon.json';
 import OutputRow from './OutputRow';
 
 function findLevelRange(input) {
@@ -10,18 +11,21 @@ function findLevelRange(input) {
     (dust.cost === input));
 }
 
+function getPokemonData(entry) {
+  const pkmn = Pokemon.find((pokemon) =>
+    (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
+  if (pkmn !== null && pkmn !== undefined) {
+    return pkmn;
+  }
+  return {};
+}
+
 class Output extends Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
     hp: PropTypes.number.isRequired,
     cp: PropTypes.number.isRequired,
     dust: PropTypes.number.isRequired,
-    pokemon: PropTypes.shape({
-      name: PropTypes.string,
-      number: PropTypes.number,
-      baseStam: PropTypes.number,
-      baseAtk: PropTypes.number,
-      baseDef: PropTypes.number,
-    }).isRequired,
   }
 
   constructor(props) {
@@ -31,8 +35,9 @@ class Output extends Component {
   }
 
   getSolutions(minLevel, maxLevel) {
-    const { hp, cp, pokemon } = this.props;
+    const { hp, cp, name } = this.props;
     const solutions = [];
+    const pokemon = getPokemonData(name);
 
     let id = 0;
 
@@ -79,7 +84,7 @@ class Output extends Component {
   }
 
   render() {
-    const { dust, pokemon } = this.props;
+    const { dust, name } = this.props;
 
     const dustData = findLevelRange(dust);
     let solutions = [];
@@ -87,21 +92,15 @@ class Output extends Component {
       solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel);
     }
 
-    if (Object.keys(pokemon).length === 0 && pokemon.constructor === Object) {
+    if (name === '') {
       return <div></div>;
     }
 
-    if (solutions.length === 0) {
-      return (
-        <div className="section">
-            <b>no solutions found</b>
-        </div>
-      );
-    }
+    const word = solutions.length === 1 ? 'solution' : 'solutions';
 
     return (
       <div className="section">
-          {solutions.length} solutions found.
+          {solutions.length} {word} found.
           <table className="table">
             <thead>
               <tr>

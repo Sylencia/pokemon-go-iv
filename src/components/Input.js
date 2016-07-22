@@ -15,8 +15,14 @@ function validateDustEntry(number) {
   return dustData !== null && dustData !== undefined;
 }
 
-function getValidityIcon(item) {
-  if (item) {
+function validatePokemonEntry(entry) {
+  const pkmn = Pokemon.find((pokemon) =>
+    (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
+  return pkmn !== null && pkmn !== undefined;
+}
+
+function getValidityIcon(success) {
+  if (success) {
     return <i className="fa fa-check" aria-hidden="true"></i>;
   }
 
@@ -25,7 +31,7 @@ function getValidityIcon(item) {
 
 class Input extends Component {
   static propTypes = {
-    onValidInputCB: PropTypes.func.isRequired,
+    onInputSubmitCB: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -33,114 +39,110 @@ class Input extends Component {
 
     this.state = {
       name: '',
-      found: false,
-      pokemon: {},
-      validCP: false,
-      validHP: false,
-      validDust: false,
+      cp: '',
+      hp: '',
+      dust: '',
     };
     this.onSubmit = this.onSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
+    this.onReset = this.onReset.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
-    this.checkValidInput = this.checkValidInput.bind(this);
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onReset() {
+    this.setState({
+      name: '',
+      cp: '',
+      hp: '',
+      dust: '',
+    });
   }
 
-  onChange(e) {
-    let pkmn = Pokemon.find((pokemon) =>
-      (pokemon.name.toLowerCase() === e.target.value.toLowerCase()));
-    const found = pkmn !== null && pkmn !== undefined;
+  onSubmit() {
+    const { name, cp, hp, dust } = this.state;
+    const validPokemon = validatePokemonEntry(name);
+    const validCP = validateNumericEntry(cp);
+    const validHP = validateNumericEntry(hp);
+    const validDust = validateDustEntry(dust);
 
-    if (!found) {
-      pkmn = {};
+    if (validPokemon && validCP && validDust && validHP) {
+      console.log("sending");
+      this.props.onInputSubmitCB(name, Number(cp), Number(hp), Number(dust));
     }
+  }
 
-    this.checkValidInput({ ...this.state,
-      name: e.target.value, found, pokemon: pkmn });
-
+  onNameChange(e) {
     this.setState({
       name: e.target.value,
-      found,
-      pokemon: pkmn,
     });
   }
 
   onCPChange(e) {
-    this.checkValidInput({ ...this.state,
-      CP: e.target.value, validCP: validateNumericEntry(e.target.value) });
-
     this.setState({
-      CP: e.target.value,
-      validCP: validateNumericEntry(e.target.value),
+      cp: e.target.value,
     });
   }
 
   onHPChange(e) {
-    this.checkValidInput({ ...this.state,
-      HP: e.target.value, validHP: validateNumericEntry(e.target.value) });
-
     this.setState({
-      HP: e.target.value,
-      validHP: validateNumericEntry(e.target.value),
+      hp: e.target.value,
     });
   }
 
   onDustChange(e) {
-    this.checkValidInput({ ...this.state,
-      dust: e.target.value, validDust: validateDustEntry(e.target.value) });
-
     this.setState({
       dust: e.target.value,
-      validDust: validateDustEntry(e.target.value),
     });
   }
 
-  checkValidInput(newState) {
-    const { found, validCP, validHP,
-      validDust, pokemon, CP, HP, dust } = newState;
-    const { onValidInputCB } = this.props;
-
-    if (found && validCP && validHP && validDust) {
-      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust));
-    }
-  }
-
   render() {
-    let nameStatus = getValidityIcon(this.state.found);
-    let cpStatus = getValidityIcon(this.state.validCP);
-    let hpStatus = getValidityIcon(this.state.validHP);
-    let dustStatus = getValidityIcon(this.state.validDust);
+    const { name, cp, hp, dust } = this.state;
+
+    const validPokemon = validatePokemonEntry(name);
+    const validCP = validateNumericEntry(cp);
+    const validHP = validateNumericEntry(hp);
+    const validDust = validateDustEntry(dust);
+
+    const nameStatus = getValidityIcon(validPokemon);
+    const cpStatus = getValidityIcon(validCP);
+    const hpStatus = getValidityIcon(validHP);
+    const dustStatus = getValidityIcon(validDust);
 
     return (
       <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
-          <input onChange={this.onChange} className="form-input input-lg"
-            value={this.state.name}></input>
+          <input onChange={this.onNameChange} className="form-input input-lg"
+            value={name}></input>
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
           <input onChange={this.onCPChange} className="form-input input-lg"
-            value={this.state.CP}></input>
+            value={cp}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
           <input onChange={this.onHPChange} className="form-input input-lg"
-            value={this.state.HP}></input>
+            value={hp}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">dust</span>
           <input onChange={this.onDustChange} className="form-input input-lg"
-            value={this.state.dust}></input>
+            value={dust}></input>
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
+        </div>
+        <div className="button-section">
+          <button className="btn btn-primary btn-lrg button-item" onClick={this.onSubmit}>
+            search
+          </button>
+          <button className="btn btn-primary btn-lrg button-item" onClick={this.onReset}>
+            reset
+          </button>
         </div>
       </div>
     );
