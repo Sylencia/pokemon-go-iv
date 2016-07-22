@@ -21,8 +21,10 @@ function validatePokemonEntry(entry) {
   return pkmn !== null && pkmn !== undefined;
 }
 
-function getValidityIcon(success) {
-  if (success) {
+function getValidityIcon(success, locked = false) {
+  if (locked) {
+    return <i className="fa fa-lock" aria-hidden="true"></i>;
+  } else if (success) {
     return <i className="fa fa-check" aria-hidden="true"></i>;
   }
 
@@ -42,6 +44,9 @@ class Input extends Component {
       cp: '',
       hp: '',
       dust: '',
+      isNewSearch: true,
+      wild: true,
+      trained: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
@@ -49,6 +54,8 @@ class Input extends Component {
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
+    this.onWildChange = this.onWildChange.bind(this);
+    this.onPoweredChange = this.onPoweredChange.bind(this);
   }
 
   onReset() {
@@ -57,20 +64,29 @@ class Input extends Component {
       cp: '',
       hp: '',
       dust: '',
+      isNewSearch: true,
     });
   }
 
   onSubmit() {
-    const { name, cp, hp, dust } = this.state;
+    const { name, cp, hp, dust, wild, trained, isNewSearch } = this.state;
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
     const validDust = validateDustEntry(dust);
 
-    if (validPokemon && validCP && validDust && validHP) {
-      console.log("sending");
-      this.props.onInputSubmitCB(name, Number(cp), Number(hp), Number(dust));
+    let isNewWildPokemon = false;
+    if (isNewSearch) {
+      isNewWildPokemon = wild && !trained;
     }
+
+    if (validPokemon && validCP && validDust && validHP) {
+      this.props.onInputSubmitCB(name, Number(cp), Number(hp), Number(dust), isNewWildPokemon);
+    }
+
+    this.setState({
+      isNewSearch: false,
+    });
   }
 
   onNameChange(e) {
@@ -97,25 +113,64 @@ class Input extends Component {
     });
   }
 
+  onWildChange(e) {
+    this.setState({
+      wild: e.target.checked,
+    });
+  }
+
+  onPoweredChange(e) {
+    this.setState({
+      trained: e.target.checked,
+    });
+  }
+
   render() {
-    const { name, cp, hp, dust } = this.state;
+    const { name, cp, hp, dust, isNewSearch } = this.state;
 
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
     const validDust = validateDustEntry(dust);
 
-    const nameStatus = getValidityIcon(validPokemon);
+    const nameStatus = getValidityIcon(validPokemon, !isNewSearch);
     const cpStatus = getValidityIcon(validCP);
     const hpStatus = getValidityIcon(validHP);
     const dustStatus = getValidityIcon(validDust);
+
+    const nameNode = isNewSearch ? (
+      <input onChange={this.onNameChange} className="form-input input-lg"
+        value={name}></input>
+    ) : (
+      <input className="form-input input-lg" value={name} readOnly></input>
+    );
+
+    const searchButtonText = isNewSearch ? 'new search' : 'filter';
+
+    const wildSection = isNewSearch ? (
+      <div className="new-section">
+        <div className="checkbox-item">
+          <label className="form-checkbox">
+            <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
+            <i className="form-icon"></i>
+            <span className="checkbox-text">caught in wild</span>
+          </label>
+        </div>
+        <div className="checkbox-item">
+          <label className="form-checkbox">
+            <input type="checkbox" onChange={this.onPoweredChange} checked={this.state.trained} />
+            <i className="form-icon"></i>
+            <span className="checkbox-text">powered up</span>
+          </label>
+        </div>
+      </div>
+    ) : '';
 
     return (
       <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
-          <input onChange={this.onNameChange} className="form-input input-lg"
-            value={name}></input>
+          {nameNode}
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
@@ -136,9 +191,10 @@ class Input extends Component {
             value={dust}></input>
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
-        <div className="button-section">
+        {wildSection}
+        <div className="new-section">
           <button className="btn btn-primary btn-lrg button-item" onClick={this.onSubmit}>
-            search
+            {searchButtonText}
           </button>
           <button className="btn btn-primary btn-lrg button-item" onClick={this.onReset}>
             reset

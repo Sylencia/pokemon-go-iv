@@ -31,17 +31,53 @@ class Output extends Component {
   constructor(props) {
     super(props);
 
-    this.getSolutions = this.getSolutions.bind(this);
+    this.state = { solutions: [] };
+    this.filterSolutions = this.filterSolutions.bind(this);
+    this.findSolutions = this.findSolutions.bind(this);
   }
 
-  getSolutions(minLevel, maxLevel) {
-    const { hp, cp, name } = this.props;
-    const solutions = [];
+  componentWillReceiveProps(nextProps) {
+    const newSolutions = this.findSolutions(nextProps);
+    this.setState({
+      solutions: this.filterSolutions(newSolutions),
+    });
+  }
+
+  filterSolutions(newSolutions) {
+    const oldSolutions = this.state.solutions;
+    if (oldSolutions.length === 0) {
+      return newSolutions;
+    }
+
+    const filteredSolutions = [];
+    // Fix this naive loop
+    for (let o = 0; o < oldSolutions.length; ++o) {
+      for (let n = 0; n < newSolutions.length; ++n) {
+        const solution1 = oldSolutions[o];
+        const solution2 = newSolutions[n];
+
+        if (solution1.stamina === solution2.stamina &&
+          solution1.attack === solution2.attack &&
+          solution1.defense === solution2.defense) {
+          filteredSolutions.push(solution2);
+        }
+      }
+    }
+
+    return filteredSolutions;
+  }
+
+// Assume all data here is valid, as it should've been checked by the input.
+  findSolutions(newProps) {
+    const { hp, cp, name, dust, wild } = newProps;
+    const dustData = findLevelRange(dust);
+    const newSolutions = [];
     const pokemon = getPokemonData(name);
 
     let id = 0;
+    const increment = wild ? 2 : 1;
 
-    for (let l = minLevel; l <= maxLevel; ++l) {
+    for (let l = dustData.minLevel; l <= dustData.maxLevel; l += increment) {
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
@@ -65,7 +101,7 @@ class Output extends Component {
             const percentage = (Math.sqrt(s) + a + Math.sqrt(d)) / (2 * Math.sqrt(15) + 15) * 100;
 
             if (calcCP === cp && hp === Math.floor(stamina)) {
-              solutions.push({
+              newSolutions.push({
                 level: l,
                 stamina: s,
                 attack: a,
@@ -80,19 +116,13 @@ class Output extends Component {
         }
       }
     }
-    return solutions;
+    return newSolutions;
   }
 
   render() {
-    const { dust, name } = this.props;
+    const { solutions } = this.state;
 
-    const dustData = findLevelRange(dust);
-    let solutions = [];
-    if (dustData !== undefined) {
-      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel);
-    }
-
-    if (name === '') {
+    if (this.props.name === '') {
       return <div></div>;
     }
 
