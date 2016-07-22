@@ -39,13 +39,13 @@ class Output extends Component {
   componentWillReceiveProps(nextProps) {
     const newSolutions = this.findSolutions(nextProps);
     this.setState({
-      solutions: this.filterSolutions(newSolutions),
+      solutions: this.filterSolutions(nextProps.newSearch, newSolutions),
     });
   }
 
-  filterSolutions(newSolutions) {
+  filterSolutions(newSearch, newSolutions) {
     const oldSolutions = this.state.solutions;
-    if (oldSolutions.length === 0) {
+    if (oldSolutions.length === 0 || newSearch) {
       return newSolutions;
     }
 

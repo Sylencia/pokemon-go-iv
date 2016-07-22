@@ -83,7 +83,8 @@ class Input extends Component {
     }
 
     if (validPokemon && validCP && validDust && validHP) {
-      this.props.onInputSubmitCB(name, Number(cp), Number(hp), Number(dust), isNewWildPokemon);
+      this.props.onInputSubmitCB(name, Number(cp), Number(hp),
+        Number(dust), isNewWildPokemon, isNewSearch);
     }
 
     this.setState({

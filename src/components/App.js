@@ -14,14 +14,15 @@ export default class App extends Component {
       hp: 0,
       dust: 0,
       wild: true,
+      newSearch: true,
     };
 
     this.onInputSubmission = this.onInputSubmission.bind(this);
   }
 
-  onInputSubmission(name, cp, hp, dust, wild) {
+  onInputSubmission(name, cp, hp, dust, wild, newSearch) {
     this.setState({
-      name, cp, hp, dust, wild,
+      name, cp, hp, dust, wild, newSearch,
     });
   }
 
