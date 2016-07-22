@@ -5,7 +5,8 @@ import '../assets/stylesheets/utility.scss';
 const Header = () => (
   <div className="section">
       <h1>iv.finder</h1>
-      a calculator for determining your pokémon's ivs in pokémon go
+      determine your pokémon's ivs in pokémon go, on the go.<br />
+      made by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
   </div>
 );
 
