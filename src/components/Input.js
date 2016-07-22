@@ -65,6 +65,8 @@ class Input extends Component {
       hp: '',
       dust: '',
       isNewSearch: true,
+      wild: true,
+      trained: false,
     });
   }
 
