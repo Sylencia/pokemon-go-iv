@@ -78,12 +78,12 @@ class Output extends Component {
   }
 
   render() {
-    const { dust, pokemon, wild, trained } = this.props;
+    const { dust, pokemon } = this.props;
 
     const dustData = findLevelRange(dust);
     let solutions = [];
     if (dustData !== undefined) {
-      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel, wild, trained);
+      solutions = this.getSolutions(dustData.minLevel, dustData.maxLevel);
     }
 
     if (Object.keys(pokemon).length === 0 && pokemon.constructor === Object) {
