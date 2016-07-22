@@ -21,8 +21,6 @@ class Output extends Component {
       baseAtk: PropTypes.number,
       baseDef: PropTypes.number,
     }).isRequired,
-    wild: PropTypes.bool.isRequired,
-    trained: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -31,21 +29,13 @@ class Output extends Component {
     this.getSolutions = this.getSolutions.bind(this);
   }
 
-  getSolutions(minLevel, maxLevel, wild, trained) {
+  getSolutions(minLevel, maxLevel) {
     const { hp, cp, pokemon } = this.props;
     const solutions = [];
 
     let id = 0;
-    let levelJump = 1;
-    if (wild && !trained) {
-      levelJump = 2;
-    }
 
-    if (!trained && ((!wild && minLevel > 40) || wild && minLevel > 60)) {
-      return solutions;
-    }
-
-    for (let l = minLevel; l <= maxLevel; l += levelJump) {
+    for (let l = minLevel; l <= maxLevel; ++) {
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {

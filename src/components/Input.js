@@ -37,8 +37,6 @@ class Input extends Component {
       validCP: false,
       validHP: false,
       validDust: false,
-      wild: true,
-      trained: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -46,8 +44,6 @@ class Input extends Component {
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
     this.checkValidInput = this.checkValidInput.bind(this);
-    this.onWildChange = this.onWildChange.bind(this);
-    this.onTrainedChange = this.onTrainedChange.bind(this);
   }
 
   onSubmit(e) {
@@ -103,31 +99,13 @@ class Input extends Component {
     });
   }
 
-  onWildChange(e) {
-    this.checkValidInput({ ...this.state,
-      wild: e.target.checked });
-
-    this.setState({
-      wild: e.target.checked,
-    });
-  }
-
-  onTrainedChange(e) {
-    this.checkValidInput({ ...this.state,
-      trained: e.target.checked });
-
-    this.setState({
-      trained: e.target.checked,
-    });
-  }
-
   checkValidInput(newState) {
     const { found, validCP, validHP,
-      validDust, pokemon, CP, HP, dust, wild, trained } = newState;
+      validDust, pokemon, CP, HP, dust } = newState;
     const { onValidInputCB } = this.props;
 
     if (found && validCP && validHP && validDust) {
-      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust), wild, trained);
+      onValidInputCB(pokemon, Number(CP), Number(HP), Number(dust));
     }
   }
 
@@ -175,19 +153,6 @@ class Input extends Component {
                     </span>
                     <input onChange={this.onDustChange} className="form-input input-lg"></input>
                     <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column col-sm-3"></div>
-                  <div className="form-group column col-sm-3">
-                    <input onChange={this.onWildChange} type="checkbox"
-                      checked={this.state.wild}></input>
-                    <i className="form-icon"></i> caught in wild?
-                  </div>
-                  <div className="form-group column col-sm-3">
-                  <input onChange={this.onTrainedChange} type="checkbox"
-                    checked={this.state.trained}></input>
-                  <i className="form-icon"></i> powered up?
                   </div>
                 </div>
             </form>
