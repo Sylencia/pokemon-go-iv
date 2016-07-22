@@ -30,15 +30,11 @@ export default class App extends Component {
   render() {
     return (
 			<div className="page">
-        <div className="top-section">
           <Header />
-        </div>
         <div className="middle-section">
           <Input onValidInputCB={this.onValidInputChange} />
         </div>
-        <div className="bottom-section">
           <Output {...this.state} pokemon={this.state.pokemon} />
-        </div>
 			</div>
 		);
   }
