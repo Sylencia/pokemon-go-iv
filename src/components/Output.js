@@ -35,7 +35,7 @@ class Output extends Component {
 
     let id = 0;
 
-    for (let l = minLevel; l <= maxLevel; ++) {
+    for (let l = minLevel; l <= maxLevel; ++l) {
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
