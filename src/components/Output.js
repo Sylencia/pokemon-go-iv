@@ -5,6 +5,7 @@ import Dust from '../assets/data/Dust.json';
 import Multiplier from '../assets/data/Multiplier.json';
 import Pokemon from '../assets/data/Pokemon.json';
 import OutputRow from './OutputRow';
+import InputTableRow from './InputTableRow';
 
 function findLevelRange(input) {
   return Dust.find((dust) =>
@@ -31,15 +32,21 @@ class Output extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { solutions: [] };
+    this.state = { solutions: [], inputs: [], nextId: 0 };
     this.filterSolutions = this.filterSolutions.bind(this);
     this.findSolutions = this.findSolutions.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const newSolutions = this.findSolutions(nextProps);
+    const inputs = nextProps.newSearch ?
+    [{ ...nextProps, id: this.state.nextId }] :
+    [...this.state.inputs, { ...nextProps, id: this.state.nextId }];
+
     this.setState({
       solutions: this.filterSolutions(nextProps.newSearch, newSolutions),
+      inputs,
+      nextId: this.state.nextId++,
     });
   }
 
@@ -120,7 +127,7 @@ class Output extends Component {
   }
 
   render() {
-    const { solutions } = this.state;
+    const { solutions, inputs } = this.state;
 
     if (this.props.name === '') {
       return <div></div>;
@@ -130,22 +137,41 @@ class Output extends Component {
 
     return (
       <div className="section">
-          {solutions.length} {word} found.
-          <table className="table">
-            <thead>
-              <tr>
-                <th>lv</th>
-                <th><div className="center">ivs</div></th>
-                <th><div className="center">perfection</div></th>
-                <th><div className="center">max cp</div></th>
-              </tr>
-            </thead>
-            <tbody>
-              {solutions.map((solution) => (
-                <OutputRow {...solution} key={solution.id} />
-              ))}
-            </tbody>
-          </table>
+          <div className="table-section">
+            {solutions.length} {word} found.
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>lv</th>
+                  <th><div className="center">ivs</div></th>
+                  <th><div className="center">perfection</div></th>
+                  <th><div className="center">max cp</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {solutions.map((solution) => (
+                  <OutputRow {...solution} key={solution.id} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="table-section">
+            previous inputs for {this.props.name}
+            <table className="table">
+              <thead>
+                <tr>
+                  <th><div className="center">cp</div></th>
+                  <th><div className="center">hp</div></th>
+                  <th><div className="center">dust</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {inputs.map((input) => (
+                  <InputTableRow {...input} key={input.id} />
+                ))}
+              </tbody>
+            </table>
+          </div>
       </div>
     );
   }

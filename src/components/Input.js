@@ -54,7 +54,6 @@ class Input extends Component {
       dust: '',
       isNewSearch: true,
       wild: true,
-      trained: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
@@ -63,7 +62,6 @@ class Input extends Component {
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
-    this.onPoweredChange = this.onPoweredChange.bind(this);
   }
 
   onReset() {
@@ -74,12 +72,11 @@ class Input extends Component {
       dust: '',
       isNewSearch: true,
       wild: true,
-      trained: false,
     });
   }
 
   onSubmit() {
-    const { name, cp, hp, dust, wild, trained, isNewSearch } = this.state;
+    const { name, cp, hp, dust, wild, isNewSearch } = this.state;
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
@@ -87,7 +84,7 @@ class Input extends Component {
 
     let isNewWildPokemon = false;
     if (isNewSearch) {
-      isNewWildPokemon = wild && !trained;
+      isNewWildPokemon = wild;
     }
 
     if (validPokemon && validCP && validDust && validHP) {
@@ -130,12 +127,6 @@ class Input extends Component {
     });
   }
 
-  onPoweredChange(e) {
-    this.setState({
-      trained: e.target.checked,
-    });
-  }
-
   render() {
     const { name, cp, hp, dust, isNewSearch } = this.state;
 
@@ -164,14 +155,7 @@ class Input extends Component {
           <label className="form-checkbox">
             <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
             <i className="form-icon"></i>
-            <span className="checkbox-text">caught in wild</span>
-          </label>
-        </div>
-        <div className="checkbox-item">
-          <label className="form-checkbox">
-            <input type="checkbox" onChange={this.onPoweredChange} checked={this.state.trained} />
-            <i className="form-icon"></i>
-            <span className="checkbox-text">powered up</span>
+            <span className="checkbox-text">untrained wild</span>
           </label>
         </div>
       </div>
