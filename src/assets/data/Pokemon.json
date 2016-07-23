@@ -196,7 +196,7 @@
     "baseDef": 172
   },
   {
-    "name": "Nidoran?",
+    "name": "Nidoran-F",
     "number": 29,
     "baseStam": 110,
     "baseAtk": 100,
@@ -217,7 +217,7 @@
     "baseDef": 190
   },
   {
-    "name": "Nidoran?",
+    "name": "Nidoran-M",
     "number": 32,
     "baseStam": 92,
     "baseAtk": 110,
