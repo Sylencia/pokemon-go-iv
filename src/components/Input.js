@@ -10,12 +10,20 @@ function validateNumericEntry(number) {
 }
 
 function validateDustEntry(number) {
+  if (number === '') {
+    return false;
+  }
+
   const dustData = Dust.find((dust) =>
     (dust.cost === Number(number)));
   return dustData !== null && dustData !== undefined;
 }
 
 function validatePokemonEntry(entry) {
+  if (entry === '') {
+    return false;
+  }
+
   const pkmn = Pokemon.find((pokemon) =>
     (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
   return pkmn !== null && pkmn !== undefined;
@@ -85,11 +93,11 @@ class Input extends Component {
     if (validPokemon && validCP && validDust && validHP) {
       this.props.onInputSubmitCB(name, Number(cp), Number(hp),
         Number(dust), isNewWildPokemon, isNewSearch);
-    }
 
-    this.setState({
-      isNewSearch: false,
-    });
+      this.setState({
+        isNewSearch: false,
+      });
+    }
   }
 
   onNameChange(e) {
