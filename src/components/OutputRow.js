@@ -12,7 +12,7 @@ const OutputRow = (props) => {
     <tr>
       <th>{props.level}</th>
       <th>
-        <div className="center">
+        <div className="text-center">
           <span className="item"><i className="fa fa-heart" aria-hidden="true"></i> {s}</span>
           <span className="item">
             <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {a}
@@ -20,8 +20,8 @@ const OutputRow = (props) => {
           <span className="item"><i className="fa fa-shield" aria-hidden="true"></i> {d}</span>
         </div>
       </th>
-      <th><div className="center">{p}%</div></th>
-      <th><div className="center">{props.maxCP}</div></th>
+      <th><div className="text-center">{p}%</div></th>
+      <th><div className="text-center">{props.maxCP}</div></th>
     </tr>
   );
 };

@@ -143,9 +143,9 @@ class Output extends Component {
               <thead>
                 <tr>
                   <th>lv</th>
-                  <th><div className="center">ivs</div></th>
-                  <th><div className="center">perfection</div></th>
-                  <th><div className="center">max cp</div></th>
+                  <th><div className="text-center">ivs</div></th>
+                  <th><div className="text-center">perfection</div></th>
+                  <th><div className="text-center">max cp</div></th>
                 </tr>
               </thead>
               <tbody>
@@ -160,9 +160,9 @@ class Output extends Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th><div className="center">cp</div></th>
-                  <th><div className="center">hp</div></th>
-                  <th><div className="center">dust</div></th>
+                  <th><div className="text-center">cp</div></th>
+                  <th><div className="text-center">hp</div></th>
+                  <th><div className="text-center">dust</div></th>
                 </tr>
               </thead>
               <tbody>
