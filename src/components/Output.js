@@ -40,8 +40,8 @@ class Output extends Component {
   componentWillReceiveProps(nextProps) {
     const newSolutions = this.findSolutions(nextProps);
     const inputs = nextProps.newSearch ?
-    [{ ...nextProps, id: this.state.nextId }] :
-    [...this.state.inputs, { ...nextProps, id: this.state.nextId }];
+    [{ ...nextProps, id: 0 }] :
+    [...this.state.inputs, { ...nextProps, id: this.state.inputs.length }];
 
     this.setState({
       solutions: this.filterSolutions(nextProps.newSearch, newSolutions),
@@ -156,10 +156,11 @@ class Output extends Component {
             </table>
           </div>
           <div className="table-section">
-            previous inputs for {this.props.name}
+            previous data for this pokemon
             <table className="table">
               <thead>
                 <tr>
+                  <th><div className="text-center">name</div></th>
                   <th><div className="text-center">cp</div></th>
                   <th><div className="text-center">hp</div></th>
                   <th><div className="text-center">dust</div></th>

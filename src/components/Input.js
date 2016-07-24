@@ -29,10 +29,8 @@ function validatePokemonEntry(entry) {
   return pkmn !== null && pkmn !== undefined;
 }
 
-function getValidityIcon(success, locked = false) {
-  if (locked) {
-    return <i className="fa fa-lock" aria-hidden="true"></i>;
-  } else if (success) {
+function getValidityIcon(success) {
+  if (success) {
     return <i className="fa fa-check" aria-hidden="true"></i>;
   }
 
@@ -135,17 +133,10 @@ class Input extends Component {
     const validHP = validateNumericEntry(hp);
     const validDust = validateDustEntry(dust);
 
-    const nameStatus = getValidityIcon(validPokemon, !isNewSearch);
+    const nameStatus = getValidityIcon(validPokemon);
     const cpStatus = getValidityIcon(validCP);
     const hpStatus = getValidityIcon(validHP);
     const dustStatus = getValidityIcon(validDust);
-
-    const nameNode = isNewSearch ? (
-      <input onChange={this.onNameChange} className="form-input input-lg"
-        value={name}></input>
-    ) : (
-      <input className="form-input input-lg" value={name} readOnly></input>
-    );
 
     const searchButtonText = isNewSearch ? 'new search' : 'filter';
 
@@ -165,7 +156,8 @@ class Input extends Component {
       <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
-          {nameNode}
+          <input onChange={this.onNameChange} className="form-input input-lg"
+            value={name}></input>
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
