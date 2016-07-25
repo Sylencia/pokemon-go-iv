@@ -97,7 +97,7 @@ class MinmaxOutput extends Component {
     return (
       <div className="section">
         <div className="table-section">
-          showing min/max for {this.props.name}
+          showing min-max for {this.props.name}
           <table className="table">
             <thead>
               <tr>

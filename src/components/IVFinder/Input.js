@@ -58,7 +58,8 @@ class Input extends Component {
       isNewSearch: true,
       wild: true,
     };
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
+    this.onFilterSubmit = this.onFilterSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
     this.onCPChange = this.onCPChange.bind(this);
@@ -74,31 +75,39 @@ class Input extends Component {
       cp: '',
       hp: '',
       dust: '',
-      isNewSearch: true,
       wild: true,
     });
   }
 
-  onSubmit() {
-    const { trainerLevel, name, cp, hp, dust, wild, isNewSearch } = this.state;
+  onNewSearchSubmit() {
+    const { trainerLevel, name, cp, hp, dust, wild } = this.state;
     const validTrainerLevel = validateLevelEntry(trainerLevel);
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
     const validDust = validateDustEntry(dust);
 
-    let isNewWildPokemon = false;
-    if (isNewSearch) {
-      isNewWildPokemon = wild;
-    }
-
     if (validPokemon && validCP && validDust && validHP && validTrainerLevel) {
       this.props.onInputSubmitCB(trainerLevel, name, Number(cp), Number(hp),
-        Number(dust), isNewWildPokemon, isNewSearch);
+        Number(dust), wild, true);
 
       this.setState({
         isNewSearch: false,
       });
+    }
+  }
+
+  onFilterSubmit() {
+    const { trainerLevel, name, cp, hp, dust } = this.state;
+    const validTrainerLevel = validateLevelEntry(trainerLevel);
+    const validPokemon = validatePokemonEntry(name);
+    const validCP = validateNumericEntry(cp);
+    const validHP = validateNumericEntry(hp);
+    const validDust = validateDustEntry(dust);
+
+    if (validPokemon && validCP && validDust && validHP && validTrainerLevel) {
+      this.props.onInputSubmitCB(trainerLevel, name, Number(cp), Number(hp),
+        Number(dust), false, false);
     }
   }
 
@@ -153,18 +162,10 @@ class Input extends Component {
     const hpStatus = getValidityIcon(validHP);
     const dustStatus = getValidityIcon(validDust);
 
-    const searchButtonText = isNewSearch ? 'new search' : 'filter';
-
-    const wildSection = isNewSearch ? (
-      <div className="new-section">
-        <div className="checkbox-item">
-          <label className="form-checkbox">
-            <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
-            <i className="form-icon"></i>
-            <span className="checkbox-text">untrained wild</span>
-          </label>
-        </div>
-      </div>
+    const filterButton = !isNewSearch ? (
+      <button className="btn btn-primary btn-lrg button-item" onClick={this.onFilterSubmit}>
+        search same
+      </button>
     ) : '';
 
     return (
@@ -199,13 +200,22 @@ class Input extends Component {
             value={dust}></input>
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
-        {wildSection}
         <div className="new-section">
-          <button className="btn btn-primary btn-lrg button-item" onClick={this.onSubmit}>
-            {searchButtonText}
+          <div className="checkbox-item">
+            <label className="form-checkbox">
+              <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
+              <i className="form-icon"></i>
+              <span className="checkbox-text">untrained wild</span>
+            </label>
+          </div>
+        </div>
+        <div className="new-section">
+          {filterButton}
+          <button className="btn btn-primary btn-lrg button-item" onClick={this.onNewSearchSubmit}>
+            search new
           </button>
           <button className="btn btn-primary btn-lrg button-item" onClick={this.onReset}>
-            reset
+            clear
           </button>
         </div>
       </div>
