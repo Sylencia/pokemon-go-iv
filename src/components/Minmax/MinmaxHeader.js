@@ -25,30 +25,17 @@ class MinmaxHeader extends Component {
     );
     const instructions = this.state.showFaq ? (
       <div className="new-section">
-        <h5><u>what are ivs?</u></h5>
-        ivs are hidden stats which are assigned to each pokemon you have caught or hatched.<br />
-        the three stats ivs are assigned for are: stamina(hp), attack and defense.<br />
-        each iv ranges between 0 and 15, thus having 15 for each iv is considered a 'perfect
-        pokémon'.<p />
+        <h5><u>what is this?</u></h5>
+        this page is used for quick referencing how good your pokémon is. when you are out and
+        about, there's no time to manually enter each pokémon's stats, so this will give you
+        a rough estimate as to wheter it's closer to the lower or higher end of the spectrum.<p />
         <h5><u>what do i input for the pokemon's name?</u></h5>
         for most pokemon, the name is easy. however, there are some weird ones.<br />
         <b>names to lookout for:</b> nidoran-f, nidoran-m, mr. mime, farfetch'd<br />
         note that the name input is not case sensitive.
-        <h5><u>what do i put for 'dust'?</u></h5>
-        on the pokémon's status screen, there's a button that lets you power it up for a cost.<br />
-        simply fill in the amount of dust that it requires you to use to power it up.
-        <h5><u>what is 'untrained wild'?</u></h5>
-        pokémon that were caught in the wild have odd numbered levels. having this ticked means that
-        we only consider odd numbered levels for your pokemon.<br />
-        <b>untick if:</b> you hatched the pokémon or you have used 'power up' on your pokémon.
-        <h5><u>what is 'filter'?</u></h5>
-        if you power up your pokemon, you can use that information along with the previous stats
-        that you entered to get a more narrow result. for most pokémon you will need to do this a
-        few times to get the exact number.<br />
-        <h5><u>what is 'perfection'?</u></h5>
-        perfection shows how close to perfect you are to having the best possible pokémon. due to
-        the way the stats are calculated, <b>attack ivs</b> are weighted more heavily than&nbsp;
-        <b>stamina and defense ivs</b> when determining perfection.
+        <h5><u>what about hatched pokémon?</u></h5>
+        hatched pokémon have a maximum level of 39. there may be a toggle later to help you
+        keep track of that.
         <div className="new-section">{button}</div>
       </div>
     ) : '';
@@ -56,8 +43,7 @@ class MinmaxHeader extends Component {
     return (
       <div className="section">
           <h1>iv.minmax</h1>
-          a quick reference to a wild pokémon's minimum/maximum CP.<br />
-          made by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
+          a quick reference to a pokémon's potential.
 
           <div className="new-section">
             {button}

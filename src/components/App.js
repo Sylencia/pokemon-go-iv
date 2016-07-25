@@ -16,6 +16,9 @@ class App extends Component {
             <Link to="/finder">iv.finder</Link> //&nbsp;
             <Link to="/minmax">iv.minmax</Link>
           </span>
+          <span className="right-align">
+            made by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
+          </span>
         </div>
         <div className="filler"></div>
         {this.props.children}

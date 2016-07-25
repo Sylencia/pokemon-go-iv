@@ -30,6 +30,7 @@ class MinmaxInput extends Component {
   static propTypes = {
     onNameChangeCB: PropTypes.func.isRequired,
     onLevelChangeCB: PropTypes.func.isRequired,
+    onWildChangeCB: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -115,7 +116,7 @@ class MinmaxInput extends Component {
             <label className="form-checkbox">
               <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
               <i className="form-icon"></i>
-              <span className="checkbox-text">wild</span>
+              <span className="checkbox-text">untrained wild</span>
             </label>
           </div>
         </div>

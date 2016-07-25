@@ -59,20 +59,26 @@ class MinmaxOutput extends Component {
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;
 
-      const minAtk = pokemon.baseAtk * m;
+      const minAtk = (pokemon.baseAtk) * m;
       const minDef = (pokemon.baseDef) * m;
       const minStam = (pokemon.baseStam) * m;
+      const avgAtk = (pokemon.baseAtk + 8) * m;
+      const avgDef = (pokemon.baseDef + 8) * m;
+      const avgStam = (pokemon.baseStam + 8) * m;
       const maxAtk = (pokemon.baseAtk + 15) * m;
       const maxDef = (pokemon.baseDef + 15) * m;
       const maxStam = (pokemon.baseStam + 15) * m;
       const minCP = calculateCP(minAtk, minDef, minStam);
+      const avgCP = calculateCP(avgAtk, avgDef, avgStam);
       const maxCP = calculateCP(maxAtk, maxDef, maxStam);
       data.push({
         id: multiplierData.level,
         level: multiplierData.level,
         minCP,
+        avgCP,
         maxCP,
         minHP: Math.floor(minStam),
+        avgHP: Math.floor(avgStam),
         maxHP: Math.floor(maxStam),
         dust,
       });
@@ -98,6 +104,7 @@ class MinmaxOutput extends Component {
                 <th>lv</th>
                 <th><div className="text-center">dust</div></th>
                 <th><div className="text-center">min</div></th>
+                <th><div className="text-center">avg</div></th>
                 <th><div className="text-center">max</div></th>
               </tr>
             </thead>

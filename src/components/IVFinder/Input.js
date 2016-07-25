@@ -6,7 +6,11 @@ import Dust from '~/assets/data/Dust.json';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
-  return number >>> 0 === parseFloat(number);
+  return number >>> 0 === parseFloat(number) && number > 0;
+}
+
+function validateLevelEntry(number) {
+  return validateNumericEntry(number) && number <= 40;
 }
 
 function validateDustEntry(number) {
@@ -46,6 +50,7 @@ class Input extends Component {
     super(props);
 
     this.state = {
+      trainerLevel: '',
       name: '',
       cp: '',
       hp: '',
@@ -60,6 +65,7 @@ class Input extends Component {
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
+    this.onTrainerChange = this.onTrainerChange.bind(this);
   }
 
   onReset() {
@@ -74,7 +80,8 @@ class Input extends Component {
   }
 
   onSubmit() {
-    const { name, cp, hp, dust, wild, isNewSearch } = this.state;
+    const { trainerLevel, name, cp, hp, dust, wild, isNewSearch } = this.state;
+    const validTrainerLevel = validateLevelEntry(trainerLevel);
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
@@ -85,8 +92,8 @@ class Input extends Component {
       isNewWildPokemon = wild;
     }
 
-    if (validPokemon && validCP && validDust && validHP) {
-      this.props.onInputSubmitCB(name, Number(cp), Number(hp),
+    if (validPokemon && validCP && validDust && validHP && validTrainerLevel) {
+      this.props.onInputSubmitCB(trainerLevel, name, Number(cp), Number(hp),
         Number(dust), isNewWildPokemon, isNewSearch);
 
       this.setState({
@@ -125,14 +132,22 @@ class Input extends Component {
     });
   }
 
-  render() {
-    const { name, cp, hp, dust, isNewSearch } = this.state;
+  onTrainerChange(e) {
+    this.setState({
+      trainerLevel: e.target.value,
+    });
+  }
 
+  render() {
+    const { trainerLevel, name, cp, hp, dust, isNewSearch } = this.state;
+
+    const validTrainerLevel = validateLevelEntry(trainerLevel);
     const validPokemon = validatePokemonEntry(name);
     const validCP = validateNumericEntry(cp);
     const validHP = validateNumericEntry(hp);
     const validDust = validateDustEntry(dust);
 
+    const trainerStatus = getValidityIcon(validTrainerLevel);
     const nameStatus = getValidityIcon(validPokemon);
     const cpStatus = getValidityIcon(validCP);
     const hpStatus = getValidityIcon(validHP);
@@ -154,6 +169,12 @@ class Input extends Component {
 
     return (
       <div className="section">
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">trainer lv</span>
+          <input onChange={this.onTrainerChange} className="form-input input-lg"
+            value={trainerLevel}></input>
+          <span className="input-group-addon addon-lg right-addon">{trainerStatus}</span>
+        </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
           <input onChange={this.onNameChange} className="form-input input-lg"

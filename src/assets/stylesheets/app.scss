@@ -1,10 +1,12 @@
 .header {
+  border-bottom: 0.5px #2a2a2a solid;
+  background-color: lighten(#ADA8B6, 5%);
+  font-family: 'Raleway';
+  font-height: 1.8rem;
   position: fixed;
-  font-family: "Raleway";
-  font-size: 1.8rem;
   top: 0;
-  border-bottom: 0.5px black solid;
   width: 100%;
+  z-index: 100;
 }
 
 .header-item {
@@ -13,4 +15,9 @@
 
 .filler {
   margin-bottom: 20px;
+}
+
+.right-align {
+  float: right;
+  margin-right: 10px;
 }

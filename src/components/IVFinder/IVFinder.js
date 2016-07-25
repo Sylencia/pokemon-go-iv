@@ -9,6 +9,7 @@ export default class IVFinder extends Component {
     super();
 
     this.state = {
+      trainerLevel: 0,
       name: '',
       cp: 0,
       hp: 0,
@@ -24,9 +25,9 @@ export default class IVFinder extends Component {
     document.title = 'iv.finder';
   }
 
-  onInputSubmission(name, cp, hp, dust, wild, newSearch) {
+  onInputSubmission(trainerLevel, name, cp, hp, dust, wild, newSearch) {
     this.setState({
-      name, cp, hp, dust, wild, newSearch,
+      trainerLevel, name, cp, hp, dust, wild, newSearch,
     });
   }
 

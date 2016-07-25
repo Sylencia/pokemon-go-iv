@@ -23,10 +23,13 @@ function getPokemonData(entry) {
 
 class Output extends Component {
   static propTypes = {
+    trainerLevel: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     hp: PropTypes.number.isRequired,
     cp: PropTypes.number.isRequired,
     dust: PropTypes.number.isRequired,
+    wild: PropTypes.bool.isRequired,
+    newSearch: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -78,15 +81,18 @@ class Output extends Component {
 
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
-    const { hp, cp, name, dust, wild } = newProps;
+    const { trainerLevel, hp, cp, name, dust, wild, newSearch } = newProps;
     const dustData = findLevelRange(dust);
     const newSolutions = [];
     const pokemon = getPokemonData(name);
 
     let id = 0;
     const increment = wild ? 2 : 1;
+    const maxLevel = newSearch && wild ?
+      Math.min(59, 2 * trainerLevel - 1) :
+      dustData.maxLevel;
 
-    for (let l = dustData.minLevel; l <= dustData.maxLevel; l += increment) {
+    for (let l = dustData.minLevel; l <= maxLevel; l += increment) {
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
