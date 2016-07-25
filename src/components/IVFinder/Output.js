@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import '../assets/stylesheets/Output.scss';
-import '../assets/stylesheets/utility.scss';
-import Dust from '../assets/data/Dust.json';
-import Multiplier from '../assets/data/Multiplier.json';
-import Pokemon from '../assets/data/Pokemon.json';
+import '~/assets/stylesheets/IVFinder/Output.scss';
+import '~/assets/stylesheets/utility.scss';
+import Dust from '~/assets/data/Dust.json';
+import Multiplier from '~/assets/data/Multiplier.json';
+import Pokemon from '~/assets/data/Pokemon.json';
 import OutputRow from './OutputRow';
 import InputTableRow from './InputTableRow';
 
@@ -38,16 +38,18 @@ class Output extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const newSolutions = this.findSolutions(nextProps);
-    const inputs = nextProps.newSearch ?
-    [{ ...nextProps, id: 0 }] :
-    [...this.state.inputs, { ...nextProps, id: this.state.inputs.length }];
+    if (nextProps.name !== '') {
+      const newSolutions = this.findSolutions(nextProps);
+      const inputs = nextProps.newSearch ?
+      [{ ...nextProps, id: 0 }] :
+      [...this.state.inputs, { ...nextProps, id: this.state.inputs.length }];
 
-    this.setState({
-      solutions: this.filterSolutions(nextProps.newSearch, newSolutions),
-      inputs,
-      nextId: this.state.nextId++,
-    });
+      this.setState({
+        solutions: this.filterSolutions(nextProps.newSearch, newSolutions),
+        inputs,
+        nextId: this.state.nextId++,
+      });
+    }
   }
 
   filterSolutions(newSearch, newSolutions) {
@@ -156,7 +158,7 @@ class Output extends Component {
             </table>
           </div>
           <div className="table-section">
-            previous data for this pokemon
+            previous data for this pokémon
             <table className="table">
               <thead>
                 <tr>

@@ -25,6 +25,7 @@
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
+    "lodash": "^4.14.0",
     "node-sass": "^3.4.2",
     "react": "^15.0.1",
     "react-autosuggest": "^3.8.0",
@@ -34,6 +35,7 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
+    "babel-root-import": "^4.0.1",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",

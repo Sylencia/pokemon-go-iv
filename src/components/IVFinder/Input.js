@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import '../assets/stylesheets/Input.scss';
-import Pokemon from '../assets/data/Pokemon.json';
-import Dust from '../assets/data/Dust.json';
-import '../assets/stylesheets/utility.scss';
+import '~/assets/stylesheets/IVFinder/Input.scss';
+import '~/assets/stylesheets/utility.scss';
+import Pokemon from '~/assets/data/Pokemon.json';
+import Dust from '~/assets/data/Dust.json';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
