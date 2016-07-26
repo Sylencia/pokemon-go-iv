@@ -90,7 +90,7 @@ class Output extends Component {
     const increment = wild ? 2 : 1;
     const maxLevel = newSearch && wild ?
       // MAX LEVEL OF POKEMON IS 2 * Trainer Level - 1, capped at 30
-      Math.min(59, 2 * trainerLevel - 1) :
+      Math.min(59, 2 * trainerLevel - 1, dustData.maxLevel) :
       dustData.maxLevel;
 
     for (let l = dustData.minLevel; l <= maxLevel; l += increment) {
