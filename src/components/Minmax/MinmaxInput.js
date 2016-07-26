@@ -56,7 +56,6 @@ class MinmaxInput extends Component {
 
   onLevelChange(e) {
     const level = e.target.value;
-    console.log(level);
     if (validateNumericEntry(level)) {
       this.props.onLevelChangeCB(Number(level));
       this.setState({

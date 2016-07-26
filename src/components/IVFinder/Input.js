@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Modernizr from 'modernizr';
 import '~/assets/stylesheets/IVFinder/Input.scss';
 import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
@@ -174,6 +175,31 @@ class Input extends Component {
       </button>
     ) : '';
 
+    let nameElement = '';
+    let dataList = '';
+
+    if (Modernizr.datalistelem) {
+      nameElement = (
+        <input onChange={this.onNameChange} className="form-input input-lg"
+          value={name} type="text" list="pokemon"></input>);
+      dataList = (
+        <datalist id="pokemon">
+        {pokemonList.map((pokemon) => (
+          <PokemonSelection name={pokemon} key={pokemon} />
+        ))}
+      </datalist>);
+    } else {
+      nameElement = (
+        <select className="form-select select-lg selector" onChange={this.onNameChange}
+          value={name}>
+         <option value="" disabled>select your pokemon</option>
+           {pokemonList.map((pokemon) => (
+             <PokemonSelection name={pokemon} key={pokemon} />
+           ))}
+       </select>
+     );
+    }
+
     return (
       <div className="section">
         <div className="input-group">
@@ -184,13 +210,8 @@ class Input extends Component {
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
-          <input onChange={this.onNameChange} className="form-input input-lg"
-            value={name} type="text" list="pokemon"></input>
-          <datalist id="pokemon">
-            {pokemonList.map((pokemon) => (
-              <PokemonSelection name={pokemon} key={pokemon} />
-            ))}
-          </datalist>
+          {nameElement}
+          {dataList}
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">

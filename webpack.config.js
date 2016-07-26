@@ -11,10 +11,14 @@ module.exports = {
       { test: /\.s?css$/, loader: 'style!css!sass' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.png$/, loader: 'file' },
+      { test: /\.modernizrrc$/, loader: 'modernizr' },
     ],
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.scss', '.json'],
+    alias: {
+      modernizr$: path.resolve(__dirname, '.modernizrrc'),
+    },
   },
   output: {
     path: path.join(__dirname, '/dist'),
