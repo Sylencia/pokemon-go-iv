@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import '~/assets/stylesheets/Minmax/MinmaxInput.scss';
 import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
+import PokemonSelection from '~/components/PokemonSelection';
 
 function validatePokemonEntry(entry) {
   if (entry === '') {
@@ -24,6 +25,10 @@ function getValidityIcon(success) {
   }
 
   return <i className="fa fa-times" aria-hidden="true"></i>;
+}
+
+function getPokemonList() {
+  return Pokemon.map((p) => (p.name)).sort();
 }
 
 class MinmaxInput extends Component {
@@ -96,6 +101,7 @@ class MinmaxInput extends Component {
     const validLevel = validateNumericEntry(level);
     const nameStatus = getValidityIcon(validPokemon);
     const levelStatus = getValidityIcon(validLevel);
+    const pokemonList = getPokemonList();
 
     return (
       <div className="section">
@@ -108,7 +114,12 @@ class MinmaxInput extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
           <input onChange={this.onNameChange} className="form-input input-lg"
-            value={name}></input>
+            value={name} type="text" list="pokemon"></input>
+          <datalist id="pokemon">
+            {pokemonList.map((pokemon) => (
+              <PokemonSelection name={pokemon} key={pokemon} />
+            ))}
+          </datalist>
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="new-section">

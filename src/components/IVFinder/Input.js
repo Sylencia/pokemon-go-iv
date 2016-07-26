@@ -3,6 +3,7 @@ import '~/assets/stylesheets/IVFinder/Input.scss';
 import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
+import PokemonSelection from '~/components/PokemonSelection';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
@@ -39,6 +40,10 @@ function getValidityIcon(success) {
   }
 
   return <i className="fa fa-times" aria-hidden="true"></i>;
+}
+
+function getPokemonList() {
+  return Pokemon.map((p) => (p.name)).sort();
 }
 
 class Input extends Component {
@@ -161,6 +166,7 @@ class Input extends Component {
     const cpStatus = getValidityIcon(validCP);
     const hpStatus = getValidityIcon(validHP);
     const dustStatus = getValidityIcon(validDust);
+    const pokemonList = getPokemonList();
 
     const filterButton = !isNewSearch ? (
       <button className="btn btn-primary btn-lrg button-item" onClick={this.onFilterSubmit}>
@@ -179,7 +185,12 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
           <input onChange={this.onNameChange} className="form-input input-lg"
-            value={name}></input>
+            value={name} type="text" list="pokemon"></input>
+          <datalist id="pokemon">
+            {pokemonList.map((pokemon) => (
+              <PokemonSelection name={pokemon} key={pokemon} />
+            ))}
+          </datalist>
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
