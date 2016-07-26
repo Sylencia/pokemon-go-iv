@@ -16,7 +16,7 @@ function validatePokemonEntry(entry) {
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
-  return number >>> 0 === parseFloat(number);
+  return number >>> 0 === parseFloat(number) && number > 0;
 }
 
 function getValidityIcon(success) {

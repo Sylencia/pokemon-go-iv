@@ -23,6 +23,7 @@ function calculateCP(atk, def, stam) {
 class MinmaxOutput extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
+    level: PropTypes.number.isRequired,
   }
 
   constructor(props) {
@@ -91,7 +92,7 @@ class MinmaxOutput extends Component {
   render() {
     const { data } = this.state;
 
-    if (this.props.name === '') {
+    if (this.props.name === '' || this.props.level <= 0) {
       return <div></div>;
     }
 
