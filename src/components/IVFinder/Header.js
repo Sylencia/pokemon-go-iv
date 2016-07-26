@@ -41,7 +41,7 @@ class Header extends Component {
         pokémon that were caught in the wild have odd numbered levels. having this ticked means that
         we only consider odd numbered levels for your pokémon.<br />
         <b>untick if:</b> you hatched the pokémon or you have used 'power up' on your pokémon.
-        <h5><u>what is 'filter'?</u></h5>
+        <h5><u>what is '<i className="fa fa-search fa-1" aria-hidden="true"></i> same'?</u></h5>
         if you power up your pokémon, you can use that information along with the previous stats
         that you entered to get a more narrow result. for most pokémon you will need to do this a
         few times to get the exact number.<br />

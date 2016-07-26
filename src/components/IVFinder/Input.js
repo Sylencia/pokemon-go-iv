@@ -164,7 +164,7 @@ class Input extends Component {
 
     const filterButton = !isNewSearch ? (
       <button className="btn btn-primary btn-lrg button-item" onClick={this.onFilterSubmit}>
-        search same
+        <i className="fa fa-search" aria-hidden="true"></i> same
       </button>
     ) : '';
 
@@ -212,7 +212,7 @@ class Input extends Component {
         <div className="new-section">
           {filterButton}
           <button className="btn btn-primary btn-lrg button-item" onClick={this.onNewSearchSubmit}>
-            search new
+            <i className="fa fa-search" aria-hidden="true"></i> new
           </button>
           <button className="btn btn-primary btn-lrg button-item" onClick={this.onReset}>
             clear

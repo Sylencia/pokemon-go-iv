@@ -89,7 +89,7 @@ class Output extends Component {
     let id = 0;
     const increment = wild ? 2 : 1;
     const maxLevel = newSearch && wild ?
-      Math.min(59, 2 * trainerLevel - 1) :
+      Math.min(59, 2 * trainerLevel + 1) :
       dustData.maxLevel;
 
     for (let l = dustData.minLevel; l <= maxLevel; l += increment) {

@@ -48,7 +48,7 @@ class MinmaxOutput extends Component {
     const data = [];
     const pokemon = getPokemonData(name);
     const minLevel = 1;
-    const maxLevel = Math.min((level - 1) * 2 + 1, maxBy(Multiplier, 'level').level);
+    const maxLevel = Math.min(level * 2 + 1, maxBy(Multiplier, 'level').level);
     const increment = wild ? 2 : 1;
 
     for (let l = minLevel; l <= maxLevel; l += increment) {
