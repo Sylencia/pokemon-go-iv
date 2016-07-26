@@ -48,7 +48,8 @@ class MinmaxOutput extends Component {
     const data = [];
     const pokemon = getPokemonData(name);
     const minLevel = 1;
-    const maxLevel = Math.min(level * 2 + 1, maxBy(Multiplier, 'level').level);
+    // Pokemon can be trained to their (level + 1) * 2, which is different to the max wild level.
+    const maxLevel = Math.min((level + 1) * 2, maxBy(Multiplier, 'level').level);
     const increment = wild ? 2 : 1;
 
     for (let l = minLevel; l <= maxLevel; l += increment) {
