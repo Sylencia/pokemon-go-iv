@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { minBy, maxBy } from 'lodash';
 import '~/assets/stylesheets/IVFinder/Output.scss';
 import '~/assets/stylesheets/utility.scss';
 import Dust from '~/assets/data/Dust.json';
@@ -143,11 +144,21 @@ class Output extends Component {
     }
 
     const word = solutions.length === 1 ? 'solution' : 'solutions';
+    let range = '';
+    if (solutions.length > 1) {
+      const min = parseFloat(minBy(solutions, 'percentage').percentage).toFixed(2);
+      const max = parseFloat(maxBy(solutions, 'percentage').percentage).toFixed(2);
+
+      range = (
+        `range: ${min}% - ${max}%`
+      );
+    }
 
     return (
       <div className="section">
           <div className="table-section">
-            {solutions.length} {word} found.
+            {solutions.length} {word} found. <br />
+            {range}
             <table className="table">
               <thead>
                 <tr>

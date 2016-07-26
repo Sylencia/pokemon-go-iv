@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Modernizr from 'modernizr';
 import '~/assets/stylesheets/Minmax/MinmaxInput.scss';
 import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
@@ -102,7 +103,7 @@ class MinmaxInput extends Component {
     const levelStatus = getValidityIcon(validLevel);
     const pokemonList = getPokemonList();
 
-    //hacky since i don't want div or span to wreck my styling
+    // hacky since i don't want div or span to wreck my styling
     let nameElement = '';
     let dataList = '';
 

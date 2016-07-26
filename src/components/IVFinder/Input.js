@@ -94,7 +94,7 @@ class Input extends Component {
     const validDust = validateDustEntry(dust);
 
     if (validPokemon && validCP && validDust && validHP && validTrainerLevel) {
-      this.props.onInputSubmitCB(trainerLevel, name, Number(cp), Number(hp),
+      this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
         Number(dust), wild, true);
 
       this.setState({
@@ -112,7 +112,7 @@ class Input extends Component {
     const validDust = validateDustEntry(dust);
 
     if (validPokemon && validCP && validDust && validHP && validTrainerLevel) {
-      this.props.onInputSubmitCB(trainerLevel, name, Number(cp), Number(hp),
+      this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
         Number(dust), false, false);
     }
   }
@@ -175,6 +175,7 @@ class Input extends Component {
       </button>
     ) : '';
 
+    // hacky since i don't want div or span to wreck my styling
     let nameElement = '';
     let dataList = '';
 
