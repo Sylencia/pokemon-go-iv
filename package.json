@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "dev": "webpack-dev-server -p --hot --inline --config webpack.config.js",
     "postinstall": "webpack -p --config webpack.prod.config.js",
     "lint": "eslint src --fix; exit 0"
   },
@@ -42,6 +43,7 @@
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3",
+    "react-hot-loader": "^1.3.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"
