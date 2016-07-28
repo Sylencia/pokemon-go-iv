@@ -7,7 +7,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js?$/, loaders: 'babel', exclude: /node_modules/ },
+      { test: /\.js?$/, loader: 'babel', exclude: /node_modules/ },
       { test: /\.s?css$/, loader: 'style!css!sass' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.png$/, loader: 'file' },
@@ -34,15 +34,5 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-    }),
   ],
 };
