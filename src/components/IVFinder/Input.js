@@ -218,7 +218,7 @@ class Input extends Component {
        </select>
      );
 
-     dustElement = (
+      dustElement = (
        <select className="form-select select-lg selector" onChange={this.onDustChange}
          value={dust}>
         <option value="" disabled>cost to power up</option>

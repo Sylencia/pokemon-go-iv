@@ -99,12 +99,6 @@ class Output extends Component {
         (data.level === l));
       const m = multiplierData.multiplier;
 
-      const maxAtk = (pokemon.baseAtk + 15) * m;
-      const maxDef = (pokemon.baseDef + 15) * m;
-      const maxStam = (pokemon.baseStam + 15) * m;
-      const maxCP = Math.max(10,
-        Math.floor(Math.sqrt(maxStam) * maxAtk * Math.sqrt(maxDef) * 0.1));
-
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
@@ -115,7 +109,15 @@ class Output extends Component {
               Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
 
             if (calcCP === cp && hp === Math.floor(stamina)) {
-              const percentage = (a + d + s) / 45 * 100;
+              let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
+              let defRatio = 1 - stamRatio;
+              const atkPercent = (a + 0.4 * stamRatio * s + 0.4 * defRatio * d) / 21 * 100;
+              // pokemon in gyms have double the health
+              stamRatio = 2 * pokemon.baseStam / (2 * pokemon.baseStam + pokemon.baseDef);
+              defRatio = 1 - stamRatio;
+              const defPercent = (2 * defRatio * d + 2 * stamRatio * s + 0.2 * a) / 33 * 100;
+              // ratio between your ivs and max ivs
+              const perfection = (a + d + s) / 45 * 100;
 
               newSolutions.push({
                 level: l,
@@ -123,8 +125,9 @@ class Output extends Component {
                 attack: a,
                 defense: d,
                 id,
-                maxCP,
-                percentage,
+                atkPercent,
+                defPercent,
+                perfection,
               });
               id++;
             }
@@ -145,11 +148,14 @@ class Output extends Component {
     const word = solutions.length === 1 ? 'solution' : 'solutions';
     let range = '';
     if (solutions.length > 1) {
-      const min = parseFloat(minBy(solutions, 'percentage').percentage).toFixed(2);
-      const max = parseFloat(maxBy(solutions, 'percentage').percentage).toFixed(2);
+      const atkMin = parseFloat(minBy(solutions, 'atkPercent').atkPercent).toFixed(0);
+      const atkMax = parseFloat(maxBy(solutions, 'atkPercent').atkPercent).toFixed(0);
+      const defMin = parseFloat(minBy(solutions, 'defPercent').defPercent).toFixed(0);
+      const defMax = parseFloat(maxBy(solutions, 'defPercent').defPercent).toFixed(0);
 
       range = (
-        `range: ${min}% - ${max}%`
+        <span><b>offensive range:</b> {atkMin}% - {atkMax}%<br />
+        <b>defensive range:</b> {defMin}% - {defMax}%</span>
       );
     }
 
@@ -163,8 +169,8 @@ class Output extends Component {
                 <tr>
                   <th>lv</th>
                   <th><div className="text-center">ivs</div></th>
-                  <th><div className="text-center">perfection</div></th>
-                  <th><div className="text-center">max cp</div></th>
+                  <th><div className="text-center">potential</div></th>
+                  <th><div className="text-center">%</div></th>
                 </tr>
               </thead>
               <tbody>

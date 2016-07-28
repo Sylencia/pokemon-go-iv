@@ -30,10 +30,6 @@ class Header extends Component {
         the three stats ivs are assigned for are: stamina(hp), attack and defense.<br />
         each iv ranges between 0 and 15, thus having 15 for each iv is considered a 'perfect
         pokémon'.<p />
-        <h5><u>what do i input for the pokémon's name?</u></h5>
-        for most pokémon, the name is easy. however, there are some weird ones.<br />
-        <b>names to lookout for:</b> nidoran-f, nidoran-m, mr. mime, farfetch'd<br />
-        note that the name input is not case sensitive.
         <h5><u>what do i put for 'dust'?</u></h5>
         on the pokémon's status screen, there's a button that lets you power it up for a cost.<br />
         simply fill in the amount of dust that it requires you to use to power it up.
@@ -45,9 +41,9 @@ class Header extends Component {
         if you power up your pokémon, you can use that information along with the previous stats
         that you entered to get a more narrow result. for most pokémon you will need to do this a
         few times to get the exact number.<br />
-        <h5><u>what is 'perfection'?</u></h5>
-        perfection shows how close to perfect you are to having the best possible pokémon. the
-        formula is simply the total of your pokémon's IVs divided by the maximum total, which is 45.
+        <h5><u>what is 'potential'? why are there two numbers?</u></h5>
+        the two types of potential are <b>offensive</b> and <b>defensive</b> potential.<br />
+        offensive potential is based on
         <div className="new-section">{button}</div>
       </div>
     ) : '';
@@ -55,7 +51,7 @@ class Header extends Component {
     return (
       <div className="section">
           <h1>iv.finder</h1>
-          determine the exact potential of your pokémon.<br />
+          determine the potential of your pokémon.<br />
 
           <div className="new-section">
             {button}

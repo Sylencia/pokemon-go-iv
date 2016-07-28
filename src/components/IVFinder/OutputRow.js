@@ -6,7 +6,9 @@ const OutputRow = (props) => {
   const s = (props.stamina < 10 ? ' ' : '') + props.stamina;
   const a = (props.attack < 10 ? ' ' : '') + props.attack;
   const d = (props.defense < 10 ? ' ' : '') + props.defense;
-  const p = parseFloat(props.percentage).toFixed(2);
+  const ap = parseFloat(props.atkPercent).toFixed(0);
+  const dp = parseFloat(props.defPercent).toFixed(0);
+  const p = parseFloat(props.perfection).toFixed(0);
 
   return (
     <tr>
@@ -20,8 +22,13 @@ const OutputRow = (props) => {
           <span className="item"><i className="fa fa-shield" aria-hidden="true"></i> {d}</span>
         </div>
       </th>
-      <th><div className="text-center">{p}%</div></th>
-      <th><div className="text-center">{props.maxCP}</div></th>
+      <th><div className="text-center">
+        <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {ap}%<br />
+        <i className="fa fa-shield" aria-hidden="true"></i> {dp}%
+      </div></th>
+      <th><div className="text-center">
+        {p}%
+      </div></th>
     </tr>
   );
 };
@@ -31,8 +38,9 @@ OutputRow.propTypes = {
   stamina: PropTypes.number.isRequired,
   attack: PropTypes.number.isRequired,
   defense: PropTypes.number.isRequired,
-  maxCP: PropTypes.number.isRequired,
-  percentage: PropTypes.number.isRequired,
+  atkPercent: PropTypes.number.isRequired,
+  defPercent: PropTypes.number.isRequired,
+  perfection: PropTypes.number.isRequired,
 };
 
 export default OutputRow;
