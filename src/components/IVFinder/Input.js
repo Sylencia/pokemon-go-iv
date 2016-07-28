@@ -211,7 +211,7 @@ class Input extends Component {
       nameElement = (
         <select className="form-select select-lg selector" onChange={this.onNameChange}
           value={name}>
-         <option value="" disabled>select your pokemon</option>
+         <option value="" disabled></option>
            {pokemonList.map((pokemon) => (
              <PokemonSelection name={pokemon} key={pokemon} />
            ))}
@@ -221,7 +221,7 @@ class Input extends Component {
       dustElement = (
        <select className="form-select select-lg selector" onChange={this.onDustChange}
          value={dust}>
-        <option value="" disabled>cost to power up</option>
+        <option value="" disabled></option>
           {dustList.map((d) => (
             <DustSelection dust={d} key={d} />
           ))}

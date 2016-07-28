@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
-import '~/assets/stylesheets/Minmax/MinmaxInput.scss';
+import '~/assets/stylesheets/IVFinder/Input.scss';
 import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
 import PokemonSelection from '~/components/PokemonSelection';
@@ -121,7 +121,7 @@ class MinmaxInput extends Component {
       nameElement = (
         <select className="form-select select-lg selector" onChange={this.onNameChange}
           value={name}>
-         <option value="" disabled>select your pokemon</option>
+         <option value="" disabled></option>
            {pokemonList.map((pokemon) => (
              <PokemonSelection name={pokemon} key={pokemon} />
            ))}

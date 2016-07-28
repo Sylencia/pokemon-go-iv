@@ -23,11 +23,11 @@ const OutputRow = (props) => {
         </div>
       </th>
       <th><div className="text-center">
-        <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {ap}%<br />
-        <i className="fa fa-shield" aria-hidden="true"></i> {dp}%
+        {p}%
       </div></th>
       <th><div className="text-center">
-        {p}%
+        <i className="fa fa-hand-rock-o" aria-hidden="true"></i> {ap}%<br />
+        <i className="fa fa-shield" aria-hidden="true"></i> {dp}%
       </div></th>
     </tr>
   );

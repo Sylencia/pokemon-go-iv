@@ -148,29 +148,26 @@ class Output extends Component {
     const word = solutions.length === 1 ? 'solution' : 'solutions';
     let range = '';
     if (solutions.length > 1) {
-      const atkMin = parseFloat(minBy(solutions, 'atkPercent').atkPercent).toFixed(0);
-      const atkMax = parseFloat(maxBy(solutions, 'atkPercent').atkPercent).toFixed(0);
-      const defMin = parseFloat(minBy(solutions, 'defPercent').defPercent).toFixed(0);
-      const defMax = parseFloat(maxBy(solutions, 'defPercent').defPercent).toFixed(0);
+      const perfMin = parseFloat(minBy(solutions, 'perfection').perfection).toFixed(0);
+      const perfMax = parseFloat(maxBy(solutions, 'perfection').perfection).toFixed(0);
 
       range = (
-        <span><b>offensive range:</b> {atkMin}% - {atkMax}%<br />
-        <b>defensive range:</b> {defMin}% - {defMax}%</span>
+        <span><b>iv % range:</b> {perfMin}% - {perfMax}%<br /></span>
       );
     }
 
     return (
       <div className="section">
-          <div className="table-section">
-            {solutions.length} {word} found. <br />
-            {range}
+          {solutions.length} {word} found. <br />
+          {range}
+          <div className="new-section">
             <table className="table">
               <thead>
                 <tr>
                   <th>lv</th>
                   <th><div className="text-center">ivs</div></th>
+                  <th><div className="text-center">iv %</div></th>
                   <th><div className="text-center">potential</div></th>
-                  <th><div className="text-center">%</div></th>
                 </tr>
               </thead>
               <tbody>
@@ -180,7 +177,7 @@ class Output extends Component {
               </tbody>
             </table>
           </div>
-          <div className="table-section">
+          <div className="new-section">
             previous data for this pokémon
             <table className="table">
               <thead>
