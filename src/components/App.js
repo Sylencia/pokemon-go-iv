@@ -14,10 +14,11 @@ class App extends Component {
         <div className="header">
           <span className="header-item">
             <Link to="/finder">iv.finder</Link> //&nbsp;
-            <Link to="/minmax">iv.minmax</Link>
+            <Link to="/minmax">iv.minmax</Link> //&nbsp;
+            <span data-tooltip="coming soon" className="tooltip tooltip-bottom">iv.multi</span>
           </span>
           <span className="right-align">
-            made by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
+            by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
           </span>
         </div>
         <div className="filler"></div>

@@ -5,6 +5,7 @@ import '~/assets/stylesheets/utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 import PokemonSelection from '~/components/PokemonSelection';
+import DustSelection from '~/components/DustSelection';
 
 // stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
 function validateNumericEntry(number) {
@@ -45,6 +46,10 @@ function getValidityIcon(success) {
 
 function getPokemonList() {
   return Pokemon.map((p) => (p.name)).sort();
+}
+
+function getDustList() {
+  return Dust.map((d) => (d.cost)).sort((a, b) => (a - b));
 }
 
 class Input extends Component {
@@ -167,7 +172,6 @@ class Input extends Component {
     const cpStatus = getValidityIcon(validCP);
     const hpStatus = getValidityIcon(validHP);
     const dustStatus = getValidityIcon(validDust);
-    const pokemonList = getPokemonList();
 
     const filterButton = !isNewSearch ? (
       <button className="btn btn-primary btn-lrg button-item" onClick={this.onFilterSubmit}>
@@ -177,16 +181,30 @@ class Input extends Component {
 
     // hacky since i don't want div or span to wreck my styling
     let nameElement = '';
-    let dataList = '';
+    let nameDataList = '';
+    let dustElement = '';
+    let dustDataList = '';
+    const pokemonList = getPokemonList();
+    const dustList = getDustList();
 
     if (Modernizr.datalistelem) {
       nameElement = (
         <input onChange={this.onNameChange} className="form-input input-lg"
           value={name} type="text" list="pokemon"></input>);
-      dataList = (
+      nameDataList = (
         <datalist id="pokemon">
         {pokemonList.map((pokemon) => (
           <PokemonSelection name={pokemon} key={pokemon} />
+        ))}
+      </datalist>);
+
+      dustElement = (
+        <input onChange={this.onDustChange} className="form-input input-lg"
+          value={dust} type="text" list="dust"></input>);
+      dustDataList = (
+        <datalist id="dust">
+        {dustList.map((d) => (
+          <DustSelection dust={d} key={d} />
         ))}
       </datalist>);
     } else {
@@ -199,6 +217,16 @@ class Input extends Component {
            ))}
        </select>
      );
+
+     dustElement = (
+       <select className="form-select select-lg selector" onChange={this.onDustChange}
+         value={dust}>
+        <option value="" disabled>cost to power up</option>
+          {dustList.map((d) => (
+            <DustSelection dust={d} key={d} />
+          ))}
+      </select>
+    );
     }
 
     return (
@@ -212,7 +240,7 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
           {nameElement}
-          {dataList}
+          {nameDataList}
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         <div className="input-group">
@@ -229,8 +257,8 @@ class Input extends Component {
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">dust</span>
-          <input onChange={this.onDustChange} className="form-input input-lg"
-            value={dust}></input>
+          {dustElement}
+          {dustDataList}
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
         <div className="new-section">

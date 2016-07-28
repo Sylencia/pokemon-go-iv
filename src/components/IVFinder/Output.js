@@ -95,29 +95,28 @@ class Output extends Component {
       dustData.maxLevel;
 
     for (let l = dustData.minLevel; l <= maxLevel; l += increment) {
+      const multiplierData = Multiplier.find((data) =>
+        (data.level === l));
+      const m = multiplierData.multiplier;
+
+      const maxAtk = (pokemon.baseAtk + 15) * m;
+      const maxDef = (pokemon.baseDef + 15) * m;
+      const maxStam = (pokemon.baseStam + 15) * m;
+      const maxCP = Math.max(10,
+        Math.floor(Math.sqrt(maxStam) * maxAtk * Math.sqrt(maxDef) * 0.1));
+
       for (let s = 0; s <= 15; ++s) {
         for (let a = 0; a <= 15; ++a) {
           for (let d = 0; d <= 15; ++d) {
-            const multiplierData = Multiplier.find((data) =>
-              (data.level === l));
-            const m = multiplierData.multiplier;
-
             const attack = (pokemon.baseAtk + a) * m;
             const defense = (pokemon.baseDef + d) * m;
             const stamina = (pokemon.baseStam + s) * m;
             const calcCP = Math.max(10,
               Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
 
-            const maxAtk = (pokemon.baseAtk + 15) * m;
-            const maxDef = (pokemon.baseDef + 15) * m;
-            const maxStam = (pokemon.baseStam + 15) * m;
-            const maxCP = Math.max(10,
-              Math.floor(Math.sqrt(maxStam) * maxAtk * Math.sqrt(maxDef) * 0.1));
-
-            // As stamina and defense rely on the square root, they are scaled accordingly
-            const percentage = (Math.sqrt(s) + a + Math.sqrt(d)) / (2 * Math.sqrt(15) + 15) * 100;
-
             if (calcCP === cp && hp === Math.floor(stamina)) {
+              const percentage = (a + d + s) / 45 * 100;
+
               newSolutions.push({
                 level: l,
                 stamina: s,

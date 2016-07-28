@@ -46,9 +46,8 @@ class Header extends Component {
         that you entered to get a more narrow result. for most pokémon you will need to do this a
         few times to get the exact number.<br />
         <h5><u>what is 'perfection'?</u></h5>
-        perfection shows how close to perfect you are to having the best possible pokémon. due to
-        the way the stats are calculated, <b>attack ivs</b> are weighted more heavily than&nbsp;
-        <b>stamina and defense ivs</b> when determining perfection.
+        perfection shows how close to perfect you are to having the best possible pokémon. the
+        formula is simply the total of your pokémon's IVs divided by the maximum total, which is 45.
         <div className="new-section">{button}</div>
       </div>
     ) : '';
