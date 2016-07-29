@@ -3,22 +3,9 @@ import { maxBy } from 'lodash';
 import '~/assets/stylesheets/IVFinder/Output.scss';
 import '~/assets/stylesheets/utility.scss';
 import Multiplier from '~/assets/data/Multiplier.json';
-import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 import MinmaxOutputRow from './MinmaxOutputRow';
-
-function getPokemonData(entry) {
-  const pkmn = Pokemon.find((pokemon) =>
-    (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
-  if (pkmn !== null && pkmn !== undefined) {
-    return pkmn;
-  }
-  return {};
-}
-
-function calculateCP(atk, def, stam) {
-  return Math.max(10, Math.floor(Math.sqrt(stam) * atk * Math.sqrt(def) * 0.1));
-}
+import * as Helper from '~/components/Helper/HelperFunctions';
 
 class MinmaxOutput extends Component {
   static propTypes = {
@@ -47,7 +34,6 @@ class MinmaxOutput extends Component {
 // Assume all data here is valid, as it should've been checked by the input.
   findMinmax(name, level, wild) {
     const data = [];
-    const pokemon = getPokemonData(name);
     const minLevel = 1;
     // Pokemon can be trained to their (level + 1) * 2, which is different to the max wild level.
     const maxLevel = Math.min((level + 1) * 2, maxBy(Multiplier, 'level').level);
@@ -61,27 +47,21 @@ class MinmaxOutput extends Component {
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;
 
-      const minAtk = (pokemon.baseAtk) * m;
-      const minDef = (pokemon.baseDef) * m;
-      const minStam = (pokemon.baseStam) * m;
-      const avgAtk = (pokemon.baseAtk + 8) * m;
-      const avgDef = (pokemon.baseDef + 8) * m;
-      const avgStam = (pokemon.baseStam + 8) * m;
-      const maxAtk = (pokemon.baseAtk + 15) * m;
-      const maxDef = (pokemon.baseDef + 15) * m;
-      const maxStam = (pokemon.baseStam + 15) * m;
-      const minCP = calculateCP(minAtk, minDef, minStam);
-      const avgCP = calculateCP(avgAtk, avgDef, avgStam);
-      const maxCP = calculateCP(maxAtk, maxDef, maxStam);
+      const minimum = Helper.getPokemonStats(0, 0, 0, m);
+      const average = Helper.getPokemonStats(8, 8, 8, m);
+      const maximum = Helper.getPokemonStats(15, 15, 15, m);
+      const minCP = Helper.calculateCP(minimum.attack, minimum.defense, minimum.stamina);
+      const avgCP = Helper.calculateCP(average.attack, average.defense, average.stamina);
+      const maxCP = Helper.calculateCP(maximum.attack, maximum.defense, maximum.stamina);
       data.push({
         id: multiplierData.level,
         level: multiplierData.level,
         minCP,
         avgCP,
         maxCP,
-        minHP: Math.floor(minStam),
-        avgHP: Math.floor(avgStam),
-        maxHP: Math.floor(maxStam),
+        minHP: Math.floor(minimum.stamina),
+        avgHP: Math.floor(average.stamina),
+        maxHP: Math.floor(maximum.stamina),
         dust,
       });
     }

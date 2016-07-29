@@ -1,26 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { minBy, maxBy } from 'lodash';
+import { minBy, maxBy, take } from 'lodash';
 import '~/assets/stylesheets/IVFinder/Output.scss';
 import '~/assets/stylesheets/utility.scss';
-import Dust from '~/assets/data/Dust.json';
+import * as Helper from '~/components/Helper/HelperFunctions';
 import Multiplier from '~/assets/data/Multiplier.json';
-import Pokemon from '~/assets/data/Pokemon.json';
 import OutputRow from './OutputRow';
 import InputTableRow from './InputTableRow';
-
-function findLevelRange(input) {
-  return Dust.find((dust) =>
-    (dust.cost === input));
-}
-
-function getPokemonData(entry) {
-  const pkmn = Pokemon.find((pokemon) =>
-    (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
-  if (pkmn !== null && pkmn !== undefined) {
-    return pkmn;
-  }
-  return {};
-}
 
 class Output extends Component {
   static propTypes = {
@@ -83,9 +68,9 @@ class Output extends Component {
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
     const { trainerLevel, hp, cp, name, dust, wild, newSearch } = newProps;
-    const dustData = findLevelRange(dust);
+    const dustData = Helper.getDustData(dust);
     const newSolutions = [];
-    const pokemon = getPokemonData(name);
+    const pokemon = Helper.getPokemonData(name);
 
     let id = 0;
     const increment = wild ? 2 : 1;
@@ -94,40 +79,32 @@ class Output extends Component {
       Math.min(59, 2 * trainerLevel - 1, dustData.maxLevel) :
       dustData.maxLevel;
 
-    for (let l = dustData.minLevel; l <= maxLevel; l += increment) {
+    for (let level = dustData.minLevel; level <= maxLevel; level += increment) {
       const multiplierData = Multiplier.find((data) =>
-        (data.level === l));
+        (data.level === level));
       const m = multiplierData.multiplier;
 
-      for (let s = 0; s <= 15; ++s) {
-        for (let a = 0; a <= 15; ++a) {
-          for (let d = 0; d <= 15; ++d) {
-            const attack = (pokemon.baseAtk + a) * m;
-            const defense = (pokemon.baseDef + d) * m;
-            const stamina = (pokemon.baseStam + s) * m;
-            const calcCP = Math.max(10,
-              Math.floor(Math.sqrt(stamina) * attack * Math.sqrt(defense) * 0.1));
+      for (let stamina = 0; stamina <= 15; ++stamina) {
+        for (let attack = 0; attack <= 15; ++attack) {
+          for (let defense = 0; defense <= 15; ++defense) {
+            const stats = Helper.getPokemonStats(pokemon, attack, defense, stamina, m);
+            const calcCP = Helper.calculateCP(stats.attack, stats.defense, stats.stamina, m);
 
-            if (calcCP === cp && hp === Math.floor(stamina)) {
+            if (calcCP === cp && hp === Math.floor(stats.stamina)) {
               let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
               let defRatio = 1 - stamRatio;
-              const atkPercent = (a + 0.4 * stamRatio * s + 0.4 * defRatio * d) / 21 * 100;
+              const atkPercent =
+                (attack + 0.4 * stamRatio * stamina + 0.4 * defRatio * defense) / 21 * 100;
               // pokemon in gyms have double the health
               stamRatio = 2 * pokemon.baseStam / (2 * pokemon.baseStam + pokemon.baseDef);
               defRatio = 1 - stamRatio;
-              const defPercent = (2 * defRatio * d + 2 * stamRatio * s + 0.2 * a) / 33 * 100;
+              const defPercent =
+                (2 * defRatio * defense + 2 * stamRatio * stamina + 0.2 * attack) / 33 * 100;
               // ratio between your ivs and max ivs
-              const perfection = (a + d + s) / 45 * 100;
+              const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                level: l,
-                stamina: s,
-                attack: a,
-                defense: d,
-                id,
-                atkPercent,
-                defPercent,
-                perfection,
+                level, stamina, attack, defense, id, atkPercent, defPercent, perfection,
               });
               id++;
             }
@@ -156,9 +133,15 @@ class Output extends Component {
       );
     }
 
+    const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
+    let solutionAmount = '';
+    if (solutionDisplay.length < solutions.length) {
+      solutionAmount = '(First 150 shown)';
+    }
+
     return (
       <div className="section">
-          {solutions.length} {word} found. <br />
+          {solutions.length} {word} found. {solutionAmount}<br />
           {range}
           <div className="new-section">
             <table className="table">
@@ -171,7 +154,7 @@ class Output extends Component {
                 </tr>
               </thead>
               <tbody>
-                {solutions.map((solution) => (
+                {solutionDisplay.map((solution) => (
                   <OutputRow {...solution} key={solution.id} />
                 ))}
               </tbody>
