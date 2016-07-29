@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
-import '~/assets/stylesheets/IVFinder/Input.scss';
-import '~/assets/stylesheets/utility.scss';
+import '~/assets/stylesheets/Input.scss';
+import '~/assets/stylesheets/Utility.scss';
 import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 import PokemonSelection from '~/components/PokemonSelection';

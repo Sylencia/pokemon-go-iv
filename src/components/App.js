@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
-import '~/assets/stylesheets/utility.scss';
-import '~/assets/stylesheets/app.scss';
+import '~/assets/stylesheets/Utility.scss';
+import '~/assets/stylesheets/App.scss';
 
 class App extends Component {
   static propTypes = {

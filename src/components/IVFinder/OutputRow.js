@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import '~/assets/stylesheets/IVFinder/OutputRow.scss';
-import '~/assets/stylesheets/utility.scss';
+import '~/assets/stylesheets/OutputRow.scss';
+import '~/assets/stylesheets/Utility.scss';
 
 const OutputRow = (props) => {
   const s = (props.stamina < 10 ? ' ' : '') + props.stamina;

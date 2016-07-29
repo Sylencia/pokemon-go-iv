@@ -1,4 +1,4 @@
-import '~/assets/stylesheets/IVFinder/base.scss';
+import '~/assets/stylesheets/App.scss';
 import React, { Component } from 'react';
 import Input from './Input';
 import Output from './Output';

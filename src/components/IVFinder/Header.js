@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '~/assets/stylesheets/IVFinder/Header.scss';
-import '~/assets/stylesheets/utility.scss';
+import '~/assets/stylesheets/Header.scss';
+import '~/assets/stylesheets/Utility.scss';
 
 class Header extends Component {
   constructor() {
