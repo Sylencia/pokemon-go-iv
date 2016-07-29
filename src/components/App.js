@@ -17,7 +17,7 @@ class App extends Component {
             <Link to="/minmax">iv.minmax</Link> //&nbsp;
             <span data-tooltip="coming soon" className="tooltip tooltip-bottom">iv.multi</span>
           </span>
-          <span className="right-align">
+          <span className="float-right mr-10">
             by <a href="http://www.reddit.com/u/sylencia">sylencia</a>
           </span>
         </div>
