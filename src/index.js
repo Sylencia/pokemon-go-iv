@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import App from './components/App';
 import IVFinder from './components/IVFinder/IVFinder';
 import Minmax from './components/Minmax/Minmax';
+import Multi from './components/Multi/Multi';
 
 const AppRouter = () => (
   <Router history={browserHistory}>
@@ -11,6 +12,7 @@ const AppRouter = () => (
       <IndexRoute component={IVFinder} />
       <Route path="finder" component={IVFinder} />
       <Route path="minmax" component={Minmax} />
+      <Route path="multi" component={Multi} />
     </Route>
   </Router>
 );
