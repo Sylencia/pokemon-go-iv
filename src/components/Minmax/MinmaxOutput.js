@@ -38,6 +38,7 @@ class MinmaxOutput extends Component {
     // Pokemon can be trained to their (level + 1) * 2, which is different to the max wild level.
     const maxLevel = Math.min((level + 1) * 2, maxBy(Multiplier, 'level').level);
     const increment = wild ? 2 : 1;
+    const pokemon = Helper.getPokemonData(name);
 
     for (let l = minLevel; l <= maxLevel; l += increment) {
       const multiplierData = Multiplier.find((m) =>
@@ -47,9 +48,9 @@ class MinmaxOutput extends Component {
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;
 
-      const minimum = Helper.getPokemonStats(0, 0, 0, m);
-      const average = Helper.getPokemonStats(8, 8, 8, m);
-      const maximum = Helper.getPokemonStats(15, 15, 15, m);
+      const minimum = Helper.getPokemonStats(pokemon, 0, 0, 0, m);
+      const average = Helper.getPokemonStats(pokemon, 8, 8, 8, m);
+      const maximum = Helper.getPokemonStats(pokemon, 15, 15, 15, m);
       const minCP = Helper.calculateCP(minimum.attack, minimum.defense, minimum.stamina);
       const avgCP = Helper.calculateCP(average.attack, average.defense, average.stamina);
       const maxCP = Helper.calculateCP(maximum.attack, maximum.defense, maximum.stamina);

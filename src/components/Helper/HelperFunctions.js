@@ -2,6 +2,10 @@ import React from 'react';
 import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 
+export function getPokemonList() {
+  return Pokemon.map((p) => (p.name)).sort();
+}
+
 export function getPokemonData(entry) {
   const pkmn = Pokemon.find((pokemon) =>
     (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));

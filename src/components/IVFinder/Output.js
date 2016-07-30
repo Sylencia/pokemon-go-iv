@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { minBy, maxBy, take } from 'lodash';
-import '~/assets/stylesheets/IVFinder/Output.scss';
-import '~/assets/stylesheets/utility.scss';
+import '~/assets/stylesheets/Output.scss';
+import '~/assets/stylesheets/Utility.scss';
 import * as Helper from '~/components/Helper/HelperFunctions';
 import Multiplier from '~/assets/data/Multiplier.json';
 import OutputRow from './OutputRow';

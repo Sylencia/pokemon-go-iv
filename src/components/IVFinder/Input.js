@@ -2,15 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
 import '~/assets/stylesheets/Input.scss';
 import '~/assets/stylesheets/Utility.scss';
-import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 import PokemonSelection from '~/components/PokemonSelection';
 import DustSelection from '~/components/DustSelection';
 import * as Helper from '~/components/Helper/HelperFunctions';
-
-function getPokemonList() {
-  return Pokemon.map((p) => (p.name)).sort();
-}
 
 function getDustList() {
   return Dust.map((d) => (d.cost)).sort((a, b) => (a - b));
@@ -42,6 +37,9 @@ class Input extends Component {
     this.onDustChange = this.onDustChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
     this.onTrainerChange = this.onTrainerChange.bind(this);
+
+    this.pokemonList = Helper.getPokemonList();
+    this.dustList = getDustList();
   }
 
   onReset() {
@@ -114,6 +112,7 @@ class Input extends Component {
 
   render() {
     const { trainerLevel, name, cp, hp, dust, isNewSearch } = this.state;
+    const { pokemonList, dustList } = this;
 
     const validTrainerLevel = Helper.validateLevelEntry(trainerLevel);
     const validPokemon = Helper.validatePokemonEntry(name);
@@ -140,8 +139,6 @@ class Input extends Component {
     let nameDataList = '';
     let dustElement = '';
     let dustDataList = '';
-    const pokemonList = getPokemonList();
-    const dustList = getDustList();
 
     if (Modernizr.datalistelem) {
       nameElement = (

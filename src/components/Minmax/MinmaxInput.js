@@ -2,35 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
 import '~/assets/stylesheets/Input.scss';
 import '~/assets/stylesheets/Utility.scss';
-import Pokemon from '~/assets/data/Pokemon.json';
 import PokemonSelection from '~/components/PokemonSelection';
-
-function validatePokemonEntry(entry) {
-  if (entry === '') {
-    return false;
-  }
-
-  const pkmn = Pokemon.find((pokemon) =>
-    (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));
-  return pkmn !== null && pkmn !== undefined;
-}
-
-// stackoverflow.com/questions/10834796/validate-that-a-string-is-a-positive-integer
-function validateNumericEntry(number) {
-  return number >>> 0 === parseFloat(number) && number > 0;
-}
-
-function getValidityIcon(success) {
-  if (success) {
-    return <i className="fa fa-check" aria-hidden="true"></i>;
-  }
-
-  return <i className="fa fa-times" aria-hidden="true"></i>;
-}
-
-function getPokemonList() {
-  return Pokemon.map((p) => (p.name)).sort();
-}
+import * as Helper from '~/components/Helper/HelperFunctions';
 
 class MinmaxInput extends Component {
   static propTypes = {
@@ -57,7 +30,7 @@ class MinmaxInput extends Component {
 
   onLevelChange(e) {
     const level = e.target.value;
-    if (validateNumericEntry(level)) {
+    if (Helper.validateNumericEntry(level)) {
       this.props.onLevelChangeCB(Number(level));
       this.setState({
         level,
@@ -73,7 +46,7 @@ class MinmaxInput extends Component {
   onNameChange(e) {
     const name = e.target.value;
 
-    if (validatePokemonEntry(name)) {
+    if (Helper.validatePokemonEntry(name)) {
       this.props.onNameChangeCB(name.toLowerCase());
       this.setState({
         name,
@@ -97,11 +70,11 @@ class MinmaxInput extends Component {
   render() {
     const { name, level } = this.state;
 
-    const validPokemon = validatePokemonEntry(name);
-    const validLevel = validateNumericEntry(level);
-    const nameStatus = getValidityIcon(validPokemon);
-    const levelStatus = getValidityIcon(validLevel);
-    const pokemonList = getPokemonList();
+    const validPokemon = Helper.validatePokemonEntry(name);
+    const validLevel = Helper.validateNumericEntry(level);
+    const nameStatus = Helper.getValidityIcon(validPokemon);
+    const levelStatus = Helper.getValidityIcon(validLevel);
+    const pokemonList = Helper.getPokemonList();
 
     // hacky since i don't want div or span to wreck my styling
     let nameElement = '';
