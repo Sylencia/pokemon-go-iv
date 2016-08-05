@@ -23,6 +23,7 @@ class Input extends Component {
       isNewSearch: true,
       wild: true,
     };
+    this.onSubmit = this.onSubmit.bind(this);
     this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
     this.onFilterSubmit = this.onFilterSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
@@ -45,6 +46,21 @@ class Input extends Component {
       dust: '',
       wild: true,
     });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const { trainerLevel, name, cp, hp, dust } = this.state;
+
+    const validTrainerLevel = Helper.validateLevelEntry(trainerLevel);
+    const validPokemon = Helper.validatePokemonEntry(name);
+    const validCP = Helper.validateNumericEntry(cp);
+    const validHP = Helper.validateNumericEntry(hp);
+    const validDust = Helper.validateDustEntry(dust);
+    const valid = validPokemon && validCP && validDust && validHP && validTrainerLevel;
+
+    this.onNewSearchSubmit(valid);
   }
 
   onNewSearchSubmit(valid) {
@@ -178,7 +194,7 @@ class Input extends Component {
     }
 
     return (
-      <div className="section">
+      <form className="section" onSubmit={this.onSubmit}>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
           <input onChange={this.onTrainerChange} className="form-input input-lg"
@@ -228,7 +244,7 @@ class Input extends Component {
             clear
           </button>
         </div>
-      </div>
+      </form>
     );
   }
 }
