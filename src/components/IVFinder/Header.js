@@ -27,7 +27,7 @@ class Header extends Component {
 
     return (
       <div className="section">
-          <h1>iv.finder</h1>
+          <h1>iv.solo</h1>
           determine the potential of your pokémon.<br />
 
           <div className="new-section">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Redirect } from 'react-router';
 import { render } from 'react-dom';
 import App from './components/App';
 import IVFinder from './components/IVFinder/IVFinder';
@@ -10,7 +10,8 @@ const AppRouter = () => (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={IVFinder} />
-      <Route path="finder" component={IVFinder} />
+      <Redirect from="finder" to="solo" />
+      <Route path="solo" component={IVFinder} />
       <Route path="minmax" component={Minmax} />
       <Route path="multi" component={Multi} />
     </Route>
