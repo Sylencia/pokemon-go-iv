@@ -6,6 +6,10 @@ export function getPokemonList() {
   return Pokemon.map((p) => (p.name)).sort();
 }
 
+export function getDustList() {
+  return Dust.map((d) => (d.cost)).sort((a, b) => (a - b));
+}
+
 export function getPokemonData(entry) {
   const pkmn = Pokemon.find((pokemon) =>
     (pokemon.name.toLowerCase().trim() === entry.toLowerCase().trim()));

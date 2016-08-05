@@ -1,105 +1,158 @@
 import React, { Component, PropTypes } from 'react';
-import { maxBy } from 'lodash';
+import { minBy, maxBy, take, forEach } from 'lodash';
 import '~/assets/stylesheets/Output.scss';
 import '~/assets/stylesheets/Utility.scss';
-import Multiplier from '~/assets/data/Multiplier.json';
-import Dust from '~/assets/data/Dust.json';
-import MultiOutputRow from './MultiOutputRow';
 import * as Helper from '~/components/Helper/HelperFunctions';
+import Multiplier from '~/assets/data/Multiplier.json';
+import FinderOutputRow from '../FinderOutputRow';
 
-class MultiOutput extends Component {
+class Output extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    level: PropTypes.number.isRequired,
+    searchList: PropTypes.array.isRequired,
   }
 
   constructor(props) {
     super(props);
 
-    this.state = { data: [] };
-    this.findMinmax = this.findMinmax.bind(this);
+    this.state = { solutions: [], inputs: [], nextId: 0 };
+    this.filterSolutions = this.filterSolutions.bind(this);
+    this.findSolutions = this.findSolutions.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { name, level, wild } = nextProps;
-    if (name !== '') {
-      const data = this.findMinmax(name, level, wild);
+    if (nextProps.name !== '') {
+      let solutions = [];
+      forEach(nextProps.searchList, (searchObj) => {
+        const newSolutions = this.findSolutions(nextProps.name, searchObj);
+        solutions = this.filterSolutions(solutions, newSolutions);
+      });
 
       this.setState({
-        data,
+        solutions,
       });
     }
+  }
+
+  filterSolutions(currentSolutions, newSolutions) {
+    if (currentSolutions.length === 0) {
+      return newSolutions;
+    }
+
+    const filteredSolutions = [];
+    // Fix this naive loop
+    for (let o = 0; o < currentSolutions.length; ++o) {
+      for (let n = 0; n < newSolutions.length; ++n) {
+        const solution1 = currentSolutions[o];
+        const solution2 = newSolutions[n];
+
+        if (solution1.stamina === solution2.stamina &&
+          solution1.attack === solution2.attack &&
+          solution1.defense === solution2.defense) {
+          filteredSolutions.push(solution2);
+        }
+      }
+    }
+
+    return filteredSolutions;
   }
 
 // Assume all data here is valid, as it should've been checked by the input.
-  findMinmax(name, level, wild) {
-    const data = [];
-    const minLevel = 1;
-    // Pokemon can be trained to their (level + 1) * 2, which is different to the max wild level.
-    const maxLevel = Math.min((level + 1) * 2, maxBy(Multiplier, 'level').level);
-    const increment = wild ? 2 : 1;
+  findSolutions(name, searchData) {
+    const hp = Number(searchData.hp);
+    const cp = Number(searchData.cp);
+    const dust = Number(searchData.dust);
+    const dustData = Helper.getDustData(dust);
+    const newSolutions = [];
+    const pokemon = Helper.getPokemonData(name);
 
-    for (let l = minLevel; l <= maxLevel; l += increment) {
-      const multiplierData = Multiplier.find((m) =>
-        (m.level === l));
+    let id = 0;
+
+    for (let level = dustData.minLevel; level <= dustData.maxLevel; level += 2) {
+      const multiplierData = Multiplier.find((data) =>
+        (data.level === level));
       const m = multiplierData.multiplier;
-      const dustData = Dust.find((d) =>
-        (d.minLevel <= l && d.maxLevel >= l));
-      const dust = dustData.cost;
 
-      const minimum = Helper.getPokemonStats(0, 0, 0, m);
-      const average = Helper.getPokemonStats(8, 8, 8, m);
-      const maximum = Helper.getPokemonStats(15, 15, 15, m);
-      const minCP = Helper.calculateCP(minimum.attack, minimum.defense, minimum.stamina);
-      const avgCP = Helper.calculateCP(average.attack, average.defense, average.stamina);
-      const maxCP = Helper.calculateCP(maximum.attack, maximum.defense, maximum.stamina);
-      data.push({
-        id: multiplierData.level,
-        level: multiplierData.level,
-        minCP,
-        avgCP,
-        maxCP,
-        minHP: Math.floor(minimum.stamina),
-        avgHP: Math.floor(average.stamina),
-        maxHP: Math.floor(maximum.stamina),
-        dust,
-      });
+      for (let stamina = 0; stamina <= 15; ++stamina) {
+        for (let attack = 0; attack <= 15; ++attack) {
+          for (let defense = 0; defense <= 15; ++defense) {
+            const stats = Helper.getPokemonStats(pokemon, attack, defense, stamina, m);
+            const calcCP = Helper.calculateCP(stats.attack, stats.defense, stats.stamina, m);
+
+            if (calcCP === cp && hp === Math.floor(stats.stamina)) {
+              let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
+              let defRatio = 1 - stamRatio;
+              const atkPercent =
+                (attack + 0.4 * stamRatio * stamina + 0.4 * defRatio * defense) / 21 * 100;
+              // pokemon in gyms have double the health
+              stamRatio = 2 * pokemon.baseStam / (2 * pokemon.baseStam + pokemon.baseDef);
+              defRatio = 1 - stamRatio;
+              const defPercent =
+                (2 * defRatio * defense + 2 * stamRatio * stamina + 0.2 * attack) / 33 * 100;
+              // ratio between your ivs and max ivs
+              const perfection = (attack + defense + stamina) / 45 * 100;
+
+              newSolutions.push({
+                level, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+              });
+              id++;
+            }
+          }
+        }
+      }
     }
 
-    return data;
+    return newSolutions;
   }
 
   render() {
-    const { data } = this.state;
+    const { solutions } = this.state;
 
-    if (this.props.name === '' || this.props.level <= 0) {
+    if (this.props.name === '') {
       return <div></div>;
+    }
+
+    const word = solutions.length === 1 ? 'solution' : 'solutions';
+    let range = '';
+    if (solutions.length > 1) {
+      const perfMin = parseFloat(minBy(solutions, 'perfection').perfection).toFixed(0);
+      const perfMax = parseFloat(maxBy(solutions, 'perfection').perfection).toFixed(0);
+
+      range = (
+        <span><b>iv % range:</b> {perfMin}% - {perfMax}%<br /></span>
+      );
+    }
+
+    const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
+    let solutionAmount = '';
+    if (solutionDisplay.length < solutions.length) {
+      solutionAmount = '(First 150 shown)';
     }
 
     return (
       <div className="section">
-        <div className="new-section">
-          showing min-max for {this.props.name}
-          <table className="table">
-            <thead>
-              <tr>
-                <th>lv</th>
-                <th><div className="text-center">dust</div></th>
-                <th><div className="text-center">min</div></th>
-                <th><div className="text-center">avg</div></th>
-                <th><div className="text-center">max</div></th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((lv) => (
-                <MultiOutputRow {...lv} key={lv.id} />
-              ))}
-            </tbody>
-          </table>
-        </div>
+          {solutions.length} {word} found. {solutionAmount}<br />
+          {range}
+          <div className="new-section">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>lv</th>
+                  <th><div className="text-center">ivs</div></th>
+                  <th><div className="text-center">iv %</div></th>
+                  <th><div className="text-center">potential</div></th>
+                </tr>
+              </thead>
+              <tbody>
+                {solutionDisplay.map((solution) => (
+                  <FinderOutputRow {...solution} key={solution.id} />
+                ))}
+              </tbody>
+            </table>
+          </div>
       </div>
     );
   }
 }
 
-export default MultiOutput;
+export default Output;

@@ -1,15 +1,27 @@
 import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
+import { times } from 'lodash';
 import '~/assets/stylesheets/Input.scss';
 import '~/assets/stylesheets/Utility.scss';
 import PokemonSelection from '~/components/PokemonSelection';
+import MultiInputRow from './MultiInputRow';
 import * as Helper from '~/components/Helper/HelperFunctions';
+
+function setupList(list, newSize) {
+  const newElement = { cp: '', hp: '', dust: '' };
+  const newList = list;
+
+  if (list.length < newSize) {
+    times(newSize - list.length, () => (newList.push(newElement)));
+    return newList;
+  }
+
+  return newList.slice(0, newSize);
+}
 
 class MultiInput extends Component {
   static propTypes = {
-    onNameChangeCB: PropTypes.func.isRequired,
-    onLevelChangeCB: PropTypes.func.isRequired,
-    onWildChangeCB: PropTypes.func.isRequired,
+    onInputSubmitCB: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -17,17 +29,43 @@ class MultiInput extends Component {
 
     this.state = {
       name: '',
-      validPokemon: '',
-      cp: '',
+      validName: '',
+      list: [
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+      ],
+      size: 2,
     };
 
     this.onNameChange = this.onNameChange.bind(this);
     this.onCPChange = this.onCPChange.bind(this);
+    this.onHPChange = this.onHPChange.bind(this);
+    this.onDustChange = this.onDustChange.bind(this);
+    this.onSizeChange = this.onSizeChange.bind(this);
+    this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
   }
 
-  onCPChange(e) {
+  onCPChange(cp, index) {
+    const newList = this.state.list;
+    newList[index].cp = cp;
     this.setState({
-      cp: e.target.value,
+      list: newList,
+    });
+  }
+
+  onHPChange(hp, index) {
+    const newList = this.state.list;
+    newList[index].hp = hp;
+    this.setState({
+      list: newList,
+    });
+  }
+
+  onDustChange(dust, index) {
+    const newList = this.state.list;
+    newList[index].dust = dust;
+    this.setState({
+      list: newList,
     });
   }
 
@@ -35,7 +73,6 @@ class MultiInput extends Component {
     const name = e.target.value;
 
     if (Helper.validatePokemonEntry(name)) {
-      this.props.onNameChangeCB(name.toLowerCase());
       this.setState({
         name,
         validName: name.toLowerCase(),
@@ -47,8 +84,38 @@ class MultiInput extends Component {
     }
   }
 
+  onSizeChange(e) {
+    const size = Number(e.target.value);
+    const list = setupList(this.state.list, size);
+    this.setState({
+      size,
+      list,
+    });
+  }
+
+  onNewSearchSubmit(e) {
+    e.preventDefault();
+    const { validName, list, size } = this.state;
+    let valid = true;
+
+    for (let i = 0; i < size; ++i) {
+      const validCP = Helper.validateNumericEntry(list[i].cp);
+      const validHP = Helper.validateNumericEntry(list[i].hp);
+      const validDust = Helper.validateDustEntry(list[i].dust);
+      if (!validCP || !validHP || !validDust) {
+        valid = false;
+        break;
+      }
+    }
+
+    if (valid) {
+      this.props.onInputSubmitCB(validName.toLowerCase(), list);
+    }
+  }
+
   render() {
-    const { name, cp } = this.state;
+    const { name, size, list } = this.state;
+    const { onCPChange, onDustChange, onHPChange } = this;
 
     const validPokemon = Helper.validatePokemonEntry(name);
     const nameStatus = Helper.getValidityIcon(validPokemon);
@@ -80,11 +147,25 @@ class MultiInput extends Component {
      );
     }
 
+    const rows = [];
+    times(size, (index) => (rows.push(
+      <MultiInputRow cp={list[index].cp} hp={list[index].hp} dust={list[index].dust}
+        onHPChange={onHPChange} onCPChange={onCPChange}
+        onDustChange={onDustChange} key={index} index={index} />
+    )));
+
     return (
-      <div className="section">
+      <form className="section" onSubmit={this.onNewSearchSubmit}>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon-wide">group size</span>
-          <input className="form-input input-lg"></input>
+          <select className="form-select select-lg selector" onChange={this.onSizeChange}
+            value={size}>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+          </select>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">name</span>
@@ -92,16 +173,14 @@ class MultiInput extends Component {
           {dataList}
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
-        <div className="input-group">
-          <input onChange={this.onCPChange} className="form-input input-lg multi-input-lg"
-            value={cp} placeholder="cp"></input>
-          <input onChange={this.onCPChange} className="form-input input-lg multi-input-lg"
-            value={cp} placeholder="hp"></input>
-          <input onChange={this.onCPChange} className="form-input input-lg multi-input-lg"
-            value={cp} placeholder="dust"></input>
-          <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
+        {rows}
+        <div className="new-section">
+          <button className="btn btn-primary btn-lrg button-item"
+            onClick={this.onNewSearchSubmit}>
+            <i className="fa fa-search" aria-hidden="true"></i> search
+          </button>
         </div>
-      </div>
+      </form>
     );
   }
 }

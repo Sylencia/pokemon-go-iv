@@ -2,14 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import Modernizr from 'modernizr';
 import '~/assets/stylesheets/Input.scss';
 import '~/assets/stylesheets/Utility.scss';
-import Dust from '~/assets/data/Dust.json';
 import PokemonSelection from '~/components/PokemonSelection';
 import DustSelection from '~/components/DustSelection';
 import * as Helper from '~/components/Helper/HelperFunctions';
-
-function getDustList() {
-  return Dust.map((d) => (d.cost)).sort((a, b) => (a - b));
-}
 
 class Input extends Component {
   static propTypes = {
@@ -39,7 +34,7 @@ class Input extends Component {
     this.onTrainerChange = this.onTrainerChange.bind(this);
 
     this.pokemonList = Helper.getPokemonList();
-    this.dustList = getDustList();
+    this.dustList = Helper.getDustList();
   }
 
   onReset() {

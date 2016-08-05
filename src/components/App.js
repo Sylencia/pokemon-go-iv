@@ -15,7 +15,7 @@ class App extends Component {
           <span className="header-item">
             <Link to="/finder">iv.finder</Link> //&nbsp;
             <Link to="/minmax">iv.minmax</Link> //&nbsp;
-            <span data-tooltip="coming soon" className="tooltip tooltip-bottom">iv.multi</span>
+            <Link to="/multi">iv.multi</Link>
           </span>
           <span className="float-right mr-10">
             by <a href="http://www.reddit.com/u/sylencia">sylencia</a>

@@ -10,34 +10,20 @@ export default class Multi extends Component {
 
     this.state = {
       name: '',
-      level: 0,
-      wild: false,
+      searchList: [],
     };
 
-    this.onNameChange = this.onNameChange.bind(this);
-    this.onLevelChange = this.onLevelChange.bind(this);
-    this.onWildChange = this.onWildChange.bind(this);
+    this.onInputSubmit = this.onInputSubmit.bind(this);
   }
 
   componentDidMount() {
     document.title = 'iv.multi';
   }
 
-  onNameChange(name) {
+  onInputSubmit(name, searchList) {
     this.setState({
       name,
-    });
-  }
-
-  onLevelChange(level) {
-    this.setState({
-      level,
-    });
-  }
-
-  onWildChange(wild) {
-    this.setState({
-      wild,
+      searchList,
     });
   }
 
@@ -46,8 +32,7 @@ export default class Multi extends Component {
 			<div className="page">
           <MultiHeader />
         <div className="middle-section">
-          <MultiInput onNameChangeCB={this.onNameChange} onLevelChangeCB={this.onLevelChange}
-            onWildChangeCB={this.onWildChange} />
+          <MultiInput onInputSubmitCB={this.onInputSubmit} />
         </div>
           <MultiOutput {...this.state} />
 			</div>

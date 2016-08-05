@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import '~/assets/stylesheets/OutputRow.scss';
 import '~/assets/stylesheets/Utility.scss';
 
-const OutputRow = (props) => {
+const FinderOutputRow = (props) => {
   const s = (props.stamina < 10 ? ' ' : '') + props.stamina;
   const a = (props.attack < 10 ? ' ' : '') + props.attack;
   const d = (props.defense < 10 ? ' ' : '') + props.defense;
@@ -33,7 +33,7 @@ const OutputRow = (props) => {
   );
 };
 
-OutputRow.propTypes = {
+FinderOutputRow.propTypes = {
   level: PropTypes.number.isRequired,
   stamina: PropTypes.number.isRequired,
   attack: PropTypes.number.isRequired,
@@ -43,4 +43,4 @@ OutputRow.propTypes = {
   perfection: PropTypes.number.isRequired,
 };
 
-export default OutputRow;
+export default FinderOutputRow;

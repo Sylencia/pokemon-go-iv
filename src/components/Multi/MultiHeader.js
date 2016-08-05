@@ -28,7 +28,9 @@ class MultiHeader extends Component {
     return (
       <div className="section">
           <h1>iv.multi</h1>
-          determine a pokémon's potential with friends.
+          determine a pokémon's potential faster in a group.<p />
+          <b>this only works for wild pokémon that have been caught in the same spot (and not
+          via incense).</b>
 
           <div className="new-section">
             {button}

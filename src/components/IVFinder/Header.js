@@ -49,9 +49,9 @@ class Header extends Component {
             that we only consider odd numbered levels for your pokémon.
             <b>untick if:</b> you hatched the pokémon or you have used 'power up' on your pokémon.
             <h5><u>what is '<i className="fa fa-search fa-1" aria-hidden="true"></i> same'?</u></h5>
-            if you power up your pokémon, you can use that information along with the previous stats
-            that you entered to get a more narrow result. for most pokémon you will need to do this
-            a few times to get the exact number.
+            if you power up or evolve your pokémon, you can use that information along with the
+            previous stats that you entered to get a more narrow result. for most pokémon you will
+            need to do this a few times to get the exact number.
             <h5><u>what is 'iv %'?</u></h5>
             the iv % shows you how close to maximum that iv set is. this is achieved by dividing the
             sum of the three ivs by the maximum sum, which is 45.

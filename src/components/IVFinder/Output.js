@@ -4,7 +4,7 @@ import '~/assets/stylesheets/Output.scss';
 import '~/assets/stylesheets/Utility.scss';
 import * as Helper from '~/components/Helper/HelperFunctions';
 import Multiplier from '~/assets/data/Multiplier.json';
-import OutputRow from './OutputRow';
+import FinderOutputRow from '../FinderOutputRow';
 import InputTableRow from './InputTableRow';
 
 class Output extends Component {
@@ -155,7 +155,7 @@ class Output extends Component {
               </thead>
               <tbody>
                 {solutionDisplay.map((solution) => (
-                  <OutputRow {...solution} key={solution.id} />
+                  <FinderOutputRow {...solution} key={solution.id} />
                 ))}
               </tbody>
             </table>
