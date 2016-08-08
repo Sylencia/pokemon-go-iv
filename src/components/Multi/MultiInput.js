@@ -7,16 +7,18 @@ import PokemonSelection from '~/components/PokemonSelection';
 import MultiInputRow from './MultiInputRow';
 import * as Helper from '~/components/Helper/HelperFunctions';
 
-function setupList(list, newSize) {
-  const newElement = { cp: '', hp: '', dust: '' };
+function setupList(list, oldSize, newSize) {
   const newList = list;
 
-  if (list.length < newSize) {
-    times(newSize - list.length, () => (newList.push(newElement)));
-    return newList;
+  if (oldSize < newSize) {
+    for (let i = oldSize; i < list.length; ++i) {
+      newList[i].cp = '';
+      newList[i].hp = '';
+      newList[i].dust = '';
+    }
   }
 
-  return newList.slice(0, newSize);
+  return newList;
 }
 
 class MultiInput extends Component {
@@ -33,11 +35,16 @@ class MultiInput extends Component {
       list: [
         { cp: '', hp: '', dust: '' },
         { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
       ],
       size: 2,
     };
 
     this.onNameChange = this.onNameChange.bind(this);
+    this.onReset = this.onReset.bind(this);
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
@@ -84,9 +91,26 @@ class MultiInput extends Component {
     }
   }
 
+  onReset(e) {
+    e.preventDefault();
+
+    this.setState = {
+      name: '',
+      validName: '',
+      list: [
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+        { cp: '', hp: '', dust: '' },
+      ],
+    };
+  }
+
   onSizeChange(e) {
     const size = Number(e.target.value);
-    const list = setupList(this.state.list, size);
+    const list = setupList(this.state.list, this.state.size, size);
     this.setState({
       size,
       list,
@@ -102,20 +126,22 @@ class MultiInput extends Component {
       const validCP = Helper.validateNumericEntry(list[i].cp);
       const validHP = Helper.validateNumericEntry(list[i].hp);
       const validDust = Helper.validateDustEntry(list[i].dust);
-      if (!validCP || !validHP || !validDust) {
+      if (!((validCP && validHP && validDust) || (!validCP && !validHP && !validDust))) {
         valid = false;
         break;
       }
     }
 
     if (valid) {
-      this.props.onInputSubmitCB(validName.toLowerCase(), list);
+      this.props.onInputSubmitCB(validName.toLowerCase(), list.slice(0, this.state.size));
     }
   }
 
   render() {
     const { name, size, list } = this.state;
     const { onCPChange, onDustChange, onHPChange } = this;
+
+    console.log(this.state);
 
     const validPokemon = Helper.validatePokemonEntry(name);
     const nameStatus = Helper.getValidityIcon(validPokemon);
@@ -176,9 +202,13 @@ class MultiInput extends Component {
         {rows}
         <div className="new-section">
           <button className="btn btn-primary btn-lrg button-item"
-            onClick={this.onNewSearchSubmit}>
+            type="submit" onClick={this.onNewSearchSubmit}>
             <i className="fa fa-search" aria-hidden="true"></i> search
           </button>
+          {/*<button className="btn btn-primary btn-lrg button-item"
+            type="reset" onClick={this.onReset}>
+            clear
+          </button>*/}
         </div>
       </form>
     );

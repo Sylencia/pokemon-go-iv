@@ -24,8 +24,11 @@ class Output extends Component {
     if (nextProps.name !== '') {
       let solutions = [];
       forEach(nextProps.searchList, (searchObj) => {
-        const newSolutions = this.findSolutions(nextProps.name, searchObj);
-        solutions = this.filterSolutions(solutions, newSolutions);
+        // overkill check
+        if (searchObj.cp !== '' || searchObj.hp !== '' || searchObj.dust !== '') {
+          const newSolutions = this.findSolutions(nextProps.name, searchObj);
+          solutions = this.filterSolutions(solutions, newSolutions);
+        }
       });
 
       this.setState({
