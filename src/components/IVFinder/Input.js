@@ -194,7 +194,7 @@ class Input extends Component {
     }
 
     return (
-      <form className="section" onSubmit={this.onSubmit}>
+      <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
           <input onChange={this.onTrainerChange} className="form-input input-lg"
@@ -244,7 +244,7 @@ class Input extends Component {
             clear
           </button>
         </div>
-      </form>
+      </div>
     );
   }
 }
