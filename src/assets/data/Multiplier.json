@@ -1,11 +1,7 @@
 [
   {
-    "level": 0,
-    "multiplier": 0.094
-  },
-  {
     "level": 1,
-    "multiplier": 0.094
+    "multiplier": 0.093999997
   },
   {
     "level": 2,
@@ -17,7 +13,7 @@
   },
   {
     "level": 4,
-    "multiplier": 0.192650919
+    "multiplier": 0.192650913
   },
   {
     "level": 5,
@@ -25,119 +21,119 @@
   },
   {
     "level": 6,
-    "multiplier": 0.236572661
+    "multiplier": 0.236572651
   },
   {
     "level": 7,
-    "multiplier": 0.25572005
+    "multiplier": 0.255720049
   },
   {
     "level": 8,
-    "multiplier": 0.273530381
+    "multiplier": 0.273530372
   },
   {
     "level": 9,
-    "multiplier": 0.29024988
+    "multiplier": 0.290249884
   },
   {
     "level": 10,
-    "multiplier": 0.306057377
+    "multiplier": 0.306057381
   },
   {
     "level": 11,
-    "multiplier": 0.3210876
+    "multiplier": 0.321087599
   },
   {
     "level": 12,
-    "multiplier": 0.335445036
+    "multiplier": 0.335445032
   },
   {
     "level": 13,
-    "multiplier": 0.34921268
+    "multiplier": 0.349212676
   },
   {
     "level": 14,
-    "multiplier": 0.362457751
+    "multiplier": 0.362457737
   },
   {
     "level": 15,
-    "multiplier": 0.37523559
+    "multiplier": 0.375235587
   },
   {
     "level": 16,
-    "multiplier": 0.387592406
+    "multiplier": 0.387592408
   },
   {
     "level": 17,
-    "multiplier": 0.39956728
+    "multiplier": 0.399567276
   },
   {
     "level": 18,
-    "multiplier": 0.411193551
+    "multiplier": 0.411193553
   },
   {
     "level": 19,
-    "multiplier": 0.42250001
+    "multiplier": 0.422500014
   },
   {
     "level": 20,
-    "multiplier": 0.432926439
+    "multiplier": 0.432926421
   },
   {
     "level": 21,
-    "multiplier": 0.4431076
+    "multiplier": 0.443107545
   },
   {
     "level": 22,
-    "multiplier": 0.453059959
+    "multiplier": 0.453059948
   },
   {
     "level": 23,
-    "multiplier": 0.46279839
+    "multiplier": 0.462798387
   },
   {
     "level": 24,
-    "multiplier": 0.472336083
+    "multiplier": 0.472336085
   },
   {
     "level": 25,
-    "multiplier": 0.48168495
+    "multiplier": 0.481684953
   },
   {
     "level": 26,
-    "multiplier": 0.4908558
+    "multiplier": 0.490855807
   },
   {
     "level": 27,
-    "multiplier": 0.49985844
+    "multiplier": 0.499858439
   },
   {
     "level": 28,
-    "multiplier": 0.508701765
+    "multiplier": 0.508701749
   },
   {
     "level": 29,
-    "multiplier": 0.51739395
+    "multiplier": 0.517393947
   },
   {
     "level": 30,
-    "multiplier": 0.525942511
+    "multiplier": 0.525942516
   },
   {
     "level": 31,
-    "multiplier": 0.53435433
+    "multiplier": 0.534354329
   },
   {
     "level": 32,
-    "multiplier": 0.542635767
+    "multiplier": 0.542635754
   },
   {
     "level": 33,
-    "multiplier": 0.55079269
+    "multiplier": 0.550792694
   },
   {
     "level": 34,
-    "multiplier": 0.558830576
+    "multiplier": 0.558830584
   },
   {
     "level": 35,
@@ -145,15 +141,15 @@
   },
   {
     "level": 36,
-    "multiplier": 0.574569153
+    "multiplier": 0.574569128
   },
   {
     "level": 37,
-    "multiplier": 0.58227891
+    "multiplier": 0.582278907
   },
   {
     "level": 38,
-    "multiplier": 0.589887917
+    "multiplier": 0.589887908
   },
   {
     "level": 39,
@@ -161,39 +157,39 @@
   },
   {
     "level": 40,
-    "multiplier": 0.604818814
+    "multiplier": 0.604823649
   },
   {
     "level": 41,
-    "multiplier": 0.61215729
+    "multiplier": 0.612157285
   },
   {
     "level": 42,
-    "multiplier": 0.619399365
+    "multiplier": 0.619404108
   },
   {
     "level": 43,
-    "multiplier": 0.62656713
+    "multiplier": 0.626567125
   },
   {
     "level": 44,
-    "multiplier": 0.633644533
+    "multiplier": 0.633649179
   },
   {
     "level": 45,
-    "multiplier": 0.64065295
+    "multiplier": 0.640652955
   },
   {
     "level": 46,
-    "multiplier": 0.647576426
+    "multiplier": 0.647580971
   },
   {
     "level": 47,
-    "multiplier": 0.65443563
+    "multiplier": 0.654435635
   },
   {
     "level": 48,
-    "multiplier": 0.661214806
+    "multiplier": 0.661219266
   },
   {
     "level": 49,
@@ -201,7 +197,7 @@
   },
   {
     "level": 50,
-    "multiplier": 0.674577537
+    "multiplier": 0.674581886
   },
   {
     "level": 51,
@@ -209,95 +205,95 @@
   },
   {
     "level": 52,
-    "multiplier": 0.687680648
+    "multiplier": 0.687684901
   },
   {
     "level": 53,
-    "multiplier": 0.69414365
+    "multiplier": 0.694143653
   },
   {
     "level": 54,
-    "multiplier": 0.700538673
+    "multiplier": 0.700542901
   },
   {
     "level": 55,
-    "multiplier": 0.70688421
+    "multiplier": 0.706884205
   },
   {
     "level": 56,
-    "multiplier": 0.713164996
+    "multiplier": 0.713169075
   },
   {
     "level": 57,
-    "multiplier": 0.71939909
+    "multiplier": 0.719399095
   },
   {
     "level": 58,
-    "multiplier": 0.725571552
+    "multiplier": 0.725575587
   },
   {
     "level": 59,
-    "multiplier": 0.7317
+    "multiplier": 0.731700003
   },
   {
     "level": 60,
-    "multiplier": 0.734741009
+    "multiplier": 0.734741039
   },
   {
     "level": 61,
-    "multiplier": 0.73776948
+    "multiplier": 0.737769485
   },
   {
     "level": 62,
-    "multiplier": 0.740785574
+    "multiplier": 0.74078558
   },
   {
     "level": 63,
-    "multiplier": 0.74378943
+    "multiplier": 0.743789434
   },
   {
     "level": 64,
-    "multiplier": 0.746781211
+    "multiplier": 0.746781197
   },
   {
     "level": 65,
-    "multiplier": 0.74976104
+    "multiplier": 0.749761045
   },
   {
     "level": 66,
-    "multiplier": 0.752729087
+    "multiplier": 0.7527291
   },
   {
     "level": 67,
-    "multiplier": 0.75568551
+    "multiplier": 0.755685508
   },
   {
     "level": 68,
-    "multiplier": 0.758630378
+    "multiplier": 0.75863037
   },
   {
     "level": 69,
-    "multiplier": 0.76156384
+    "multiplier": 0.761563838
   },
   {
     "level": 70,
-    "multiplier": 0.764486065
+    "multiplier": 0.76448605
   },
   {
     "level": 71,
-    "multiplier": 0.76739717
+    "multiplier": 0.767397165
   },
   {
     "level": 72,
-    "multiplier": 0.770297266
+    "multiplier": 0.770297294
   },
   {
     "level": 73,
-    "multiplier": 0.7731865
+    "multiplier": 0.773186505
   },
   {
     "level": 74,
-    "multiplier": 0.776064962
+    "multiplier": 0.776064947
   },
   {
     "level": 75,
@@ -305,18 +301,18 @@
   },
   {
     "level": 76,
-    "multiplier": 0.781790055
+    "multiplier": 0.781790051
   },
   {
     "level": 77,
-    "multiplier": 0.78463697
+    "multiplier": 0.784636974
   },
   {
     "level": 78,
-    "multiplier": 0.787473578
+    "multiplier": 0.787473609
   },
   {
     "level": 79,
-    "multiplier": 0.79030001
+    "multiplier": 0.790300012
   }
 ]
