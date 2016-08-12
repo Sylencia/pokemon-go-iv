@@ -83,6 +83,7 @@ class Output extends Component {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
+      const altLevel = multiplierData.altLevel;
 
       for (let stamina = 0; stamina <= 15; ++stamina) {
         for (let attack = 0; attack <= 15; ++attack) {
@@ -104,7 +105,7 @@ class Output extends Component {
               const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                level, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+                level, altLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
               });
               id++;
             }

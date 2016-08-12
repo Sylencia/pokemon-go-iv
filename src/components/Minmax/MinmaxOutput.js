@@ -44,6 +44,7 @@ class MinmaxOutput extends Component {
       const multiplierData = Multiplier.find((m) =>
         (m.level === l));
       const m = multiplierData.multiplier;
+      const altLevel = multiplierData.altLevel;
       const dustData = Dust.find((d) =>
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;
@@ -57,6 +58,7 @@ class MinmaxOutput extends Component {
       data.push({
         id: multiplierData.level,
         level: multiplierData.level,
+        altLevel,
         minCP,
         avgCP,
         maxCP,
