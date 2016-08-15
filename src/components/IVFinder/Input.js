@@ -22,6 +22,7 @@ class Input extends Component {
       dust: '',
       isNewSearch: true,
       wild: true,
+      filterSearch: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
@@ -50,6 +51,7 @@ class Input extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    console.log('onsubmit');
 
     const { trainerLevel, name, cp, hp, dust } = this.state;
 
@@ -78,6 +80,7 @@ class Input extends Component {
 
   onFilterSubmit(valid) {
     const { trainerLevel, name, cp, hp, dust } = this.state;
+    console.log('onFilterSubmit');
 
     if (valid) {
       this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
@@ -139,7 +142,7 @@ class Input extends Component {
     const dustStatus = Helper.getValidityIcon(validDust);
 
     const filterButton = !isNewSearch ? (
-      <button className="btn btn-primary btn-lrg button-item"
+      <button type="button" className="btn btn-primary btn-lrg button-item"
         onClick={() => (this.onFilterSubmit(valid))}>
         <i className="fa fa-search" aria-hidden="true"></i> same
       </button>
