@@ -51,7 +51,6 @@ class Input extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log('onsubmit');
 
     const { trainerLevel, name, cp, hp, dust } = this.state;
 
@@ -80,7 +79,6 @@ class Input extends Component {
 
   onFilterSubmit(valid) {
     const { trainerLevel, name, cp, hp, dust } = this.state;
-    console.log('onFilterSubmit');
 
     if (valid) {
       this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
