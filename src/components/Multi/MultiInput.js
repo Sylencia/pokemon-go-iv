@@ -94,7 +94,7 @@ class MultiInput extends Component {
   onReset(e) {
     e.preventDefault();
 
-    this.setState = {
+    this.setState({
       name: '',
       validName: '',
       list: [
@@ -105,7 +105,7 @@ class MultiInput extends Component {
         { cp: '', hp: '', dust: '' },
         { cp: '', hp: '', dust: '' },
       ],
-    };
+    });
   }
 
   onSizeChange(e) {
@@ -140,8 +140,6 @@ class MultiInput extends Component {
   render() {
     const { name, size, list } = this.state;
     const { onCPChange, onDustChange, onHPChange } = this;
-
-    console.log(this.state);
 
     const validPokemon = Helper.validatePokemonEntry(name);
     const nameStatus = Helper.getValidityIcon(validPokemon);
@@ -205,10 +203,10 @@ class MultiInput extends Component {
             type="submit" onClick={this.onNewSearchSubmit}>
             <i className="fa fa-search" aria-hidden="true"></i> search
           </button>
-          {/*<button className="btn btn-primary btn-lrg button-item"
+          <button className="btn btn-primary btn-lrg button-item"
             type="reset" onClick={this.onReset}>
             clear
-          </button>*/}
+          </button>
         </div>
       </form>
     );
