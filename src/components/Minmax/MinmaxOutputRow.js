@@ -4,7 +4,7 @@ import '~/assets/stylesheets/Utility.scss';
 
 const MinmaxOutputRow = (props) => (
   <tr>
-    <th>{props.level} ({props.altLevel})</th>
+    <th>{props.displayLevel}</th>
     <th><div className="text-center">{props.dust}</div></th>
     <th><div className="text-center">{props.minCP}cp <br /> {props.minHP}hp</div></th>
     <th><div className="text-center">{props.avgCP}cp <br /> {props.avgHP}hp</div></th>
@@ -13,8 +13,7 @@ const MinmaxOutputRow = (props) => (
 );
 
 MinmaxOutputRow.propTypes = {
-  level: PropTypes.number.isRequired,
-  altLevel: PropTypes.number.isRequired,
+  displayLevel: PropTypes.number.isRequired,
   dust: PropTypes.number.isRequired,
   minCP: PropTypes.number.isRequired,
   avgCP: PropTypes.number.isRequired,

@@ -12,7 +12,7 @@ const FinderOutputRow = (props) => {
 
   return (
     <tr>
-      <th>{props.level} ({props.altLevel})</th>
+      <th>{props.displayLevel}</th>
       <th>
         <div className="text-center">
           <span className="item"><i className="fa fa-heart" aria-hidden="true"></i> {s}</span>
@@ -34,8 +34,7 @@ const FinderOutputRow = (props) => {
 };
 
 FinderOutputRow.propTypes = {
-  level: PropTypes.number.isRequired,
-  altLevel: PropTypes.number.isRequired,
+  displayLevel: PropTypes.number.isRequired,
   stamina: PropTypes.number.isRequired,
   attack: PropTypes.number.isRequired,
   defense: PropTypes.number.isRequired,

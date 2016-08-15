@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Output from './Output';
 import Header from './Header';
+import Options from '../Options';
 
 export default class IVFinder extends Component {
   constructor() {
     super();
+
+    const options = JSON.parse(localStorage.getItem('options')) || {};
 
     this.state = {
       trainerLevel: 0,
@@ -16,18 +19,26 @@ export default class IVFinder extends Component {
       dust: 0,
       wild: true,
       newSearch: true,
+      options,
     };
 
     this.onInputSubmission = this.onInputSubmission.bind(this);
+    this.onOptionChange = this.onOptionChange.bind(this);
   }
 
   componentDidMount() {
-    document.title = 'iv.finder';
+    document.title = 'iv.solo';
   }
 
   onInputSubmission(trainerLevel, name, cp, hp, dust, wild, newSearch) {
     this.setState({
       trainerLevel, name, cp, hp, dust, wild, newSearch,
+    });
+  }
+
+  onOptionChange(options) {
+    this.setState({
+      options,
     });
   }
 
@@ -49,6 +60,7 @@ export default class IVFinder extends Component {
           <Input onInputSubmitCB={this.onInputSubmission} />
         </div>
           <Output {...this.state} />
+          <Options onOptionChangeCB={this.onOptionChange} />
 			</div>
 		);
   }

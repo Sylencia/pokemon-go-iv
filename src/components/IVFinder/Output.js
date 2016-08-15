@@ -16,6 +16,7 @@ class Output extends Component {
     dust: PropTypes.number.isRequired,
     wild: PropTypes.bool.isRequired,
     newSearch: PropTypes.bool.isRequired,
+    options: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -67,7 +68,7 @@ class Output extends Component {
 
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
-    const { trainerLevel, hp, cp, name, dust, wild, newSearch } = newProps;
+    const { trainerLevel, hp, cp, name, dust, wild, newSearch, options } = newProps;
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
     const pokemon = Helper.getPokemonData(name);
@@ -83,7 +84,8 @@ class Output extends Component {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
-      const altLevel = multiplierData.altLevel;
+      const halfLevel = options.halfLevel || false;
+      const displayLevel = halfLevel ? multiplierData.altLevel : level;
 
       for (let stamina = 0; stamina <= 15; ++stamina) {
         for (let attack = 0; attack <= 15; ++attack) {
@@ -105,7 +107,7 @@ class Output extends Component {
               const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                level, altLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+                displayLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
               });
               id++;
             }

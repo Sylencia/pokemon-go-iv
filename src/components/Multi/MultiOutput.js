@@ -10,6 +10,7 @@ class Output extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     searchList: PropTypes.array.isRequired,
+    options: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -26,7 +27,7 @@ class Output extends Component {
       forEach(nextProps.searchList, (searchObj) => {
         // overkill check
         if (searchObj.cp !== '' || searchObj.hp !== '' || searchObj.dust !== '') {
-          const newSolutions = this.findSolutions(nextProps.name, searchObj);
+          const newSolutions = this.findSolutions(nextProps, searchObj);
           solutions = this.filterSolutions(solutions, newSolutions);
         }
       });
@@ -61,13 +62,13 @@ class Output extends Component {
   }
 
 // Assume all data here is valid, as it should've been checked by the input.
-  findSolutions(name, searchData) {
+  findSolutions(nextProps, searchData) {
     const hp = Number(searchData.hp);
     const cp = Number(searchData.cp);
     const dust = Number(searchData.dust);
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
-    const pokemon = Helper.getPokemonData(name);
+    const pokemon = Helper.getPokemonData(nextProps.name);
 
     let id = 0;
 
@@ -75,7 +76,8 @@ class Output extends Component {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
-      const altLevel = multiplierData.altLevel;
+      const halfLevel = nextProps.options.halfLevel || false;
+      const displayLevel = halfLevel ? multiplierData.altLevel : level;
 
       for (let stamina = 0; stamina <= 15; ++stamina) {
         for (let attack = 0; attack <= 15; ++attack) {
@@ -97,7 +99,7 @@ class Output extends Component {
               const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                level, altLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+                displayLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
               });
               id++;
             }

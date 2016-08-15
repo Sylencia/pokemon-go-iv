@@ -11,6 +11,8 @@ class MinmaxOutput extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
+    wild: PropTypes.bool.isRequired,
+    options: PropTypes.object.isRequiredm
   }
 
   constructor(props) {
@@ -21,9 +23,9 @@ class MinmaxOutput extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { name, level, wild } = nextProps;
+    const { name, level, wild, options } = nextProps;
     if (name !== '') {
-      const data = this.findMinmax(name, level, wild);
+      const data = this.findMinmax(name, level, wild, options);
 
       this.setState({
         data,
@@ -32,7 +34,7 @@ class MinmaxOutput extends Component {
   }
 
 // Assume all data here is valid, as it should've been checked by the input.
-  findMinmax(name, level, wild) {
+  findMinmax(name, level, wild, options) {
     const data = [];
     const minLevel = 1;
     // Pokemon can be trained to their (level + 1) * 2, which is different to the max wild level.
@@ -44,7 +46,8 @@ class MinmaxOutput extends Component {
       const multiplierData = Multiplier.find((m) =>
         (m.level === l));
       const m = multiplierData.multiplier;
-      const altLevel = multiplierData.altLevel;
+      const halfLevel = options.halfLevel || false;
+      const displayLevel = halfLevel ? multiplierData.altLevel : multiplierData.level;
       const dustData = Dust.find((d) =>
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;
@@ -57,8 +60,7 @@ class MinmaxOutput extends Component {
       const maxCP = Helper.calculateCP(maximum.attack, maximum.defense, maximum.stamina);
       data.push({
         id: multiplierData.level,
-        level: multiplierData.level,
-        altLevel,
+        displayLevel,
         minCP,
         avgCP,
         maxCP,
