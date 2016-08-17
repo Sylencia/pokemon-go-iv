@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { minBy, maxBy, take } from 'lodash';
+import { minBy, maxBy, take, filter } from 'lodash';
 import '~/assets/stylesheets/Output.scss';
 import '~/assets/stylesheets/Utility.scss';
 import * as Helper from '~/components/Helper/HelperFunctions';
@@ -107,7 +107,8 @@ class Output extends Component {
               const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                displayLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+                level, displayLevel, stamina, attack, defense, id, atkPercent, defPercent,
+                perfection,
               });
               id++;
             }
@@ -126,14 +127,28 @@ class Output extends Component {
     }
 
     const word = solutions.length === 1 ? 'solution' : 'solutions';
-    let range = '';
+    let range = [];
     if (solutions.length > 1) {
-      const perfMin = parseFloat(minBy(solutions, 'perfection').perfection).toFixed(0);
-      const perfMax = parseFloat(maxBy(solutions, 'perfection').perfection).toFixed(0);
+      const minLevel = minBy(solutions, 'level').level;
+      const maxLevel = maxBy(solutions, 'level').level;
 
-      range = (
-        <span><b>iv % range:</b> {perfMin}% - {perfMax}%<br /></span>
-      );
+      for (let i = minLevel; i <= maxLevel; ++i) {
+        const levelSol = filter(solutions, ['level', i]);
+        if (levelSol.length > 0) {
+          const perfMin = parseFloat(minBy(levelSol, 'perfection').perfection).toFixed(0);
+          const perfMax = parseFloat(maxBy(levelSol, 'perfection').perfection).toFixed(0);
+          // hacky way to get the display level without requesting and checking localStorage options
+          const displayLevel = levelSol[0].displayLevel;
+
+          range.push(
+            <tr key={displayLevel}>
+              <th><div className="text-center">{displayLevel}</div></th>
+              <th><div className="text-center">{perfMin}% - {perfMax}%</div></th>
+              <th><div className="text-center">{levelSol.length}</div></th>
+            </tr>
+          );
+        }
+      }
     }
 
     const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
@@ -145,7 +160,18 @@ class Output extends Component {
     return (
       <div className="section">
           {solutions.length} {word} found. {solutionAmount}<br />
-          {range}
+          <table className="table iv-table">
+            <thead>
+              <tr>
+                <th><div className="text-center">lv</div></th>
+                <th><div className="text-center">range</div></th>
+                <th><div className="text-center">solutions</div></th>
+              </tr>
+            </thead>
+            <tbody>
+              {range}
+            </tbody>
+          </table>
           <div className="new-section">
             <table className="table">
               <thead>
