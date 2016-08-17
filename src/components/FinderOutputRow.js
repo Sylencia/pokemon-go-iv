@@ -56,7 +56,7 @@ FinderOutputRow.propTypes = {
   atkPercent: PropTypes.number.isRequired,
   defPercent: PropTypes.number.isRequired,
   perfection: PropTypes.number.isRequired,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.object.isRequired,
 };
 
 export default FinderOutputRow;
