@@ -11,7 +11,7 @@ class Options extends Component {
 
     const localOptions = JSON.parse(localStorage.getItem('options')) || [];
     const halfLevel = localOptions.halfLevel || false;
-    const atkFirst = localOptions.halfLevel || false;
+    const atkFirst = localOptions.atkFirst || false;
 
     this.state = { halfLevel, atkFirst };
     this.onAtkConventionToggle = this.onAtkConventionToggle.bind(this);
