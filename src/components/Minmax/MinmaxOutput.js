@@ -12,7 +12,7 @@ class MinmaxOutput extends Component {
     name: PropTypes.string.isRequired,
     level: PropTypes.number.isRequired,
     wild: PropTypes.bool.isRequired,
-    options: PropTypes.object.isRequiredm
+    options: PropTypes.object.isRequired,
   }
 
   constructor(props) {
