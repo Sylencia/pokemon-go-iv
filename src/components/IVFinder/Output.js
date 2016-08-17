@@ -158,7 +158,7 @@ class Output extends Component {
               </thead>
               <tbody>
                 {solutionDisplay.map((solution) => (
-                  <FinderOutputRow {...solution} key={solution.id} />
+                  <FinderOutputRow {...solution} options={this.props.options} key={solution.id} />
                 ))}
               </tbody>
             </table>

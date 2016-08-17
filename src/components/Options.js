@@ -11,9 +11,22 @@ class Options extends Component {
 
     const localOptions = JSON.parse(localStorage.getItem('options')) || [];
     const halfLevel = localOptions.halfLevel || false;
+    const atkFirst = localOptions.halfLevel || false;
 
-    this.state = { halfLevel };
+    this.state = { halfLevel, atkFirst };
+    this.onAtkConventionToggle = this.onAtkConventionToggle.bind(this);
     this.onLevelConventionToggle = this.onLevelConventionToggle.bind(this);
+  }
+
+  onAtkConventionToggle(e) {
+    const state = this.state;
+    state.atkFirst = e.target.checked;
+    localStorage.setItem('options', JSON.stringify(state));
+    this.setState({
+      atkFirst: e.target.checked,
+    });
+
+    this.props.onOptionChangeCB(state);
   }
 
   onLevelConventionToggle(e) {
@@ -35,6 +48,12 @@ class Options extends Component {
               checked={this.state.halfLevel} />
             <i className="form-icon"></i>
             <span>use half levels</span>
+          </label>
+          <label className="form-switch">
+            <input type="checkbox" onChange={this.onAtkConventionToggle}
+              checked={this.state.atkFirst} />
+            <i className="form-icon"></i>
+            <span>show stamina last</span>
           </label>
       </div>
     );
