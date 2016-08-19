@@ -126,6 +126,12 @@ class Output extends Component {
       return <div></div>;
     }
 
+    const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
+    let solutionAmount = '';
+    if (solutionDisplay.length < solutions.length) {
+      solutionAmount = '(First 150 shown)';
+    }
+
     const word = solutions.length === 1 ? 'solution' : 'solutions';
     let range = [];
     if (solutions.length > 1) {
@@ -142,24 +148,22 @@ class Output extends Component {
 
           range.push(
             <tr key={displayLevel}>
-              <th><div className="text-center">{displayLevel}</div></th>
-              <th><div className="text-center">{perfMin}% - {perfMax}%</div></th>
-              <th><div className="text-center">{levelSol.length}</div></th>
+              <td><div className="text-center">{displayLevel}</div></td>
+              <td><div className="text-center">{perfMin}% - {perfMax}%</div></td>
+              <td><div className="text-center">{levelSol.length}</div></td>
             </tr>
           );
         }
       }
     }
 
-    const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
-    let solutionAmount = '';
-    if (solutionDisplay.length < solutions.length) {
-      solutionAmount = '(First 150 shown)';
-    }
+    const summary = (
+      <tr>
+        <td colSpan="3"><center>{solutions.length} {word} found. {solutionAmount}</center></td>
+      </tr>);
 
     return (
       <div className="section">
-          {solutions.length} {word} found. {solutionAmount}<br />
           <table className="table iv-table">
             <thead>
               <tr>
@@ -170,6 +174,7 @@ class Output extends Component {
             </thead>
             <tbody>
               {range}
+              {summary}
             </tbody>
           </table>
           <div className="new-section">

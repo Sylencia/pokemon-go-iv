@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { minBy, maxBy, take, forEach } from 'lodash';
+import { minBy, maxBy, take, forEach, filter } from 'lodash';
 import '~/assets/stylesheets/Output.scss';
 import '~/assets/stylesheets/Utility.scss';
 import * as Helper from '~/components/Helper/HelperFunctions';
@@ -23,7 +23,7 @@ class Output extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.name !== '') {
-      let solutions = [];
+      let solutions = null;
       forEach(nextProps.searchList, (searchObj) => {
         // overkill check
         if (searchObj.cp !== '' || searchObj.hp !== '' || searchObj.dust !== '') {
@@ -39,7 +39,7 @@ class Output extends Component {
   }
 
   filterSolutions(currentSolutions, newSolutions) {
-    if (currentSolutions.length === 0) {
+    if (currentSolutions === null) {
       return newSolutions;
     }
 
@@ -53,7 +53,10 @@ class Output extends Component {
         if (solution1.stamina === solution2.stamina &&
           solution1.attack === solution2.attack &&
           solution1.defense === solution2.defense) {
-          filteredSolutions.push(solution2);
+          const newSolution = solution1;
+          newSolution.displayLevel = `${newSolution.displayLevel}/${solution2.displayLevel}`;
+          filteredSolutions.push(newSolution);
+          break;
         }
       }
     }
@@ -99,7 +102,8 @@ class Output extends Component {
               const perfection = (attack + defense + stamina) / 45 * 100;
 
               newSolutions.push({
-                displayLevel, stamina, attack, defense, id, atkPercent, defPercent, perfection,
+                level, displayLevel, stamina, attack, defense, id, atkPercent, defPercent,
+                perfection,
               });
               id++;
             }
@@ -118,44 +122,74 @@ class Output extends Component {
       return <div></div>;
     }
 
-    const word = solutions.length === 1 ? 'solution' : 'solutions';
-    let range = '';
-    if (solutions.length > 1) {
-      const perfMin = parseFloat(minBy(solutions, 'perfection').perfection).toFixed(0);
-      const perfMax = parseFloat(maxBy(solutions, 'perfection').perfection).toFixed(0);
-
-      range = (
-        <span><b>iv % range:</b> {perfMin}% - {perfMax}%<br /></span>
-      );
-    }
-
     const solutionDisplay = take(solutions, Math.min(solutions.length, 150));
     let solutionAmount = '';
     if (solutionDisplay.length < solutions.length) {
       solutionAmount = '(First 150 shown)';
     }
 
+    const word = solutions.length === 1 ? 'solution' : 'solutions';
+    let range = [];
+    if (solutions.length > 0) {
+      const minLevel = minBy(solutions, 'level').level;
+      const maxLevel = maxBy(solutions, 'level').level;
+
+      for (let i = minLevel; i <= maxLevel; ++i) {
+        const levelSol = filter(solutions, ['level', i]);
+        if (levelSol.length > 0) {
+          const perfMin = parseFloat(minBy(levelSol, 'perfection').perfection).toFixed(0);
+          const perfMax = parseFloat(maxBy(levelSol, 'perfection').perfection).toFixed(0);
+          // hacky way to get the display level without requesting and checking localStorage options
+          const displayLevel = levelSol[0].displayLevel;
+
+          range.push(
+            <tr key={displayLevel}>
+              <td><div className="text-center">{displayLevel}</div></td>
+              <td><div className="text-center">{perfMin}% - {perfMax}%</div></td>
+              <td><div className="text-center">{levelSol.length}</div></td>
+            </tr>
+          );
+        }
+      }
+    }
+
+    const summary = (
+      <tr>
+        <td colSpan="3"><center>{solutions.length} {word} found. {solutionAmount}</center></td>
+      </tr>);
+
     return (
       <div className="section">
-          {solutions.length} {word} found. {solutionAmount}<br />
-          {range}
-          <div className="new-section">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>lv</th>
-                  <th><div className="text-center">ivs</div></th>
-                  <th><div className="text-center">iv %</div></th>
-                  <th><div className="text-center">potential</div></th>
-                </tr>
-              </thead>
-              <tbody>
-                {solutionDisplay.map((solution) => (
-                  <FinderOutputRow {...solution} options={this.props.options} key={solution.id} />
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <table className="table iv-table">
+          <thead>
+            <tr>
+              <th><div className="text-center">lv</div></th>
+              <th><div className="text-center">range</div></th>
+              <th><div className="text-center">solutions</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            {range}
+            {summary}
+          </tbody>
+        </table>
+        <div className="new-section">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>lv</th>
+                <th><div className="text-center">ivs</div></th>
+                <th><div className="text-center">iv %</div></th>
+                <th><div className="text-center">potential</div></th>
+              </tr>
+            </thead>
+            <tbody>
+              {solutionDisplay.map((solution) => (
+                <FinderOutputRow {...solution} options={this.props.options} key={solution.id} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
