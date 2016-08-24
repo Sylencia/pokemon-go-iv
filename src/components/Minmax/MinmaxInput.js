@@ -130,7 +130,7 @@ class MinmaxInput extends Component {
         </div>
         <div className="new-section">
           <div className="checkbox-item">
-            <label className="form-checkbox">
+            <label className="form-switch">
               <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
               <i className="form-icon"></i>
               <span className="checkbox-text">untrained wild</span>

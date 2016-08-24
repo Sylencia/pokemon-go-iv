@@ -148,7 +148,6 @@ class Output extends Component {
             if (calcCP === cp && hp === Math.floor(stats.stamina)
               && appraisalMatch && bestStatMatch && ivStatMatch) {
               const atkPercent = Helper.getOffensivePotential(pokemon, attack, defense, stamina);
-              // pokemon in gyms have double the health
               const defPercent = Helper.getDefensivePotential(pokemon, attack, defense, stamina);
               // ratio between your ivs and max ivs
               const perfection = (attack + defense + stamina) / 45 * 100;

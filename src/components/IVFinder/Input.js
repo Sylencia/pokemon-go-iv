@@ -308,7 +308,7 @@ class Input extends Component {
         {atkCheck}
         {defCheck}
       </div>
-    )
+    );
     if (options.atkFirst) {
       bestStatArea = (
         <div className="checkbox-item">
