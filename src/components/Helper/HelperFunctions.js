@@ -31,6 +31,25 @@ export function calculateCP(atk, def, stam) {
   return Math.max(10, Math.floor(Math.sqrt(stam) * atk * Math.sqrt(def) * 0.1));
 }
 
+export function getOffensivePotential(pkmn, attack, defense, stamina) {
+  const finalPokemon = getPokemonData(pkmn.finalEvolution);
+
+  const stamRatio = finalPokemon.baseStam / (finalPokemon.baseStam + finalPokemon.baseDef);
+  const defRatio = 1 - stamRatio;
+  // Attack can count for 15, Def+Stam can count for 6
+  return (attack + 0.4 * stamRatio * stamina + 0.4 * defRatio * defense) / 21 * 100;
+}
+
+export function getDefensivePotential(pkmn, attack, defense, stamina) {
+  const finalPokemon = getPokemonData(pkmn.finalEvolution);
+
+  // Gym pokemon have 2x health
+  const stamRatio = 2 * finalPokemon.baseStam / (2 * finalPokemon.baseStam + finalPokemon.baseDef);
+  const defRatio = 1 - stamRatio;
+  // Stam+Def count for 30, attack counts for 3.
+  return (2 * defRatio * defense + 2 * stamRatio * stamina + 0.2 * attack) / 33 * 100;
+}
+
 export function getDustData(input) {
   return Dust.find((dust) =>
     (dust.cost === input));

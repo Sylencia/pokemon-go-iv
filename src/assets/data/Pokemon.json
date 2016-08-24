@@ -4,1056 +4,1207 @@
     "number": 1,
     "baseStam": 90,
     "baseAtk": 126,
-    "baseDef": 126
+    "baseDef": 126,
+    "finalEvolution": "Venusaur"
   },
   {
     "name": "Ivysaur",
     "number": 2,
     "baseStam": 120,
     "baseAtk": 156,
-    "baseDef": 158
+    "baseDef": 158,
+    "finalEvolution": "Venusaur"
   },
   {
     "name": "Venusaur",
     "number": 3,
     "baseStam": 160,
     "baseAtk": 198,
-    "baseDef": 200
+    "baseDef": 200,
+    "finalEvolution": "Venusaur"
   },
   {
     "name": "Charmander",
     "number": 4,
     "baseStam": 78,
     "baseAtk": 128,
-    "baseDef": 108
+    "baseDef": 108,
+    "finalEvolution": "Charizard"
   },
   {
     "name": "Charmeleon",
     "number": 5,
     "baseStam": 116,
     "baseAtk": 160,
-    "baseDef": 140
+    "baseDef": 140,
+    "finalEvolution": "Charizard"
   },
   {
     "name": "Charizard",
     "number": 6,
     "baseStam": 156,
     "baseAtk": 212,
-    "baseDef": 182
+    "baseDef": 182,
+    "finalEvolution": "Charizard"
   },
   {
     "name": "Squirtle",
     "number": 7,
     "baseStam": 88,
     "baseAtk": 112,
-    "baseDef": 142
+    "baseDef": 142,
+    "finalEvolution": "Blastoise"
   },
   {
     "name": "Wartortle",
     "number": 8,
     "baseStam": 118,
     "baseAtk": 144,
-    "baseDef": 176
+    "baseDef": 176,
+    "finalEvolution": "Blastoise"
   },
   {
     "name": "Blastoise",
     "number": 9,
     "baseStam": 158,
     "baseAtk": 186,
-    "baseDef": 222
+    "baseDef": 222,
+    "finalEvolution": "Blastoise"
   },
   {
     "name": "Caterpie",
     "number": 10,
     "baseStam": 90,
     "baseAtk": 62,
-    "baseDef": 66
+    "baseDef": 66,
+    "finalEvolution": "Butterfree"
   },
   {
     "name": "Metapod",
     "number": 11,
     "baseStam": 100,
     "baseAtk": 56,
-    "baseDef": 86
+    "baseDef": 86,
+    "finalEvolution": "Butterfree"
   },
   {
     "name": "Butterfree",
     "number": 12,
     "baseStam": 120,
     "baseAtk": 144,
-    "baseDef": 144
+    "baseDef": 144,
+    "finalEvolution": "Butterfree"
   },
   {
     "name": "Weedle",
     "number": 13,
     "baseStam": 80,
     "baseAtk": 68,
-    "baseDef": 64
+    "baseDef": 64,
+    "finalEvolution": "Beedrill"
   },
   {
     "name": "Kakuna",
     "number": 14,
     "baseStam": 90,
     "baseAtk": 62,
-    "baseDef": 82
+    "baseDef": 82,
+    "finalEvolution": "Beedrill"
   },
   {
     "name": "Beedrill",
     "number": 15,
     "baseStam": 130,
     "baseAtk": 144,
-    "baseDef": 130
+    "baseDef": 130,
+    "finalEvolution": "Beedrill"
   },
   {
     "name": "Pidgey",
     "number": 16,
     "baseStam": 80,
     "baseAtk": 94,
-    "baseDef": 90
+    "baseDef": 90,
+    "finalEvolution": "Pidgeot"
   },
   {
     "name": "Pidgeotto",
     "number": 17,
     "baseStam": 126,
     "baseAtk": 126,
-    "baseDef": 122
+    "baseDef": 122,
+    "finalEvolution": "Pidgeot"
   },
   {
     "name": "Pidgeot",
     "number": 18,
     "baseStam": 166,
     "baseAtk": 170,
-    "baseDef": 166
+    "baseDef": 166,
+    "finalEvolution": "Pidgeot"
   },
   {
     "name": "Rattata",
     "number": 19,
     "baseStam": 60,
     "baseAtk": 92,
-    "baseDef": 86
+    "baseDef": 86,
+    "finalEvolution": "Raticate"
   },
   {
     "name": "Raticate",
     "number": 20,
     "baseStam": 110,
     "baseAtk": 146,
-    "baseDef": 150
+    "baseDef": 150,
+    "finalEvolution": "Raticate"
   },
   {
     "name": "Spearow",
     "number": 21,
     "baseStam": 80,
     "baseAtk": 102,
-    "baseDef": 78
+    "baseDef": 78,
+    "finalEvolution": "Fearow"
   },
   {
     "name": "Fearow",
     "number": 22,
     "baseStam": 130,
     "baseAtk": 168,
-    "baseDef": 146
+    "baseDef": 146,
+    "finalEvolution": "Fearow"
   },
   {
     "name": "Ekans",
     "number": 23,
     "baseStam": 70,
     "baseAtk": 112,
-    "baseDef": 112
+    "baseDef": 112,
+    "finalEvolution": "Arbok"
   },
   {
     "name": "Arbok",
     "number": 24,
     "baseStam": 120,
     "baseAtk": 166,
-    "baseDef": 166
+    "baseDef": 166,
+    "finalEvolution": "Arbok"
   },
   {
     "name": "Pikachu",
     "number": 25,
     "baseStam": 70,
     "baseAtk": 124,
-    "baseDef": 108
+    "baseDef": 108,
+    "finalEvolution": "Raichu"
   },
   {
     "name": "Raichu",
     "number": 26,
     "baseStam": 120,
     "baseAtk": 200,
-    "baseDef": 154
+    "baseDef": 154,
+    "finalEvolution": "Raichu"
   },
   {
     "name": "Sandshrew",
     "number": 27,
     "baseStam": 100,
     "baseAtk": 90,
-    "baseDef": 114
+    "baseDef": 114,
+    "finalEvolution": "Sandslash"
   },
   {
     "name": "Sandslash",
     "number": 28,
     "baseStam": 150,
     "baseAtk": 150,
-    "baseDef": 172
+    "baseDef": 172,
+    "finalEvolution": "Sandslash"
   },
   {
     "name": "Nidoran-F",
     "number": 29,
     "baseStam": 110,
     "baseAtk": 100,
-    "baseDef": 104
+    "baseDef": 104,
+    "finalEvolution": "Nidoqueen"
   },
   {
     "name": "Nidorina",
     "number": 30,
     "baseStam": 140,
     "baseAtk": 132,
-    "baseDef": 136
+    "baseDef": 136,
+    "finalEvolution": "Nidoqueen"
   },
   {
     "name": "Nidoqueen",
     "number": 31,
     "baseStam": 180,
     "baseAtk": 184,
-    "baseDef": 190
+    "baseDef": 190,
+    "finalEvolution": "Nidoqueen"
   },
   {
     "name": "Nidoran-M",
     "number": 32,
     "baseStam": 92,
     "baseAtk": 110,
-    "baseDef": 94
+    "baseDef": 94,
+    "finalEvolution": "Nidoking"
   },
   {
     "name": "Nidorino",
     "number": 33,
     "baseStam": 122,
     "baseAtk": 142,
-    "baseDef": 128
+    "baseDef": 128,
+    "finalEvolution": "Nidoking"
   },
   {
     "name": "Nidoking",
     "number": 34,
     "baseStam": 162,
     "baseAtk": 204,
-    "baseDef": 170
+    "baseDef": 170,
+    "finalEvolution": "Nidoking"
   },
   {
     "name": "Clefairy",
     "number": 35,
     "baseStam": 140,
     "baseAtk": 116,
-    "baseDef": 124
+    "baseDef": 124,
+    "finalEvolution": "Clefable"
   },
   {
     "name": "Clefable",
     "number": 36,
     "baseStam": 190,
     "baseAtk": 178,
-    "baseDef": 178
+    "baseDef": 178,
+    "finalEvolution": "Clefable"
   },
   {
     "name": "Vulpix",
     "number": 37,
     "baseStam": 76,
     "baseAtk": 106,
-    "baseDef": 118
+    "baseDef": 118,
+    "finalEvolution": "Ninetales"
   },
   {
     "name": "Ninetales",
     "number": 38,
     "baseStam": 146,
     "baseAtk": 176,
-    "baseDef": 194
+    "baseDef": 194,
+    "finalEvolution": "Ninetales"
   },
   {
     "name": "Jigglypuff",
     "number": 39,
     "baseStam": 230,
     "baseAtk": 98,
-    "baseDef": 54
+    "baseDef": 54,
+    "finalEvolution": "Wigglytuff"
   },
   {
     "name": "Wigglytuff",
     "number": 40,
     "baseStam": 280,
     "baseAtk": 168,
-    "baseDef": 108
+    "baseDef": 108,
+    "finalEvolution": "Wigglytuff"
   },
   {
     "name": "Zubat",
     "number": 41,
     "baseStam": 80,
     "baseAtk": 88,
-    "baseDef": 90
+    "baseDef": 90,
+    "finalEvolution": "Golbat"
   },
   {
     "name": "Golbat",
     "number": 42,
     "baseStam": 150,
     "baseAtk": 164,
-    "baseDef": 164
+    "baseDef": 164,
+    "finalEvolution": "Golbat"
   },
   {
     "name": "Oddish",
     "number": 43,
     "baseStam": 90,
     "baseAtk": 134,
-    "baseDef": 130
+    "baseDef": 130,
+    "finalEvolution": "Vileplume"
   },
   {
     "name": "Gloom",
     "number": 44,
     "baseStam": 120,
     "baseAtk": 162,
-    "baseDef": 158
+    "baseDef": 158,
+    "finalEvolution": "Vileplume"
   },
   {
     "name": "Vileplume",
     "number": 45,
     "baseStam": 150,
     "baseAtk": 202,
-    "baseDef": 190
+    "baseDef": 190,
+    "finalEvolution": "Vileplume"
   },
   {
     "name": "Paras",
     "number": 46,
     "baseStam": 70,
     "baseAtk": 122,
-    "baseDef": 120
+    "baseDef": 120,
+    "finalEvolution": "Parasect"
   },
   {
     "name": "Parasect",
     "number": 47,
     "baseStam": 120,
     "baseAtk": 162,
-    "baseDef": 170
+    "baseDef": 170,
+    "finalEvolution": "Parasect"
   },
   {
     "name": "Venonat",
     "number": 48,
     "baseStam": 120,
     "baseAtk": 108,
-    "baseDef": 118
+    "baseDef": 118,
+    "finalEvolution": "Venomoth"
   },
   {
     "name": "Venomoth",
     "number": 49,
     "baseStam": 140,
     "baseAtk": 172,
-    "baseDef": 154
+    "baseDef": 154,
+    "finalEvolution": "Venomoth"
   },
   {
     "name": "Diglett",
     "number": 50,
     "baseStam": 20,
     "baseAtk": 108,
-    "baseDef": 86
+    "baseDef": 86,
+    "finalEvolution": "Dugtrio"
   },
   {
     "name": "Dugtrio",
     "number": 51,
     "baseStam": 70,
     "baseAtk": 148,
-    "baseDef": 140
+    "baseDef": 140,
+    "finalEvolution": "Dugtrio"
   },
   {
     "name": "Meowth",
     "number": 52,
     "baseStam": 80,
     "baseAtk": 104,
-    "baseDef": 94
+    "baseDef": 94,
+    "finalEvolution": "Persian"
   },
   {
     "name": "Persian",
     "number": 53,
     "baseStam": 130,
     "baseAtk": 156,
-    "baseDef": 146
+    "baseDef": 146,
+    "finalEvolution": "Persian"
   },
   {
     "name": "Psyduck",
     "number": 54,
     "baseStam": 100,
     "baseAtk": 132,
-    "baseDef": 112
+    "baseDef": 112,
+    "finalEvolution": "Golduck"
   },
   {
     "name": "Golduck",
     "number": 55,
     "baseStam": 160,
     "baseAtk": 194,
-    "baseDef": 176
+    "baseDef": 176,
+    "finalEvolution": "Golduck"
   },
   {
     "name": "Mankey",
     "number": 56,
     "baseStam": 80,
     "baseAtk": 122,
-    "baseDef": 96
+    "baseDef": 96,
+    "finalEvolution": "Primeape"
   },
   {
     "name": "Primeape",
     "number": 57,
     "baseStam": 130,
     "baseAtk": 178,
-    "baseDef": 150
+    "baseDef": 150,
+    "finalEvolution": "Primeape"
   },
   {
     "name": "Growlithe",
     "number": 58,
     "baseStam": 110,
     "baseAtk": 156,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Arcanine"
   },
   {
     "name": "Arcanine",
     "number": 59,
     "baseStam": 180,
     "baseAtk": 230,
-    "baseDef": 180
+    "baseDef": 180,
+    "finalEvolution": "Arcanine"
   },
   {
     "name": "Poliwag",
     "number": 60,
     "baseStam": 80,
     "baseAtk": 108,
-    "baseDef": 98
+    "baseDef": 98,
+    "finalEvolution": "Poliwrath"
   },
   {
     "name": "Poliwhirl",
     "number": 61,
     "baseStam": 130,
     "baseAtk": 132,
-    "baseDef": 132
+    "baseDef": 132,
+    "finalEvolution": "Poliwrath"
   },
   {
     "name": "Poliwrath",
     "number": 62,
     "baseStam": 180,
     "baseAtk": 180,
-    "baseDef": 202
+    "baseDef": 202,
+    "finalEvolution": "Poliwrath"
   },
   {
     "name": "Abra",
     "number": 63,
     "baseStam": 50,
     "baseAtk": 110,
-    "baseDef": 76
+    "baseDef": 76,
+    "finalEvolution": "Alakazam"
   },
   {
     "name": "Kadabra",
     "number": 64,
     "baseStam": 80,
     "baseAtk": 150,
-    "baseDef": 112
+    "baseDef": 112,
+    "finalEvolution": "Alakazam"
   },
   {
     "name": "Alakazam",
     "number": 65,
     "baseStam": 110,
     "baseAtk": 186,
-    "baseDef": 152
+    "baseDef": 152,
+    "finalEvolution": "Alakazam"
   },
   {
     "name": "Machop",
     "number": 66,
     "baseStam": 140,
     "baseAtk": 118,
-    "baseDef": 96
+    "baseDef": 96,
+    "finalEvolution": "Machamp"
   },
   {
     "name": "Machoke",
     "number": 67,
     "baseStam": 160,
     "baseAtk": 154,
-    "baseDef": 144
+    "baseDef": 144,
+    "finalEvolution": "Machamp"
   },
   {
     "name": "Machamp",
     "number": 68,
     "baseStam": 180,
     "baseAtk": 198,
-    "baseDef": 180
+    "baseDef": 180,
+    "finalEvolution": "Machamp"
   },
   {
     "name": "Bellsprout",
     "number": 69,
     "baseStam": 100,
     "baseAtk": 158,
-    "baseDef": 78
+    "baseDef": 78,
+    "finalEvolution": "Victreebel"
   },
   {
     "name": "Weepinbell",
     "number": 70,
     "baseStam": 130,
     "baseAtk": 190,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Victreebel"
   },
   {
     "name": "Victreebel",
     "number": 71,
     "baseStam": 160,
     "baseAtk": 222,
-    "baseDef": 152
+    "baseDef": 152,
+    "finalEvolution": "Victreebel"
   },
   {
     "name": "Tentacool",
     "number": 72,
     "baseStam": 80,
     "baseAtk": 106,
-    "baseDef": 136
+    "baseDef": 136,
+    "finalEvolution": "Tentacruel"
   },
   {
     "name": "Tentacruel",
     "number": 73,
     "baseStam": 160,
     "baseAtk": 170,
-    "baseDef": 196
+    "baseDef": 196,
+    "finalEvolution": "Tentacruel"
   },
   {
     "name": "Geodude",
     "number": 74,
     "baseStam": 80,
     "baseAtk": 106,
-    "baseDef": 118
+    "baseDef": 118,
+    "finalEvolution": "Golem"
   },
   {
     "name": "Graveler",
     "number": 75,
     "baseStam": 110,
     "baseAtk": 142,
-    "baseDef": 156
+    "baseDef": 156,
+    "finalEvolution": "Golem"
   },
   {
     "name": "Golem",
     "number": 76,
     "baseStam": 160,
     "baseAtk": 176,
-    "baseDef": 198
+    "baseDef": 198,
+    "finalEvolution": "Golem"
   },
   {
     "name": "Ponyta",
     "number": 77,
     "baseStam": 100,
     "baseAtk": 168,
-    "baseDef": 138
+    "baseDef": 138,
+    "finalEvolution": "Rapidash"
   },
   {
     "name": "Rapidash",
     "number": 78,
     "baseStam": 130,
     "baseAtk": 200,
-    "baseDef": 170
+    "baseDef": 170,
+    "finalEvolution": "Rapidash"
   },
   {
     "name": "Slowpoke",
     "number": 79,
     "baseStam": 180,
     "baseAtk": 110,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Slowbro"
   },
   {
     "name": "Slowbro",
     "number": 80,
     "baseStam": 190,
     "baseAtk": 184,
-    "baseDef": 198
+    "baseDef": 198,
+    "finalEvolution": "Slowbro"
   },
   {
     "name": "Magnemite",
     "number": 81,
     "baseStam": 50,
     "baseAtk": 128,
-    "baseDef": 138
+    "baseDef": 138,
+    "finalEvolution": "Magneton"
   },
   {
     "name": "Magneton",
     "number": 82,
     "baseStam": 100,
     "baseAtk": 186,
-    "baseDef": 180
+    "baseDef": 180,
+    "finalEvolution": "Magneton"
   },
   {
     "name": "Farfetch'd",
     "number": 83,
     "baseStam": 104,
     "baseAtk": 138,
-    "baseDef": 132
+    "baseDef": 132,
+    "finalEvolution": "Farfetch'd"
   },
   {
     "name": "Doduo",
     "number": 84,
     "baseStam": 70,
     "baseAtk": 126,
-    "baseDef": 96
+    "baseDef": 96,
+    "finalEvolution": "Dodrio"
   },
   {
     "name": "Dodrio",
     "number": 85,
     "baseStam": 120,
     "baseAtk": 182,
-    "baseDef": 150
+    "baseDef": 150,
+    "finalEvolution": "Dodrio"
   },
   {
     "name": "Seel",
     "number": 86,
     "baseStam": 130,
     "baseAtk": 104,
-    "baseDef": 138
+    "baseDef": 138,
+    "finalEvolution": "Dewgong"
   },
   {
     "name": "Dewgong",
     "number": 87,
     "baseStam": 180,
     "baseAtk": 156,
-    "baseDef": 192
+    "baseDef": 192,
+    "finalEvolution": "Dewgong"
   },
   {
     "name": "Grimer",
     "number": 88,
     "baseStam": 160,
     "baseAtk": 124,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Muk"
   },
   {
     "name": "Muk",
     "number": 89,
     "baseStam": 210,
     "baseAtk": 180,
-    "baseDef": 188
+    "baseDef": 188,
+    "finalEvolution": "Muk"
   },
   {
     "name": "Shellder",
     "number": 90,
     "baseStam": 60,
     "baseAtk": 120,
-    "baseDef": 112
+    "baseDef": 112,
+    "finalEvolution": "Cloyster"
   },
   {
     "name": "Cloyster",
     "number": 91,
     "baseStam": 100,
     "baseAtk": 196,
-    "baseDef": 196
+    "baseDef": 196,
+    "finalEvolution": "Cloyster"
   },
   {
     "name": "Gastly",
     "number": 92,
     "baseStam": 60,
     "baseAtk": 136,
-    "baseDef": 82
+    "baseDef": 82,
+    "finalEvolution": "Gengar"
   },
   {
     "name": "Haunter",
     "number": 93,
     "baseStam": 90,
     "baseAtk": 172,
-    "baseDef": 118
+    "baseDef": 118,
+    "finalEvolution": "Gengar"
   },
   {
     "name": "Gengar",
     "number": 94,
     "baseStam": 120,
     "baseAtk": 204,
-    "baseDef": 156
+    "baseDef": 156,
+    "finalEvolution": "Gengar"
   },
   {
     "name": "Onix",
     "number": 95,
     "baseStam": 70,
     "baseAtk": 90,
-    "baseDef": 186
+    "baseDef": 186,
+    "finalEvolution": "Onix"
   },
   {
     "name": "Drowzee",
     "number": 96,
     "baseStam": 120,
     "baseAtk": 104,
-    "baseDef": 140
+    "baseDef": 140,
+    "finalEvolution": "Hypno"
   },
   {
     "name": "Hypno",
     "number": 97,
     "baseStam": 170,
     "baseAtk": 162,
-    "baseDef": 196
+    "baseDef": 196,
+    "finalEvolution": "Hypno"
   },
   {
     "name": "Krabby",
     "number": 98,
     "baseStam": 60,
     "baseAtk": 116,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Kingler"
   },
   {
     "name": "Kingler",
     "number": 99,
     "baseStam": 110,
     "baseAtk": 178,
-    "baseDef": 168
+    "baseDef": 168,
+    "finalEvolution": "Kingler"
   },
   {
     "name": "Voltorb",
     "number": 100,
     "baseStam": 80,
     "baseAtk": 102,
-    "baseDef": 124
+    "baseDef": 124,
+    "finalEvolution": "Electrode"
   },
   {
     "name": "Electrode",
     "number": 101,
     "baseStam": 120,
     "baseAtk": 150,
-    "baseDef": 174
+    "baseDef": 174,
+    "finalEvolution": "Electrode"
   },
   {
     "name": "Exeggcute",
     "number": 102,
     "baseStam": 120,
     "baseAtk": 110,
-    "baseDef": 132
+    "baseDef": 132,
+    "finalEvolution": "Exeggutor"
   },
   {
     "name": "Exeggutor",
     "number": 103,
     "baseStam": 190,
     "baseAtk": 232,
-    "baseDef": 164
+    "baseDef": 164,
+    "finalEvolution": "Exeggutor"
   },
   {
     "name": "Cubone",
     "number": 104,
     "baseStam": 100,
     "baseAtk": 102,
-    "baseDef": 150
+    "baseDef": 150,
+    "finalEvolution": "Marowak"
   },
   {
     "name": "Marowak",
     "number": 105,
     "baseStam": 120,
     "baseAtk": 140,
-    "baseDef": 202
+    "baseDef": 202,
+    "finalEvolution": "Marowak"
   },
   {
     "name": "Hitmonlee",
     "number": 106,
     "baseStam": 100,
     "baseAtk": 148,
-    "baseDef": 172
+    "baseDef": 172,
+    "finalEvolution": "Hitmonlee"
   },
   {
     "name": "Hitmonchan",
     "number": 107,
     "baseStam": 100,
     "baseAtk": 138,
-    "baseDef": 204
+    "baseDef": 204,
+    "finalEvolution": "Hitmonchan"
   },
   {
     "name": "Lickitung",
     "number": 108,
     "baseStam": 180,
     "baseAtk": 126,
-    "baseDef": 160
+    "baseDef": 160,
+    "finalEvolution": "Lickitung"
   },
   {
     "name": "Koffing",
     "number": 109,
     "baseStam": 80,
     "baseAtk": 136,
-    "baseDef": 142
+    "baseDef": 142,
+    "finalEvolution": "Weezing"
   },
   {
     "name": "Weezing",
     "number": 110,
     "baseStam": 130,
     "baseAtk": 190,
-    "baseDef": 198
+    "baseDef": 198,
+    "finalEvolution": "Weezing"
   },
   {
     "name": "Rhyhorn",
     "number": 111,
     "baseStam": 160,
     "baseAtk": 110,
-    "baseDef": 116
+    "baseDef": 116,
+    "finalEvolution": "Rhydon"
   },
   {
     "name": "Rhydon",
     "number": 112,
     "baseStam": 210,
     "baseAtk": 166,
-    "baseDef": 160
+    "baseDef": 160,
+    "finalEvolution": "Rhydon"
   },
   {
     "name": "Chansey",
     "number": 113,
     "baseStam": 500,
     "baseAtk": 40,
-    "baseDef": 60
+    "baseDef": 60,
+    "finalEvolution": "Chansey"
   },
   {
     "name": "Tangela",
     "number": 114,
     "baseStam": 130,
     "baseAtk": 164,
-    "baseDef": 152
+    "baseDef": 152,
+    "finalEvolution": "Tangela"
   },
   {
     "name": "Kangaskhan",
     "number": 115,
     "baseStam": 210,
     "baseAtk": 142,
-    "baseDef": 178
+    "baseDef": 178,
+    "finalEvolution": "Kangaskhan"
   },
   {
     "name": "Horsea",
     "number": 116,
     "baseStam": 60,
     "baseAtk": 122,
-    "baseDef": 100
+    "baseDef": 100,
+    "finalEvolution": "Seadra"
   },
   {
     "name": "Seadra",
     "number": 117,
     "baseStam": 110,
     "baseAtk": 176,
-    "baseDef": 150
+    "baseDef": 150,
+    "finalEvolution": "Seadra"
   },
   {
     "name": "Goldeen",
     "number": 118,
     "baseStam": 90,
     "baseAtk": 112,
-    "baseDef": 126
+    "baseDef": 126,
+    "finalEvolution": "Seaking"
   },
   {
     "name": "Seaking",
     "number": 119,
     "baseStam": 160,
     "baseAtk": 172,
-    "baseDef": 160
+    "baseDef": 160,
+    "finalEvolution": "Seaking"
   },
   {
     "name": "Staryu",
     "number": 120,
     "baseStam": 60,
     "baseAtk": 130,
-    "baseDef": 128
+    "baseDef": 128,
+    "finalEvolution": "Starmie"
   },
   {
     "name": "Starmie",
     "number": 121,
     "baseStam": 120,
     "baseAtk": 194,
-    "baseDef": 192
+    "baseDef": 192,
+    "finalEvolution": "Starmie"
   },
   {
     "name": "Mr. Mime",
     "number": 122,
     "baseStam": 80,
     "baseAtk": 154,
-    "baseDef": 196
+    "baseDef": 196,
+    "finalEvolution": "Mr. Mime"
   },
   {
     "name": "Scyther",
     "number": 123,
     "baseStam": 140,
     "baseAtk": 176,
-    "baseDef": 180
+    "baseDef": 180,
+    "finalEvolution": "Scyther"
   },
   {
     "name": "Jynx",
     "number": 124,
     "baseStam": 130,
     "baseAtk": 172,
-    "baseDef": 134
+    "baseDef": 134,
+    "finalEvolution": "Jynx"
   },
   {
     "name": "Electabuzz",
     "number": 125,
     "baseStam": 130,
     "baseAtk": 198,
-    "baseDef": 160
+    "baseDef": 160,
+    "finalEvolution": "Electabuzz"
   },
   {
     "name": "Magmar",
     "number": 126,
     "baseStam": 130,
     "baseAtk": 214,
-    "baseDef": 158
+    "baseDef": 158,
+    "finalEvolution": "Magmar"
   },
   {
     "name": "Pinsir",
     "number": 127,
     "baseStam": 130,
     "baseAtk": 184,
-    "baseDef": 186
+    "baseDef": 186,
+    "finalEvolution": "Pinsir"
   },
   {
     "name": "Tauros",
     "number": 128,
     "baseStam": 150,
     "baseAtk": 148,
-    "baseDef": 184
+    "baseDef": 184,
+    "finalEvolution": "Tauros"
   },
   {
     "name": "Magikarp",
     "number": 129,
     "baseStam": 40,
     "baseAtk": 42,
-    "baseDef": 84
+    "baseDef": 84,
+    "finalEvolution": "Gyarados"
   },
   {
     "name": "Gyarados",
     "number": 130,
     "baseStam": 190,
     "baseAtk": 192,
-    "baseDef": 196
+    "baseDef": 196,
+    "finalEvolution": "Gyarados"
   },
   {
     "name": "Lapras",
     "number": 131,
     "baseStam": 260,
     "baseAtk": 186,
-    "baseDef": 190
+    "baseDef": 190,
+    "finalEvolution": "Lapras"
   },
   {
     "name": "Ditto",
     "number": 132,
     "baseStam": 96,
     "baseAtk": 110,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Ditto"
   },
   {
     "name": "Eevee",
     "number": 133,
     "baseStam": 110,
     "baseAtk": 114,
-    "baseDef": 128
+    "baseDef": 128,
+    "finalEvolution": "Eevee"
   },
   {
     "name": "Vaporeon",
     "number": 134,
     "baseStam": 260,
     "baseAtk": 186,
-    "baseDef": 168
+    "baseDef": 168,
+    "finalEvolution": "Vaporeon"
   },
   {
     "name": "Jolteon",
     "number": 135,
     "baseStam": 130,
     "baseAtk": 192,
-    "baseDef": 174
+    "baseDef": 174,
+    "finalEvolution": "Jolteon"
   },
   {
     "name": "Flareon",
     "number": 136,
     "baseStam": 130,
     "baseAtk": 238,
-    "baseDef": 178
+    "baseDef": 178,
+    "finalEvolution": "Flareon"
   },
   {
     "name": "Porygon",
     "number": 137,
     "baseStam": 130,
     "baseAtk": 156,
-    "baseDef": 158
+    "baseDef": 158,
+    "finalEvolution": "Porygon"
   },
   {
     "name": "Omanyte",
     "number": 138,
     "baseStam": 70,
     "baseAtk": 132,
-    "baseDef": 160
+    "baseDef": 160,
+    "finalEvolution": "Omastar"
   },
   {
     "name": "Omastar",
     "number": 139,
     "baseStam": 140,
     "baseAtk": 180,
-    "baseDef": 202
+    "baseDef": 202,
+    "finalEvolution": "Omastar"
   },
   {
     "name": "Kabuto",
     "number": 140,
     "baseStam": 60,
     "baseAtk": 148,
-    "baseDef": 142
+    "baseDef": 142,
+    "finalEvolution": "Kabutops"
   },
   {
     "name": "Kabutops",
     "number": 141,
     "baseStam": 120,
     "baseAtk": 190,
-    "baseDef": 190
+    "baseDef": 190,
+    "finalEvolution": "Kabutops"
   },
   {
     "name": "Aerodactyl",
     "number": 142,
     "baseStam": 160,
     "baseAtk": 182,
-    "baseDef": 162
+    "baseDef": 162,
+    "finalEvolution": "Aerodactyl"
   },
   {
     "name": "Snorlax",
     "number": 143,
     "baseStam": 320,
     "baseAtk": 180,
-    "baseDef": 180
+    "baseDef": 180,
+    "finalEvolution": "Snorlax"
   },
   {
     "name": "Articuno",
     "number": 144,
     "baseStam": 180,
     "baseAtk": 198,
-    "baseDef": 242
+    "baseDef": 242,
+    "finalEvolution": "Articuno"
   },
   {
     "name": "Zapdos",
     "number": 145,
     "baseStam": 180,
     "baseAtk": 232,
-    "baseDef": 194
+    "baseDef": 194,
+    "finalEvolution": "Zapdos"
   },
   {
     "name": "Moltres",
     "number": 146,
     "baseStam": 180,
     "baseAtk": 242,
-    "baseDef": 194
+    "baseDef": 194,
+    "finalEvolution": "Moltres"
   },
   {
     "name": "Dratini",
     "number": 147,
     "baseStam": 82,
     "baseAtk": 128,
-    "baseDef": 110
+    "baseDef": 110,
+    "finalEvolution": "Dragonite"
   },
   {
     "name": "Dragonair",
     "number": 148,
     "baseStam": 122,
     "baseAtk": 170,
-    "baseDef": 152
+    "baseDef": 152,
+    "finalEvolution": "Dragonite"
   },
   {
     "name": "Dragonite",
     "number": 149,
     "baseStam": 182,
     "baseAtk": 250,
-    "baseDef": 212
+    "baseDef": 212,
+    "finalEvolution": "Dragonite"
   },
   {
     "name": "Mewtwo",
     "number": 150,
     "baseStam": 212,
     "baseAtk": 284,
-    "baseDef": 202
+    "baseDef": 202,
+    "finalEvolution": "Mewtwo"
   },
   {
     "name": "Mew",
     "number": 151,
     "baseStam": 200,
     "baseAtk": 220,
-    "baseDef": 220
+    "baseDef": 220,
+    "finalEvolution": "Mew"
   }
 ]

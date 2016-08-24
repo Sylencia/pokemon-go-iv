@@ -137,7 +137,8 @@ class Output extends Component {
               statToCheck = attack;
             }
             if (bestStat === 'd' && defense > attack && defense > stamina) {
-              bestStatMatch = defense;
+              bestStatMatch = true;
+              statToCheck = defense;
             }
 
             let ivStatMatch = false;
@@ -151,15 +152,9 @@ class Output extends Component {
 
             if (calcCP === cp && hp === Math.floor(stats.stamina)
               && appraisalMatch && bestStatMatch && ivStatMatch) {
-              let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
-              let defRatio = 1 - stamRatio;
-              const atkPercent =
-                (attack + 0.4 * stamRatio * stamina + 0.4 * defRatio * defense) / 21 * 100;
+              const atkPercent = Helper.getOffensivePotential(pokemon, attack, defense, stamina);
               // pokemon in gyms have double the health
-              stamRatio = 2 * pokemon.baseStam / (2 * pokemon.baseStam + pokemon.baseDef);
-              defRatio = 1 - stamRatio;
-              const defPercent =
-                (2 * defRatio * defense + 2 * stamRatio * stamina + 0.2 * attack) / 33 * 100;
+              const defPercent = Helper.getDefensivePotential(pokemon, attack, defense, stamina);
               // ratio between your ivs and max ivs
               const perfection = (attack + defense + stamina) / 45 * 100;
 
