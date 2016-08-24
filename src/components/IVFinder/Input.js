@@ -15,10 +15,7 @@ class Input extends Component {
   constructor(props) {
     super(props);
 
-    const trainerLevel = localStorage.getItem('trainerLevel') || '';
-
     this.state = {
-      trainerLevel,
       name: '',
       cp: '',
       hp: '',
@@ -44,7 +41,6 @@ class Input extends Component {
     this.onAtkBestChange = this.onAtkBestChange.bind(this);
     this.onDefBestChange = this.onDefBestChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
-    this.onTrainerChange = this.onTrainerChange.bind(this);
     this.onOverallAnalysisChange = this.onOverallAnalysisChange.bind(this);
     this.onIVAppraisalChange = this.onIVAppraisalChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -71,25 +67,24 @@ class Input extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { trainerLevel, name, cp, hp, dust } = this.state;
+    const { name, cp, hp, dust } = this.state;
 
-    const validTrainerLevel = Helper.validateLevelEntry(trainerLevel);
     const validPokemon = Helper.validatePokemonEntry(name);
     const validCP = Helper.validateNumericEntry(cp);
     const validHP = Helper.validateNumericEntry(hp);
     const validDust = Helper.validateDustEntry(dust);
-    const valid = validPokemon && validCP && validDust && validHP && validTrainerLevel;
+    const valid = validPokemon && validCP && validDust && validHP;
 
     this.onNewSearchSubmit(valid);
   }
 
   onNewSearchSubmit(valid) {
-    const { trainerLevel, name, cp, hp, dust, wild,
+    const { name, cp, hp, dust, wild,
       atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
 
     if (valid) {
       const bestString = Helper.getBestString(stamBest, atkBest, defBest);
-      this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
+      this.props.onInputSubmitCB(name.toLowerCase(), Number(cp), Number(hp),
         Number(dust), overallAppraisal, bestString, ivAppraisal, wild, true);
 
       this.setState({
@@ -99,12 +94,12 @@ class Input extends Component {
   }
 
   onFilterSubmit(valid) {
-    const { trainerLevel, name, cp, hp, dust,
+    const { name, cp, hp, dust,
       atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
 
     if (valid) {
       const bestString = Helper.getBestString(stamBest, atkBest, defBest);
-      this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
+      this.props.onInputSubmitCB(name.toLowerCase(), Number(cp), Number(hp),
         Number(dust), overallAppraisal, bestString, ivAppraisal, false, false);
     }
   }
@@ -169,32 +164,22 @@ class Input extends Component {
     });
   }
 
-  onTrainerChange(e) {
-    localStorage.setItem('trainerLevel', e.target.value);
-
-    this.setState({
-      trainerLevel: e.target.value,
-    });
-  }
-
   handleFocus(e) {
     e.target.select();
   }
 
   render() {
-    const { trainerLevel, name, cp, hp, dust, wild,
+    const { name, cp, hp, dust, wild,
       atkBest, defBest, stamBest, isNewSearch, overallAppraisal, ivAppraisal } = this.state;
     const { options } = this.props;
     const { pokemonList, dustList } = this;
 
-    const validTrainerLevel = Helper.validateLevelEntry(trainerLevel);
     const validPokemon = Helper.validatePokemonEntry(name);
     const validCP = Helper.validateNumericEntry(cp);
     const validHP = Helper.validateNumericEntry(hp);
     const validDust = Helper.validateDustEntry(dust);
-    const valid = validPokemon && validCP && validDust && validHP && validTrainerLevel;
+    const valid = validPokemon && validCP && validDust && validHP;
 
-    const trainerStatus = Helper.getValidityIcon(validTrainerLevel);
     const nameStatus = Helper.getValidityIcon(validPokemon);
     const cpStatus = Helper.getValidityIcon(validCP);
     const hpStatus = Helper.getValidityIcon(validHP);
@@ -294,13 +279,6 @@ class Input extends Component {
 
     return (
       <form className="section" onSubmit={this.onSubmit}>
-        <div className="input-group">
-          <span className="input-group-addon addon-lg left-addon">trainer lv</span>
-          <input onChange={this.onTrainerChange} className="form-input input-lg"
-            onFocus={this.handleFocus}
-            onMouseUp={(e) => {e.preventDefault();}} value={trainerLevel}></input>
-          <span className="input-group-addon addon-lg right-addon">{trainerStatus}</span>
-        </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">pokémon</span>
           {nameElement}

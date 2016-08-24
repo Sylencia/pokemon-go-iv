@@ -11,7 +11,6 @@ export default class IVFinder extends Component {
     const options = JSON.parse(localStorage.getItem('options')) || {};
 
     this.state = {
-      trainerLevel: 0,
       name: '',
       cp: 0,
       hp: 0,
@@ -32,10 +31,10 @@ export default class IVFinder extends Component {
     document.title = 'iv.solo';
   }
 
-  onInputSubmission(trainerLevel, name, cp, hp, dust, overallAppraisal,
+  onInputSubmission(name, cp, hp, dust, overallAppraisal,
     bestStat, ivAppraisal, wild, newSearch) {
     this.setState({
-      trainerLevel, name, cp, hp, dust, bestStat, overallAppraisal, ivAppraisal, wild, newSearch,
+      name, cp, hp, dust, bestStat, overallAppraisal, ivAppraisal, wild, newSearch,
     });
   }
 

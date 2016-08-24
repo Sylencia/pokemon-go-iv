@@ -13,14 +13,14 @@ class Options extends Component {
     const halfLevel = localOptions.halfLevel || false;
     const atkFirst = localOptions.atkFirst || false;
     const team = localOptions.team || 'mystic';
-    const showToast = localOptions.showToast || true;
+    const hideToast = localOptions.hideToast || false;
 
     this.state = {
       options: {
         halfLevel,
         atkFirst,
         team,
-        showToast,
+        hideToast,
       },
       modalOpen: false,
     };
@@ -81,7 +81,7 @@ class Options extends Component {
 
   closeToast() {
     const optionsState = this.state.options;
-    optionsState.showToast = false;
+    optionsState.hideToast = true;
     localStorage.setItem('options', JSON.stringify(optionsState));
 
     this.setState({
@@ -100,7 +100,7 @@ class Options extends Component {
     }
 
     let toast = '';
-    if (options.showToast) {
+    if (!options.hideToast) {
       toast = (
         <div className="toast toast-primary">
           <button className="btn btn-clear float-right" onClick={this.closeToast} />

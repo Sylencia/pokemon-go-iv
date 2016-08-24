@@ -123,7 +123,7 @@ class MinmaxInput extends Component {
           <span className="input-group-addon addon-lg right-addon">{levelStatus}</span>
         </div>
         <div className="input-group">
-          <span className="input-group-addon addon-lg left-addon">name</span>
+          <span className="input-group-addon addon-lg left-addon">pokémon</span>
           {nameElement}
           {dataList}
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>

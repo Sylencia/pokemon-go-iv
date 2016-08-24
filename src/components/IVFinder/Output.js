@@ -9,7 +9,6 @@ import InputTableRow from './InputTableRow';
 
 class Output extends Component {
   static propTypes = {
-    trainerLevel: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     hp: PropTypes.number.isRequired,
     cp: PropTypes.number.isRequired,
@@ -71,20 +70,16 @@ class Output extends Component {
 
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
-    const { trainerLevel, hp, cp, name, dust, wild,
-      overallAppraisal, bestStat, ivAppraisal, newSearch, options } = newProps;
+    const { hp, cp, name, dust, wild,
+      overallAppraisal, bestStat, ivAppraisal, options } = newProps;
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
     const pokemon = Helper.getPokemonData(name);
 
     let id = 0;
     const increment = wild ? 2 : 1;
-    const maxLevel = newSearch && wild ?
-      // MAX LEVEL OF POKEMON IS 2 * Trainer Level - 1, capped at 30
-      Math.min(59, 2 * trainerLevel - 1, dustData.maxLevel) :
-      dustData.maxLevel;
 
-    for (let level = dustData.minLevel; level <= maxLevel; level += increment) {
+    for (let level = dustData.minLevel; level <= dustData.maxLevel; level += increment) {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
@@ -219,7 +214,7 @@ class Output extends Component {
           <table className="table iv-table">
             <thead>
               <tr>
-                <th><div className="text-center">lv</div></th>
+                <th><div className="text-center">level</div></th>
                 <th><div className="text-center">range</div></th>
                 <th><div className="text-center">solutions</div></th>
               </tr>
@@ -233,7 +228,7 @@ class Output extends Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th>lv</th>
+                  <th>level</th>
                   <th><div className="text-center">ivs</div></th>
                   <th><div className="text-center">iv %</div></th>
                   <th><div className="text-center">potential</div></th>
