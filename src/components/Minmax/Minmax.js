@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import MinmaxInput from './MinmaxInput';
 import MinmaxOutput from './MinmaxOutput';
 import MinmaxHeader from './MinmaxHeader';
-import Options from '../Options';
 
 export default class Minmax extends Component {
   constructor() {
