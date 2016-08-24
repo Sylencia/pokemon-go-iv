@@ -13,6 +13,9 @@ export default class Multi extends Component {
     this.state = {
       name: '',
       searchList: [],
+      overallAppraisal: '',
+      bestStat: '',
+      ivAppraisal: '',
       options,
     };
 
@@ -24,10 +27,13 @@ export default class Multi extends Component {
     document.title = 'iv.multi';
   }
 
-  onInputSubmit(name, searchList) {
+  onInputSubmit(name, searchList, overallAppraisal, bestStat, ivAppraisal) {
     this.setState({
       name,
       searchList,
+      overallAppraisal,
+      bestStat,
+      ivAppraisal,
     });
   }
 
@@ -42,7 +48,7 @@ export default class Multi extends Component {
 			<div className="page">
           <MultiHeader onOptionChangeCB={this.onOptionChange} />
         <div className="middle-section">
-          <MultiInput onInputSubmitCB={this.onInputSubmit} />
+          <MultiInput onInputSubmitCB={this.onInputSubmit} options={this.state.options} />
         </div>
           <MultiOutput {...this.state} />
 			</div>

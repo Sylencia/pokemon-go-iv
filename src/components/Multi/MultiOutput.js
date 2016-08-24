@@ -11,6 +11,9 @@ class Output extends Component {
     name: PropTypes.string.isRequired,
     searchList: PropTypes.array.isRequired,
     options: PropTypes.object.isRequired,
+    bestStat: PropTypes.string.isRequired,
+    overallAppraisal: PropTypes.string.isRequired,
+    ivAppraisal: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -66,12 +69,14 @@ class Output extends Component {
 
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(nextProps, searchData) {
+    const { name, options,
+      overallAppraisal, bestStat, ivAppraisal } = nextProps;
     const hp = Number(searchData.hp);
     const cp = Number(searchData.cp);
     const dust = Number(searchData.dust);
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
-    const pokemon = Helper.getPokemonData(nextProps.name);
+    const pokemon = Helper.getPokemonData(name);
 
     let id = 0;
 
@@ -79,7 +84,7 @@ class Output extends Component {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
-      const halfLevel = nextProps.options.halfLevel || false;
+      const halfLevel = options.halfLevel || false;
       const displayLevel = halfLevel ? multiplierData.altLevel : level;
 
       for (let stamina = 0; stamina <= 15; ++stamina) {
@@ -88,16 +93,63 @@ class Output extends Component {
             const stats = Helper.getPokemonStats(pokemon, attack, defense, stamina, m);
             const calcCP = Helper.calculateCP(stats.attack, stats.defense, stats.stamina, m);
 
-            if (calcCP === cp && hp === Math.floor(stats.stamina)) {
-              let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
-              let defRatio = 1 - stamRatio;
-              const atkPercent =
-                (attack + 0.4 * stamRatio * stamina + 0.4 * defRatio * defense) / 21 * 100;
-              // pokemon in gyms have double the health
-              stamRatio = 2 * pokemon.baseStam / (2 * pokemon.baseStam + pokemon.baseDef);
-              defRatio = 1 - stamRatio;
-              const defPercent =
-                (2 * defRatio * defense + 2 * stamRatio * stamina + 0.2 * attack) / 33 * 100;
+            const statSum = stamina + attack + defense;
+            let appraisalMatch = false;
+            if ((overallAppraisal === 'great' && statSum >= 37) ||
+              (overallAppraisal === 'good' && statSum >= 30 && statSum < 37) ||
+              (overallAppraisal === 'average' && statSum >= 23 && statSum < 30) ||
+              (overallAppraisal === 'bad' && statSum < 23) ||
+              (overallAppraisal === '')) {
+              appraisalMatch = true;
+            }
+
+            let bestStatMatch = false;
+            let statToCheck = 0;
+            if (bestStat === '') { bestStatMatch = true; }
+            if (bestStat === 'sad' &&
+              stamina === attack && stamina === defense && attack === defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            // implicit checks: if a === b, and a > c, then b > c.
+            if (bestStat === 'sa' && stamina === attack && stamina > defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'sd' && stamina === defense && stamina > attack) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'ad' && attack === defense && attack > stamina) {
+              bestStatMatch = true;
+              statToCheck = attack;
+            }
+            if (bestStat === 's' && stamina > attack && stamina > defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'a' && attack > stamina && attack > defense) {
+              bestStatMatch = true;
+              statToCheck = attack;
+            }
+            if (bestStat === 'd' && defense > attack && defense > stamina) {
+              bestStatMatch = true;
+              statToCheck = defense;
+            }
+
+            let ivStatMatch = false;
+            if ((ivAppraisal === '') ||
+              (ivAppraisal === 'great' && statToCheck === 15) ||
+              (ivAppraisal === 'good' && statToCheck >= 13 && statToCheck < 15) ||
+              (ivAppraisal === 'average' && statToCheck >= 8 && statToCheck < 13) ||
+              (ivAppraisal === 'bad' && statToCheck < 8)) {
+              ivStatMatch = true;
+            }
+
+            if (calcCP === cp && hp === Math.floor(stats.stamina)
+              && appraisalMatch && bestStatMatch && ivStatMatch) {
+              const atkPercent = Helper.getOffensivePotential(pokemon, attack, defense, stamina);
+              const defPercent = Helper.getDefensivePotential(pokemon, attack, defense, stamina);
               // ratio between your ivs and max ivs
               const perfection = (attack + defense + stamina) / 45 * 100;
 

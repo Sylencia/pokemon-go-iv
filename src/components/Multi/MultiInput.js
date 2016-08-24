@@ -24,6 +24,7 @@ function setupList(list, oldSize, newSize) {
 class MultiInput extends Component {
   static propTypes = {
     onInputSubmitCB: PropTypes.func.isRequired,
+    options: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -41,6 +42,11 @@ class MultiInput extends Component {
         { cp: '', hp: '', dust: '' },
       ],
       size: 2,
+      stamBest: false,
+      atkBest: false,
+      defBest: false,
+      overallAppraisal: '',
+      ivAppraisal: '',
     };
 
     this.onNameChange = this.onNameChange.bind(this);
@@ -48,6 +54,11 @@ class MultiInput extends Component {
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
+    this.onStamBestChange = this.onStamBestChange.bind(this);
+    this.onAtkBestChange = this.onAtkBestChange.bind(this);
+    this.onDefBestChange = this.onDefBestChange.bind(this);
+    this.onOverallAnalysisChange = this.onOverallAnalysisChange.bind(this);
+    this.onIVAppraisalChange = this.onIVAppraisalChange.bind(this);
     this.onSizeChange = this.onSizeChange.bind(this);
     this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
@@ -106,6 +117,11 @@ class MultiInput extends Component {
         { cp: '', hp: '', dust: '' },
         { cp: '', hp: '', dust: '' },
       ],
+      stamBest: false,
+      atkBest: false,
+      defBest: false,
+      overallAppraisal: '',
+      ivAppraisal: '',
     });
   }
 
@@ -120,7 +136,8 @@ class MultiInput extends Component {
 
   onNewSearchSubmit(e) {
     e.preventDefault();
-    const { validName, list, size } = this.state;
+    const { validName, list, size,
+      atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
     let valid = true;
 
     for (let i = 0; i < size; ++i) {
@@ -134,8 +151,40 @@ class MultiInput extends Component {
     }
 
     if (valid) {
-      this.props.onInputSubmitCB(validName.toLowerCase(), list.slice(0, this.state.size));
+      const bestString = Helper.getBestString(stamBest, atkBest, defBest);
+      this.props.onInputSubmitCB(validName.toLowerCase(),
+        list.slice(0, this.state.size), overallAppraisal, bestString, ivAppraisal);
     }
+  }
+
+  onAtkBestChange(e) {
+    this.setState({
+      atkBest: e.target.checked,
+    });
+  }
+
+  onDefBestChange(e) {
+    this.setState({
+      defBest: e.target.checked,
+    });
+  }
+
+  onStamBestChange(e) {
+    this.setState({
+      stamBest: e.target.checked,
+    });
+  }
+
+  onOverallAnalysisChange(e) {
+    this.setState({
+      overallAppraisal: e.target.value,
+    });
+  }
+
+  onIVAppraisalChange(e) {
+    this.setState({
+      ivAppraisal: e.target.value,
+    });
   }
 
   handleFocus(e) {
@@ -143,8 +192,12 @@ class MultiInput extends Component {
   }
 
   render() {
-    const { name, size, list } = this.state;
+    const { name, size, list,
+      atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
+    const { options } = this.props;
     const { onCPChange, onDustChange, onHPChange } = this;
+
+    console.log(this.state);
 
     const validPokemon = Helper.validatePokemonEntry(name);
     const nameStatus = Helper.getValidityIcon(validPokemon);
@@ -184,6 +237,83 @@ class MultiInput extends Component {
         onDustChange={onDustChange} key={index} index={index} />
     )));
 
+    // default to mystic, undefined or missing team
+    let greatOverallValue = 'Your pokémon is a wonder! What a breathtaking pokémon!';
+    let goodOverallValue = 'Your pokémon has certainly caught my attention.';
+    let averageOverallValue = 'Your pokémon is above average.';
+    let badOverallValue = 'Your pokémon is not likely to make much headway in battle.';
+    if (options.team === 'valor') {
+      greatOverallValue = 'Your pokémon simply amazes me. It can accomplish anything!';
+      goodOverallValue = 'Your pokémon is a strong pokémon.';
+      averageOverallValue = 'Your pokémon is a decent pokémon.';
+      badOverallValue = 'Your pokémon may not be great in battle, but I still like it!';
+    } else if (options.team === 'instinct') {
+      greatOverallValue = 'Your pokémon looks like it can really battle with the best of them!';
+      goodOverallValue = 'Your pokémon is really strong!';
+      averageOverallValue = 'Your pokémon is pretty decent!';
+      badOverallValue = 'Your pokémon has room for improvement as far as battling goes.';
+    }
+
+    // default to mystic, undefined or missing team
+    let greatIvValue = 'Its stats exceed my calculations. It\'s incredible!';
+    let goodIvValue = 'I am certainly impressed by its stats, I must say.';
+    let averageIvValue = 'Its stats are noticeably trending to the positive.';
+    let badIvValue = 'Its stats are not out of the norm, in my opinion.';
+    if (options.team === 'valor') {
+      greatIvValue = 'I\'m blown away by its stats. WOW!';
+      goodIvValue = 'Its got excellent stats! How exciting!';
+      averageIvValue = 'Its stats indicate that in battle, it\'ll get the job done.';
+      badIvValue = 'Its stats don\'t point to greatness in battle.';
+    } else if (options.team === 'instinct') {
+      greatIvValue = 'Its stats are the best I\'ve ever seen! No doubt about it!';
+      goodIvValue = 'Its stats are really strong! Impressive.';
+      averageIvValue = 'It\'s definitely got some good stats. Definitely!';
+      badIvValue = 'Its stats are alright, but kinda basic, as far as I can see.';
+    }
+
+    const stamCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onStamBestChange}
+          checked={stamBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">hp</span>
+      </label>
+    );
+    const atkCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onAtkBestChange}
+          checked={atkBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">atk</span>
+      </label>
+    );
+    const defCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onDefBestChange}
+          checked={defBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">def</span>
+      </label>
+    );
+    let bestStatArea = (
+      <div className="checkbox-item">
+        <span className="stat-text">best stats: </span>
+        {stamCheck}
+        {atkCheck}
+        {defCheck}
+      </div>
+    );
+    if (options.atkFirst) {
+      bestStatArea = (
+        <div className="checkbox-item">
+          <span className="stat-text">best stats: </span>
+          {atkCheck}
+          {defCheck}
+          {stamCheck}
+        </div>
+      );
+    }
+
     return (
       <form className="section" onSubmit={this.onNewSearchSubmit}>
         <div className="input-group">
@@ -204,6 +334,35 @@ class MultiInput extends Component {
           <span className="input-group-addon addon-lg right-addon">{nameStatus}</span>
         </div>
         {rows}
+        <hr />
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">appraisal 1</span>
+            <select className="form-select select-lg selector"
+              onChange={this.onOverallAnalysisChange}
+              value={overallAppraisal}>
+             <option value="" disabled></option>
+             <option value="great">{greatOverallValue}</option>
+             <option value="good">{goodOverallValue}</option>
+             <option value="average">{averageOverallValue}</option>
+             <option value="bad">{badOverallValue}</option>
+            </select>
+        </div>
+        <div>
+          {bestStatArea}
+        </div>
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">appraisal 2</span>
+            <select className="form-select select-lg selector"
+              onChange={this.onIVAppraisalChange}
+              value={ivAppraisal}>
+             <option value="" disabled></option>
+             <option value="great">{greatIvValue}</option>
+             <option value="good">{goodIvValue}</option>
+             <option value="average">{averageIvValue}</option>
+             <option value="bad">{badIvValue}</option>
+            </select>
+        </div>
+        <hr />
         <div className="new-section">
           <button className="btn btn-primary btn-lrg button-item"
             type="submit" onClick={this.onNewSearchSubmit}>
