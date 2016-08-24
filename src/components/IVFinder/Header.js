@@ -32,7 +32,7 @@ class Header extends Component {
 
     return (
       <div className="section">
-          <h1>iv.solo</h1>
+          <h2>iv.solo</h2>
 
           <div className="new-section">
             {button}

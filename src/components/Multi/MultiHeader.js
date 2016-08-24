@@ -32,7 +32,7 @@ class MultiHeader extends Component {
 
     return (
       <div className="section">
-          <h1>iv.multi</h1>
+          <h2>iv.multi</h2>
           <b>this only works for wild pokémon that have been caught in the same spot (and not
           via incense).</b>
 

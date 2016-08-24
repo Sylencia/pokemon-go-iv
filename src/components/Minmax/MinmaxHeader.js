@@ -31,7 +31,7 @@ class MinmaxHeader extends Component {
 
     return (
       <div className="section">
-          <h1>iv.minmax</h1>
+          <h2>iv.minmax</h2>
 
           <div className="new-section">
             {button}
