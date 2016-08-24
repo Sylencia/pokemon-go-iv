@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import '~/assets/stylesheets/Header.scss';
 import '~/assets/stylesheets/Utility.scss';
+import Options from '../Options';
 
 class Header extends Component {
+  static propTypes = {
+    onOptionChangeCB: PropTypes.func.isRequired,
+  }
+
   constructor() {
     super();
 
@@ -32,6 +37,7 @@ class Header extends Component {
 
           <div className="new-section">
             {button}
+            <Options onOptionChangeCB={this.props.onOptionChangeCB} />
           </div>
           <div className={faqClass}>
             <h5><u>what are ivs?</u></h5>

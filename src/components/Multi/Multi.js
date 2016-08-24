@@ -41,12 +41,11 @@ export default class Multi extends Component {
   render() {
     return (
 			<div className="page">
-          <MultiHeader />
+          <MultiHeader onOptionChangeCB={this.onOptionChange} />
         <div className="middle-section">
           <MultiInput onInputSubmitCB={this.onInputSubmit} />
         </div>
           <MultiOutput {...this.state} />
-          <Options onOptionChangeCB={this.onOptionChange} />
 			</div>
 		);
   }

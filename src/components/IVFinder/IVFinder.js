@@ -55,12 +55,11 @@ export default class IVFinder extends Component {
   render() {
     return (
 			<div className="page">
-          <Header />
+          <Header onOptionChangeCB={this.onOptionChange} />
         <div className="middle-section">
           <Input onInputSubmitCB={this.onInputSubmission} />
         </div>
           <Output {...this.state} />
-          <Options onOptionChangeCB={this.onOptionChange} />
 			</div>
 		);
   }
