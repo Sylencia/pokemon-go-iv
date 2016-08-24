@@ -203,7 +203,7 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
           <input ref="trainerlv" onChange={this.onTrainerChange} className="form-input input-lg"
-            onMouseUp={() => {this.refs.trainerlv.select();}} value={trainerLevel}></input>
+            onFocus={() => {this.refs.trainerlv.select();}} value={trainerLevel}></input>
           <span className="input-group-addon addon-lg right-addon">{trainerStatus}</span>
         </div>
         <div className="input-group">
@@ -215,13 +215,13 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
           <input ref="cp" onChange={this.onCPChange} className="form-input input-lg"
-            onMouseUp={() => {this.refs.cp.select();}} value={cp}></input>
+            onFocus={() => {this.refs.cp.select();}} value={cp}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
           <input ref="hp" onChange={this.onHPChange} className="form-input input-lg"
-            onMouseUp={() => {this.refs.hp.select();}} value={hp}></input>
+            onFocus={() => {this.refs.hp.select();}} value={hp}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>
         <div className="input-group">
