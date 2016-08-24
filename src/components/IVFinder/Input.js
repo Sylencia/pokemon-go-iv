@@ -14,8 +14,10 @@ class Input extends Component {
   constructor(props) {
     super(props);
 
+    const trainerLevel = localStorage.getItem('trainerLevel') || '';
+
     this.state = {
-      trainerLevel: '',
+      trainerLevel,
       name: '',
       cp: '',
       hp: '',
@@ -117,6 +119,8 @@ class Input extends Component {
   }
 
   onTrainerChange(e) {
+    localStorage.setItem('trainerLevel', e.target.value);
+
     this.setState({
       trainerLevel: e.target.value,
     });
