@@ -327,6 +327,7 @@ class Input extends Component {
           {dustDataList}
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
+        <hr />
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">appraisal 1</span>
             <select className="form-select select-lg selector"
@@ -339,7 +340,7 @@ class Input extends Component {
              <option value="bad">{badOverallValue}</option>
             </select>
         </div>
-        <div className="new-section">
+        <div>
           <div className="checkbox-item">
             <span className="stat-text">best stats: </span>
             <label className="form-checkbox">
@@ -374,6 +375,7 @@ class Input extends Component {
              <option value="bad">{badIvValue}</option>
             </select>
         </div>
+        <hr />
         <div className="new-section">
           <div className="checkbox-item">
             <label className="form-checkbox">
