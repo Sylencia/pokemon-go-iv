@@ -12,6 +12,7 @@ class MultiInputRow extends Component {
     this.cpChange = this.cpChange.bind(this);
     this.hpChange = this.hpChange.bind(this);
     this.dustChange = this.dustChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
     this.dustList = Helper.getDustList();
   }
 
@@ -25,6 +26,10 @@ class MultiInputRow extends Component {
 
   dustChange(e) {
     this.props.onDustChange(e.target.value, this.props.index);
+  }
+
+  handleFocus(e) {
+    e.target.select();
   }
 
   render() {
@@ -43,6 +48,7 @@ class MultiInputRow extends Component {
     if (Modernizr.datalistelem) {
       dustElement = (
         <input onChange={this.dustChange} className="form-input input-lg multi-input-lg"
+          onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
           value={dust} type="text" list="dust" placeholder="dust"></input>);
       dustDataList = (
         <datalist id="dust">
@@ -66,8 +72,10 @@ class MultiInputRow extends Component {
     return (
         <div className="input-group">
          <input onChange={this.cpChange}
+           onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
            className="form-input input-lg multi-input-lg" value={cp} placeholder="cp"></input>
          <input onChange={this.hpChange}
+           onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
            className="form-input input-lg multi-input-lg" value={hp} placeholder="hp"></input>
           {dustElement}
           {dustDataList}

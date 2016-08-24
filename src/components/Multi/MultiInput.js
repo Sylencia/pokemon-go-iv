@@ -50,6 +50,7 @@ class MultiInput extends Component {
     this.onDustChange = this.onDustChange.bind(this);
     this.onSizeChange = this.onSizeChange.bind(this);
     this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   onCPChange(cp, index) {
@@ -137,6 +138,10 @@ class MultiInput extends Component {
     }
   }
 
+  handleFocus(e) {
+    e.target.select();
+  }
+
   render() {
     const { name, size, list } = this.state;
     const { onCPChange, onDustChange, onHPChange } = this;
@@ -152,6 +157,7 @@ class MultiInput extends Component {
     if (Modernizr.datalistelem) {
       nameElement = (
         <input onChange={this.onNameChange} className="form-input input-lg"
+          onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
           value={name} type="text" list="pokemon"></input>);
       dataList = (
         <datalist id="pokemon">

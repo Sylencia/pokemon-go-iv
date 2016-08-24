@@ -36,6 +36,7 @@ class Input extends Component {
     this.onDustChange = this.onDustChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
     this.onTrainerChange = this.onTrainerChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
 
     this.pokemonList = Helper.getPokemonList();
     this.dustList = Helper.getDustList();
@@ -126,6 +127,10 @@ class Input extends Component {
     });
   }
 
+  handleFocus(e) {
+    e.target.select();
+  }
+
   render() {
     const { trainerLevel, name, cp, hp, dust, isNewSearch } = this.state;
     const { pokemonList, dustList } = this;
@@ -159,6 +164,8 @@ class Input extends Component {
     if (Modernizr.datalistelem) {
       nameElement = (
         <input onChange={this.onNameChange} className="form-input input-lg"
+          onFocus={this.handleFocus}
+          onMouseUp={(e) => {e.preventDefault();}}
           value={name} type="text" list="pokemon"></input>);
       nameDataList = (
         <datalist id="pokemon">
@@ -169,7 +176,8 @@ class Input extends Component {
 
       dustElement = (
         <input onChange={this.onDustChange} className="form-input input-lg"
-          value={dust} type="text" list="dust"></input>);
+          onFocus={this.handleFocus}
+          onMouseUp={(e) => {e.preventDefault();}} value={dust} type="text" list="dust"></input>);
       dustDataList = (
         <datalist id="dust">
         {dustList.map((d) => (
@@ -202,8 +210,9 @@ class Input extends Component {
       <form className="section" onSubmit={this.onSubmit}>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
-          <input ref="trainerlv" onChange={this.onTrainerChange} className="form-input input-lg"
-            onFocus={() => {this.refs.trainerlv.select();}} value={trainerLevel}></input>
+          <input onChange={this.onTrainerChange} className="form-input input-lg"
+            onFocus={this.handleFocus}
+            onMouseUp={(e) => {e.preventDefault();}} value={trainerLevel}></input>
           <span className="input-group-addon addon-lg right-addon">{trainerStatus}</span>
         </div>
         <div className="input-group">
@@ -214,14 +223,16 @@ class Input extends Component {
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
-          <input ref="cp" onChange={this.onCPChange} className="form-input input-lg"
-            onFocus={() => {this.refs.cp.select();}} value={cp}></input>
+          <input onChange={this.onCPChange} className="form-input input-lg"
+            onFocus={this.handleFocus}
+            onMouseUp={(e) => {e.preventDefault();}} value={cp}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
-          <input ref="hp" onChange={this.onHPChange} className="form-input input-lg"
-            onFocus={() => {this.refs.hp.select();}} value={hp}></input>
+          <input onChange={this.onHPChange} className="form-input input-lg"
+            onFocus={this.handleFocus}
+            onMouseUp={(e) => {e.preventDefault();}} value={hp}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>
         <div className="input-group">

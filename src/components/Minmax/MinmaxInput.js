@@ -15,10 +15,12 @@ class MinmaxInput extends Component {
   constructor(props) {
     super(props);
 
+    const level = localStorage.getItem('trainerLevel') || '';
+
     this.state = {
       name: '',
       validPokemon: '',
-      level: '',
+      level,
       validLevel: 0,
       wild: false,
     };
@@ -26,11 +28,14 @@ class MinmaxInput extends Component {
     this.onNameChange = this.onNameChange.bind(this);
     this.onLevelChange = this.onLevelChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   onLevelChange(e) {
     const level = e.target.value;
     if (Helper.validateNumericEntry(level)) {
+      localStorage.setItem('trainerLevel', e.target.value);
+
       this.props.onLevelChangeCB(Number(level));
       this.setState({
         level,
@@ -67,6 +72,10 @@ class MinmaxInput extends Component {
     });
   }
 
+  handleFocus(e) {
+    e.target.select();
+  }
+
   render() {
     const { name, level } = this.state;
 
@@ -83,6 +92,8 @@ class MinmaxInput extends Component {
     if (Modernizr.datalistelem) {
       nameElement = (
         <input onChange={this.onNameChange} className="form-input input-lg"
+          onFocus={this.handleFocus}
+          onMouseUp={(e) => {e.preventDefault();}}
           value={name} type="text" list="pokemon"></input>);
       dataList = (
         <datalist id="pokemon">
@@ -107,7 +118,8 @@ class MinmaxInput extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
           <input onChange={this.onLevelChange} className="form-input input-lg"
-            value={level}></input>
+            onFocus={this.handleFocus}
+            onMouseUp={(e) => {e.preventDefault();}} value={level}></input>
           <span className="input-group-addon addon-lg right-addon">{levelStatus}</span>
         </div>
         <div className="input-group">
