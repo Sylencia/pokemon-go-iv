@@ -13,12 +13,14 @@ class Options extends Component {
     const halfLevel = localOptions.halfLevel || false;
     const atkFirst = localOptions.atkFirst || false;
     const team = localOptions.team || 'mystic';
+    const showToast = localOptions.showToast || true;
 
     this.state = {
       options: {
         halfLevel,
         atkFirst,
         team,
+        showToast,
       },
       modalOpen: false,
     };
@@ -27,6 +29,7 @@ class Options extends Component {
     this.onTeamChange = this.onTeamChange.bind(this);
     this.onModalOpen = this.onModalOpen.bind(this);
     this.onModalClose = this.onModalClose.bind(this);
+    this.closeToast = this.closeToast.bind(this);
   }
 
   onAtkConventionToggle(e) {
@@ -66,6 +69,8 @@ class Options extends Component {
     this.setState({
       modalOpen: true,
     });
+
+    this.closeToast();
   }
 
   onModalClose() {
@@ -74,12 +79,35 @@ class Options extends Component {
     });
   }
 
+  closeToast() {
+    const optionsState = this.state.options;
+    optionsState.showToast = false;
+    localStorage.setItem('options', JSON.stringify(optionsState));
+
+    this.setState({
+      options: optionsState,
+    });
+
+    this.props.onOptionChangeCB(optionsState);
+  }
+
   render() {
     const { modalOpen, options } = this.state;
 
     let modalClass = 'modal modal-sm';
     if (modalOpen) {
       modalClass = 'modal modal-sm active';
+    }
+
+    let toast = '';
+    if (options.showToast) {
+      toast = (
+        <div className="toast toast-primary">
+          <button className="btn btn-clear float-right" onClick={this.closeToast} />
+          <span className="icon icon-error_outline" />
+          ensure you've set your team in the options!
+        </div>
+      );
     }
 
     return (
@@ -129,6 +157,7 @@ class Options extends Component {
               </div>
             </div>
           </div>
+          {toast}
       </span>
     );
   }
