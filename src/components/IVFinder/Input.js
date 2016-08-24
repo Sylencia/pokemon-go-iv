@@ -9,6 +9,7 @@ import * as Helper from '~/components/Helper/HelperFunctions';
 class Input extends Component {
   static propTypes = {
     onInputSubmitCB: PropTypes.func.isRequired,
+    options: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -22,6 +23,10 @@ class Input extends Component {
       cp: '',
       hp: '',
       dust: '',
+      overallAppraisal: '',
+      stamBest: false,
+      atkBest: false,
+      defBest: false,
       isNewSearch: true,
       wild: true,
       filterSearch: false,
@@ -34,8 +39,12 @@ class Input extends Component {
     this.onCPChange = this.onCPChange.bind(this);
     this.onHPChange = this.onHPChange.bind(this);
     this.onDustChange = this.onDustChange.bind(this);
+    this.onStamBestChange = this.onStamBestChange.bind(this);
+    this.onAtkBestChange = this.onAtkBestChange.bind(this);
+    this.onDefBestChange = this.onDefBestChange.bind(this);
     this.onWildChange = this.onWildChange.bind(this);
     this.onTrainerChange = this.onTrainerChange.bind(this);
+    this.onOverallAnalysisChange = this.onOverallAnalysisChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
 
     this.pokemonList = Helper.getPokemonList();
@@ -48,6 +57,10 @@ class Input extends Component {
       cp: '',
       hp: '',
       dust: '',
+      stamBest: false,
+      atkBest: false,
+      defBest: false,
+      overallAppraisal: '',
       wild: true,
     });
   }
@@ -68,11 +81,13 @@ class Input extends Component {
   }
 
   onNewSearchSubmit(valid) {
-    const { trainerLevel, name, cp, hp, dust, wild } = this.state;
+    const { trainerLevel, name, cp, hp, dust, wild,
+      atkBest, defBest, stamBest, overallAppraisal } = this.state;
 
     if (valid) {
+      const bestString = Helper.getBestString(stamBest, atkBest, defBest);
       this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
-        Number(dust), wild, true);
+        Number(dust), overallAppraisal, bestString, wild, true);
 
       this.setState({
         isNewSearch: false,
@@ -81,11 +96,13 @@ class Input extends Component {
   }
 
   onFilterSubmit(valid) {
-    const { trainerLevel, name, cp, hp, dust } = this.state;
+    const { trainerLevel, name, cp, hp, dust,
+      atkBest, defBest, stamBest, overallAppraisal } = this.state;
 
     if (valid) {
+      const bestString = Helper.getBestString(stamBest, atkBest, defBest);
       this.props.onInputSubmitCB(Number(trainerLevel), name.toLowerCase(), Number(cp), Number(hp),
-        Number(dust), false, false);
+        Number(dust), overallAppraisal, bestString, false, false);
     }
   }
 
@@ -119,6 +136,30 @@ class Input extends Component {
     });
   }
 
+  onAtkBestChange(e) {
+    this.setState({
+      atkBest: e.target.checked,
+    });
+  }
+
+  onDefBestChange(e) {
+    this.setState({
+      defBest: e.target.checked,
+    });
+  }
+
+  onStamBestChange(e) {
+    this.setState({
+      stamBest: e.target.checked,
+    });
+  }
+
+  onOverallAnalysisChange(e) {
+    this.setState({
+      overallAppraisal: e.target.value,
+    });
+  }
+
   onTrainerChange(e) {
     localStorage.setItem('trainerLevel', e.target.value);
 
@@ -132,7 +173,9 @@ class Input extends Component {
   }
 
   render() {
-    const { trainerLevel, name, cp, hp, dust, isNewSearch } = this.state;
+    const { trainerLevel, name, cp, hp, dust, wild,
+      atkBest, defBest, stamBest, isNewSearch, overallAppraisal } = this.state;
+    const { options } = this.props;
     const { pokemonList, dustList } = this;
 
     const validTrainerLevel = Helper.validateLevelEntry(trainerLevel);
@@ -206,6 +249,27 @@ class Input extends Component {
     );
     }
 
+    let greatValue = '';
+    let goodValue = '';
+    let averageValue = '';
+    let badValue = '';
+    if (options.team === 'mystic' || options.team === undefined) {
+      greatValue = 'Your pokémon is a wonder! What a breathtaking pokémon!';
+      goodValue = 'Your pokémon has certainly caught my attention.';
+      averageValue = 'Your pokémon is above average.';
+      badValue = 'Your pokémon is not likely to make much headway in battle.';
+    } else if (options.team === 'valor') {
+      greatValue = 'Your pokémon simply amazes me. It can accomplish anything!';
+      goodValue = 'Your pokémon is a strong pokémon.';
+      averageValue = 'Your pokémon is a decent pokémon.';
+      badValue = 'Your pokémon may not be great in battle, but I still like it!';
+    } else if (options.team === 'instinct') {
+      greatValue = 'Your pokémon looks like it can really battle with the best of them!';
+      goodValue = 'Your pokémon is really strong!';
+      averageValue = 'Your pokémon is pretty decent!.';
+      badValue = 'Your pokémon has room for improvement as far as battling goes.';
+    }
+
     return (
       <form className="section" onSubmit={this.onSubmit}>
         <div className="input-group">
@@ -241,10 +305,45 @@ class Input extends Component {
           {dustDataList}
           <span className="input-group-addon addon-lg right-addon">{dustStatus}</span>
         </div>
+        <div className="input-group">
+          <span className="input-group-addon addon-lg left-addon">analysis</span>
+            <select className="form-select select-lg selector"
+              onChange={this.onOverallAnalysisChange}
+              value={overallAppraisal}>
+             <option value="" disabled></option>
+             <option value="great">{greatValue}</option>
+             <option value="good">{goodValue}</option>
+             <option value="average">{averageValue}</option>
+             <option value="bad">{badValue}</option>
+            </select>
+        </div>
+        <div className="new-section">
+          <div className="checkbox-item">
+            <span className="stat-text">best stats: </span>
+            <label className="form-checkbox">
+              <input type="checkbox" onChange={this.onStamBestChange}
+                checked={stamBest} />
+              <i className="form-icon"></i>
+              <span className="checkbox-text">stamina</span>
+            </label>
+            <label className="form-checkbox">
+              <input type="checkbox" onChange={this.onAtkBestChange}
+                checked={atkBest} />
+              <i className="form-icon"></i>
+              <span className="checkbox-text">attack</span>
+            </label>
+            <label className="form-checkbox">
+              <input type="checkbox" onChange={this.onDefBestChange}
+                checked={defBest} />
+              <i className="form-icon"></i>
+              <span className="checkbox-text">defense</span>
+            </label>
+          </div>
+        </div>
         <div className="new-section">
           <div className="checkbox-item">
             <label className="form-checkbox">
-              <input type="checkbox" onChange={this.onWildChange} checked={this.state.wild} />
+              <input type="checkbox" onChange={this.onWildChange} checked={wild} />
               <i className="form-icon"></i>
               <span className="checkbox-text">untrained wild</span>
             </label>

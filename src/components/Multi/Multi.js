@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import MultiInput from './MultiInput';
 import MultiOutput from './MultiOutput';
 import MultiHeader from './MultiHeader';
-import Options from '../Options';
 
 export default class Multi extends Component {
   constructor() {

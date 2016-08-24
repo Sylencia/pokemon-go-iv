@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Output from './Output';
 import Header from './Header';
-import Options from '../Options';
 
 export default class IVFinder extends Component {
   constructor() {
@@ -17,6 +16,8 @@ export default class IVFinder extends Component {
       cp: 0,
       hp: 0,
       dust: 0,
+      overallAppraisal: '',
+      bestStat: '',
       wild: true,
       newSearch: true,
       options,
@@ -30,9 +31,9 @@ export default class IVFinder extends Component {
     document.title = 'iv.solo';
   }
 
-  onInputSubmission(trainerLevel, name, cp, hp, dust, wild, newSearch) {
+  onInputSubmission(trainerLevel, name, cp, hp, dust, overallAppraisal, bestStat, wild, newSearch) {
     this.setState({
-      trainerLevel, name, cp, hp, dust, wild, newSearch,
+      trainerLevel, name, cp, hp, dust, bestStat, overallAppraisal, wild, newSearch,
     });
   }
 
@@ -49,6 +50,8 @@ export default class IVFinder extends Component {
       hp: 0,
       dust: 0,
       wild: true,
+      overallAppraisal: '',
+      bestStat: '',
     };
   }
 
@@ -57,7 +60,7 @@ export default class IVFinder extends Component {
 			<div className="page">
           <Header onOptionChangeCB={this.onOptionChange} />
         <div className="middle-section">
-          <Input onInputSubmitCB={this.onInputSubmission} />
+          <Input onInputSubmitCB={this.onInputSubmission} options={this.state.options} />
         </div>
           <Output {...this.state} />
 			</div>

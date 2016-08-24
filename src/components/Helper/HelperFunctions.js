@@ -72,3 +72,18 @@ export function getValidityIcon(success) {
 
   return <i className="fa fa-times" aria-hidden="true"></i>;
 }
+
+export function getBestString(stam, atk, def) {
+  let bestString = '';
+  if (stam) {
+    bestString += 's';
+  }
+  if (atk) {
+    bestString += 'a';
+  }
+  if (def) {
+    bestString += 'd';
+  }
+
+  return bestString;
+}

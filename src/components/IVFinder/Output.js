@@ -15,6 +15,8 @@ class Output extends Component {
     cp: PropTypes.number.isRequired,
     dust: PropTypes.number.isRequired,
     wild: PropTypes.bool.isRequired,
+    bestStat: PropTypes.string.isRequired,
+    overallAppraisal: PropTypes.string.isRequired,
     newSearch: PropTypes.bool.isRequired,
     options: PropTypes.object.isRequired,
   }
@@ -28,6 +30,7 @@ class Output extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if (nextProps.name !== '') {
       const newSolutions = this.findSolutions(nextProps);
       const inputs = nextProps.newSearch ?
@@ -68,7 +71,8 @@ class Output extends Component {
 
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
-    const { trainerLevel, hp, cp, name, dust, wild, newSearch, options } = newProps;
+    const { trainerLevel, hp, cp, name, dust, wild,
+      overallAppraisal, bestStat, newSearch, options } = newProps;
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
     const pokemon = Helper.getPokemonData(name);
@@ -93,7 +97,30 @@ class Output extends Component {
             const stats = Helper.getPokemonStats(pokemon, attack, defense, stamina, m);
             const calcCP = Helper.calculateCP(stats.attack, stats.defense, stats.stamina, m);
 
-            if (calcCP === cp && hp === Math.floor(stats.stamina)) {
+            const statSum = stamina + attack + defense;
+            let appraisalMatch = false;
+            if ((overallAppraisal === 'great' && statSum >= 37) ||
+              (overallAppraisal === 'good' && statSum >= 30 && statSum < 37) ||
+              (overallAppraisal === 'average' && statSum >= 23 && statSum < 30) ||
+              (overallAppraisal === 'bad' && statSum < 23) ||
+              (overallAppraisal === '')) {
+              appraisalMatch = true;
+            }
+
+            let bestStatMatch = false;
+            if (bestStat === '') bestStatMatch = true;
+            if (bestStat === 'sad' &&
+              stamina === attack && stamina === defense && attack === defense) bestStatMatch = true;
+            // implicit checks: if a === b, and a > c, then b > c.
+            if (bestStat === 'sa' && stamina === attack && stamina > defense) bestStatMatch = true;
+            if (bestStat === 'sd' && stamina === defense && stamina > attack) bestStatMatch = true;
+            if (bestStat === 'ad' && attack === defense && attack > stamina) bestStatMatch = true;
+            if (bestStat === 's' && stamina > attack && stamina > defense) bestStatMatch = true;
+            if (bestStat === 'a' && attack > stamina && attack > defense) bestStatMatch = true;
+            if (bestStat === 'd' && defense > attack && defense > stamina) bestStatMatch = true;
+
+            if (calcCP === cp && hp === Math.floor(stats.stamina)
+              && appraisalMatch && bestStatMatch) {
               let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
               let defRatio = 1 - stamRatio;
               const atkPercent =
