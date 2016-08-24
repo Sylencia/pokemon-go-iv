@@ -55,13 +55,12 @@ export default class Minmax extends Component {
   render() {
     return (
 			<div className="page">
-          <MinmaxHeader />
+          <MinmaxHeader onOptionChangeCB={this.onOptionChange} />
         <div className="middle-section">
           <MinmaxInput onNameChangeCB={this.onNameChange} onLevelChangeCB={this.onLevelChange}
             onWildChangeCB={this.onWildChange} />
         </div>
           <MinmaxOutput {...this.state} />
-          <Options onOptionChangeCB={this.onOptionChange} />
 			</div>
 		);
   }
