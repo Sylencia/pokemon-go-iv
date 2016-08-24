@@ -31,7 +31,6 @@ class Options extends Component {
 
   onAtkConventionToggle(e) {
     const optionsState = this.state.options;
-    console.log(optionsState);
     optionsState.atkFirst = e.target.checked;
     localStorage.setItem('options', JSON.stringify(optionsState));
     this.setState({

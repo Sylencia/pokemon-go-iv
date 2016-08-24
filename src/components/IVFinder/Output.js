@@ -17,6 +17,7 @@ class Output extends Component {
     wild: PropTypes.bool.isRequired,
     bestStat: PropTypes.string.isRequired,
     overallAppraisal: PropTypes.string.isRequired,
+    ivAppraisal: PropTypes.string.isRequired,
     newSearch: PropTypes.bool.isRequired,
     options: PropTypes.object.isRequired,
   }
@@ -30,7 +31,6 @@ class Output extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (nextProps.name !== '') {
       const newSolutions = this.findSolutions(nextProps);
       const inputs = nextProps.newSearch ?
@@ -72,7 +72,7 @@ class Output extends Component {
 // Assume all data here is valid, as it should've been checked by the input.
   findSolutions(newProps) {
     const { trainerLevel, hp, cp, name, dust, wild,
-      overallAppraisal, bestStat, newSearch, options } = newProps;
+      overallAppraisal, bestStat, ivAppraisal, newSearch, options } = newProps;
     const dustData = Helper.getDustData(dust);
     const newSolutions = [];
     const pokemon = Helper.getPokemonData(name);
@@ -108,19 +108,49 @@ class Output extends Component {
             }
 
             let bestStatMatch = false;
-            if (bestStat === '') bestStatMatch = true;
+            let statToCheck = 0;
+            if (bestStat === '') { bestStatMatch = true; }
             if (bestStat === 'sad' &&
-              stamina === attack && stamina === defense && attack === defense) bestStatMatch = true;
+              stamina === attack && stamina === defense && attack === defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
             // implicit checks: if a === b, and a > c, then b > c.
-            if (bestStat === 'sa' && stamina === attack && stamina > defense) bestStatMatch = true;
-            if (bestStat === 'sd' && stamina === defense && stamina > attack) bestStatMatch = true;
-            if (bestStat === 'ad' && attack === defense && attack > stamina) bestStatMatch = true;
-            if (bestStat === 's' && stamina > attack && stamina > defense) bestStatMatch = true;
-            if (bestStat === 'a' && attack > stamina && attack > defense) bestStatMatch = true;
-            if (bestStat === 'd' && defense > attack && defense > stamina) bestStatMatch = true;
+            if (bestStat === 'sa' && stamina === attack && stamina > defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'sd' && stamina === defense && stamina > attack) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'ad' && attack === defense && attack > stamina) {
+              bestStatMatch = true;
+              statToCheck = attack;
+            }
+            if (bestStat === 's' && stamina > attack && stamina > defense) {
+              bestStatMatch = true;
+              statToCheck = stamina;
+            }
+            if (bestStat === 'a' && attack > stamina && attack > defense) {
+              bestStatMatch = true;
+              statToCheck = attack;
+            }
+            if (bestStat === 'd' && defense > attack && defense > stamina) {
+              bestStatMatch = defense;
+            }
+
+            let ivStatMatch = false;
+            if ((ivAppraisal === '') ||
+              (ivAppraisal === 'great' && statToCheck === 15) ||
+              (ivAppraisal === 'good' && statToCheck >= 13 && statToCheck < 15) ||
+              (ivAppraisal === 'average' && statToCheck >= 8 && statToCheck < 13) ||
+              (ivAppraisal === 'bad' && statToCheck < 8)) {
+              ivStatMatch = true;
+            }
 
             if (calcCP === cp && hp === Math.floor(stats.stamina)
-              && appraisalMatch && bestStatMatch) {
+              && appraisalMatch && bestStatMatch && ivStatMatch) {
               let stamRatio = pokemon.baseStam / (pokemon.baseStam + pokemon.baseDef);
               let defRatio = 1 - stamRatio;
               const atkPercent =
@@ -161,7 +191,7 @@ class Output extends Component {
 
     const word = solutions.length === 1 ? 'solution' : 'solutions';
     let range = [];
-    if (solutions.length > 1) {
+    if (solutions.length > 0) {
       const minLevel = minBy(solutions, 'level').level;
       const maxLevel = maxBy(solutions, 'level').level;
 

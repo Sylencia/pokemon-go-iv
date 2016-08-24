@@ -18,6 +18,7 @@ export default class IVFinder extends Component {
       dust: 0,
       overallAppraisal: '',
       bestStat: '',
+      ivAppraisal: '',
       wild: true,
       newSearch: true,
       options,
@@ -31,9 +32,10 @@ export default class IVFinder extends Component {
     document.title = 'iv.solo';
   }
 
-  onInputSubmission(trainerLevel, name, cp, hp, dust, overallAppraisal, bestStat, wild, newSearch) {
+  onInputSubmission(trainerLevel, name, cp, hp, dust, overallAppraisal,
+    bestStat, ivAppraisal, wild, newSearch) {
     this.setState({
-      trainerLevel, name, cp, hp, dust, bestStat, overallAppraisal, wild, newSearch,
+      trainerLevel, name, cp, hp, dust, bestStat, overallAppraisal, ivAppraisal, wild, newSearch,
     });
   }
 
@@ -52,6 +54,7 @@ export default class IVFinder extends Component {
       wild: true,
       overallAppraisal: '',
       bestStat: '',
+      ivAppraisal: '',
     };
   }
 
