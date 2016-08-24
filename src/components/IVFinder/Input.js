@@ -277,6 +277,49 @@ class Input extends Component {
       badIvValue = 'Its stats are alright, but kinda basic, as far as I can see.';
     }
 
+    const stamCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onStamBestChange}
+          checked={stamBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">hp</span>
+      </label>
+    );
+    const atkCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onAtkBestChange}
+          checked={atkBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">atk</span>
+      </label>
+    );
+    const defCheck = (
+      <label className="form-checkbox">
+        <input type="checkbox" onChange={this.onDefBestChange}
+          checked={defBest} />
+        <i className="form-icon"></i>
+        <span className="checkbox-text">def</span>
+      </label>
+    );
+    let bestStatArea = (
+      <div className="checkbox-item">
+        <span className="stat-text">best stats: </span>
+        {stamCheck}
+        {atkCheck}
+        {defCheck}
+      </div>
+    )
+    if (options.atkFirst) {
+      bestStatArea = (
+        <div className="checkbox-item">
+          <span className="stat-text">best stats: </span>
+          {atkCheck}
+          {defCheck}
+          {stamCheck}
+        </div>
+      );
+    }
+
     return (
       <form className="section" onSubmit={this.onSubmit}>
         <div className="input-group">
@@ -319,27 +362,7 @@ class Input extends Component {
             </select>
         </div>
         <div>
-          <div className="checkbox-item">
-            <span className="stat-text">best stats: </span>
-            <label className="form-checkbox">
-              <input type="checkbox" onChange={this.onStamBestChange}
-                checked={stamBest} />
-              <i className="form-icon"></i>
-              <span className="checkbox-text">stamina</span>
-            </label>
-            <label className="form-checkbox">
-              <input type="checkbox" onChange={this.onAtkBestChange}
-                checked={atkBest} />
-              <i className="form-icon"></i>
-              <span className="checkbox-text">attack</span>
-            </label>
-            <label className="form-checkbox">
-              <input type="checkbox" onChange={this.onDefBestChange}
-                checked={defBest} />
-              <i className="form-icon"></i>
-              <span className="checkbox-text">defense</span>
-            </label>
-          </div>
+          {bestStatArea}
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">appraisal 2</span>
@@ -356,7 +379,7 @@ class Input extends Component {
         <hr />
         <div className="new-section">
           <div className="checkbox-item">
-            <label className="form-checkbox">
+            <label className="form-switch">
               <input type="checkbox" onChange={this.onWildChange} checked={wild} />
               <i className="form-icon"></i>
               <span className="checkbox-text">untrained wild</span>

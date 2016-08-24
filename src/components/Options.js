@@ -135,7 +135,7 @@ class Options extends Component {
                     <input type="checkbox" onChange={this.onAtkConventionToggle}
                       checked={options.atkFirst} />
                     <i className="form-icon"></i>
-                    <span>show stamina last</span>
+                    <span>show hp last</span>
                   </label>
                 </div>
                 <hr />
