@@ -212,8 +212,8 @@ class Input extends Component {
       </datalist>);
 
       dustElement = (
-        <input onChange={this.onDustChange} className="form-input input-lg"
-          onFocus={this.handleFocus}
+        <input onChange={this.onDustChange} className="form-input input-lg" type="number"
+          onFocus={this.handleFocus} pattern="[0-9]*"
           onMouseUp={(e) => {e.preventDefault();}} value={dust} type="text" list="dust"></input>);
       dustDataList = (
         <datalist id="dust">
@@ -330,15 +330,15 @@ class Input extends Component {
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
-          <input onChange={this.onCPChange} className="form-input input-lg"
-            onFocus={this.handleFocus}
+          <input onChange={this.onCPChange} className="form-input input-lg" type="number"
+            onFocus={this.handleFocus} pattern="[0-9]*"
             onMouseUp={(e) => {e.preventDefault();}} value={cp}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
-          <input onChange={this.onHPChange} className="form-input input-lg"
-            onFocus={this.handleFocus}
+          <input onChange={this.onHPChange} className="form-input input-lg" type="number"
+            onFocus={this.handleFocus} pattern="[0-9]*"
             onMouseUp={(e) => {e.preventDefault();}} value={hp}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>

@@ -48,8 +48,8 @@ class MultiInputRow extends Component {
     if (Modernizr.datalistelem) {
       dustElement = (
         <input onChange={this.dustChange} className="form-input input-lg multi-input-lg"
-          onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
-          value={dust} type="text" list="dust" placeholder="dust"></input>);
+          onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}} pattern="[0-9]*"
+          value={dust} type="number" list="dust" placeholder="dust"></input>);
       dustDataList = (
         <datalist id="dust">
         {dustList.map((d) => (
@@ -73,10 +73,12 @@ class MultiInputRow extends Component {
         <div className="input-group">
          <input onChange={this.cpChange}
            onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
-           className="form-input input-lg multi-input-lg" value={cp} placeholder="cp"></input>
+           className="form-input input-lg multi-input-lg" type="number" pattern="[0-9]*"
+           value={cp} placeholder="cp"></input>
          <input onChange={this.hpChange}
            onFocus={this.handleFocus} onMouseUp={(e) => {e.preventDefault();}}
-           className="form-input input-lg multi-input-lg" value={hp} placeholder="hp"></input>
+           className="form-input input-lg multi-input-lg" type="number" pattern="[0-9]*"
+           value={hp} placeholder="hp"></input>
           {dustElement}
           {dustDataList}
         <span className="input-group-addon addon-lg right-addon">{validIcon}</span>

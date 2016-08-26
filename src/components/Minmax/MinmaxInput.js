@@ -117,8 +117,8 @@ class MinmaxInput extends Component {
       <div className="section">
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">trainer lv</span>
-          <input onChange={this.onLevelChange} className="form-input input-lg"
-            onFocus={this.handleFocus}
+          <input onChange={this.onLevelChange} className="form-input input-lg" type="number"
+            onFocus={this.handleFocus} pattern="[0-9]*"
             onMouseUp={(e) => {e.preventDefault();}} value={level}></input>
           <span className="input-group-addon addon-lg right-addon">{levelStatus}</span>
         </div>
