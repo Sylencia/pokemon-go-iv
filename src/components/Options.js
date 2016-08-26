@@ -10,14 +10,14 @@ class Options extends Component {
     super();
 
     const localOptions = JSON.parse(localStorage.getItem('options')) || [];
-    const halfLevel = localOptions.halfLevel || false;
+    const fullLevel = localOptions.fullLevel || false;
     const atkFirst = localOptions.atkFirst || false;
     const team = localOptions.team || 'mystic';
     const hideToast = localOptions.hideToast || false;
 
     this.state = {
       options: {
-        halfLevel,
+        fullLevel,
         atkFirst,
         team,
         hideToast,
@@ -45,7 +45,7 @@ class Options extends Component {
 
   onLevelConventionToggle(e) {
     const optionsState = this.state.options;
-    optionsState.halfLevel = e.target.checked;
+    optionsState.fullLevel = e.target.checked;
     localStorage.setItem('options', JSON.stringify(optionsState));
     this.setState({
       options: optionsState,
@@ -125,9 +125,9 @@ class Options extends Component {
                 <div>
                   <label className="form-switch">
                     <input type="checkbox" onChange={this.onLevelConventionToggle}
-                      checked={options.halfLevel} />
+                      checked={options.fullLevel} />
                     <i className="form-icon"></i>
-                    <span>use half levels</span>
+                    <span>use full level convention (no 0.5)</span>
                   </label>
                 </div>
                 <div>

@@ -46,8 +46,8 @@ class MinmaxOutput extends Component {
       const multiplierData = Multiplier.find((m) =>
         (m.level === l));
       const m = multiplierData.multiplier;
-      const halfLevel = options.halfLevel || false;
-      const displayLevel = halfLevel ? multiplierData.altLevel : multiplierData.level;
+      const fullLevel = options.fullLevel || false;
+      const displayLevel = fullLevel ? multiplierData.level : multiplierData.altLevel;
       const dustData = Dust.find((d) =>
         (d.minLevel <= l && d.maxLevel >= l));
       const dust = dustData.cost;

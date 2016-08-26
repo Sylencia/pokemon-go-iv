@@ -83,8 +83,8 @@ class Output extends Component {
       const multiplierData = Multiplier.find((data) =>
         (data.level === level));
       const m = multiplierData.multiplier;
-      const halfLevel = options.halfLevel || false;
-      const displayLevel = halfLevel ? multiplierData.altLevel : level;
+      const fullLevel = options.fullLevel || false;
+      const displayLevel = fullLevel ? level : multiplierData.altLevel;
 
       for (let stamina = 0; stamina <= 15; ++stamina) {
         for (let attack = 0; attack <= 15; ++attack) {

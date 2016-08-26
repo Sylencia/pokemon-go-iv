@@ -197,8 +197,6 @@ class MultiInput extends Component {
     const { options } = this.props;
     const { onCPChange, onDustChange, onHPChange } = this;
 
-    console.log(this.state);
-
     const validPokemon = Helper.validatePokemonEntry(name);
     const nameStatus = Helper.getValidityIcon(validPokemon);
     const pokemonList = Helper.getPokemonList();
