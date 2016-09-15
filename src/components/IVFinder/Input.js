@@ -354,7 +354,7 @@ class Input extends Component {
             <select className="form-select select-lg selector"
               onChange={this.onOverallAnalysisChange}
               value={overallAppraisal}>
-             <option value="" disabled></option>
+             <option value=""></option>
              <option value="great">{greatOverallValue}</option>
              <option value="good">{goodOverallValue}</option>
              <option value="average">{averageOverallValue}</option>
@@ -369,7 +369,7 @@ class Input extends Component {
             <select className="form-select select-lg selector"
               onChange={this.onIVAppraisalChange}
               value={ivAppraisal}>
-             <option value="" disabled></option>
+             <option value=""></option>
              <option value="great">{greatIvValue}</option>
              <option value="good">{goodIvValue}</option>
              <option value="average">{averageIvValue}</option>

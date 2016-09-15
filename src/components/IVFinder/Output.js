@@ -137,7 +137,7 @@ class Output extends Component {
             }
 
             let ivStatMatch = false;
-            if ((ivAppraisal === '') ||
+            if ((ivAppraisal === '') || (bestStat === '') ||
               (ivAppraisal === 'great' && statToCheck === 15) ||
               (ivAppraisal === 'good' && statToCheck >= 13 && statToCheck < 15) ||
               (ivAppraisal === 'average' && statToCheck >= 8 && statToCheck < 13) ||
