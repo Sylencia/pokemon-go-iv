@@ -145,7 +145,7 @@ class Output extends Component {
               ivStatMatch = true;
             }
 
-            if (calcCP === cp && hp === Math.floor(stats.stamina)
+            if (calcCP === cp && hp === Math.max(10, Math.floor(stats.stamina))
               && appraisalMatch && bestStatMatch && ivStatMatch) {
               const atkPercent = Helper.getOffensivePotential(pokemon, attack, defense, stamina);
               const defPercent = Helper.getDefensivePotential(pokemon, attack, defense, stamina);
