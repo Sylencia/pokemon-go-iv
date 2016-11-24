@@ -105,7 +105,7 @@ class Options extends Component {
         <div className="toast toast-primary">
           <button className="btn btn-clear float-right" onClick={this.closeToast} />
           <span className="icon icon-error_outline" />
-          ensure you've set your team in the options!
+          ensure you have set your team in the options!
         </div>
       );
     }

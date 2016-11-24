@@ -34,6 +34,8 @@ class Header extends Component {
       <div className="section">
           <h2>iv.solo</h2>
 
+          <h5>Updated for November 22 pokémon stat update!</h5>
+
           <div className="new-section">
             {button}
             <Options onOptionChangeCB={this.props.onOptionChangeCB} />
