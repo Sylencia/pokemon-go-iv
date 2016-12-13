@@ -3,7 +3,7 @@ import Pokemon from '~/assets/data/Pokemon.json';
 import Dust from '~/assets/data/Dust.json';
 
 export function getPokemonList() {
-  return Pokemon.map((p) => (p.name)).sort();
+  return Pokemon.filter((p) => (p.isActive)).map((p) => (p.name)).sort();
 }
 
 export function getDustList() {

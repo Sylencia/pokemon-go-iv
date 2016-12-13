@@ -23,6 +23,11 @@ class App extends Component {
         </div>
         <div className="filler"></div>
         {this.props.children}
+        <div className="footer">
+          <span className="footer-item">
+            last updated: 13 december 2016
+          </span>
+        </div>
       </div>
     );
   }

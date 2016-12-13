@@ -2,7 +2,7 @@ import '~/assets/stylesheets/App.scss';
 import React, { Component } from 'react';
 import MinmaxInput from './MinmaxInput';
 import MinmaxOutput from './MinmaxOutput';
-import MinmaxHeader from './MinmaxHeader';
+import Header from '../Header';
 
 export default class Minmax extends Component {
   constructor() {
@@ -52,9 +52,22 @@ export default class Minmax extends Component {
   }
 
   render() {
+    const faqText = (
+      <span>
+        <h5><u>what is this?</u></h5>
+        this page is used for quick referencing how good your pokémon is. when you are out and
+        about, there's no time to manually enter each pokémon's stats, so this will give you
+        a rough estimate as to wheter it's closer to the lower or higher end of the spectrum.
+        <h5><u>what about hatched pokémon?</u></h5>
+        hatched pokémon have a maximum level of 39. there may be a toggle later to help you
+        keep track of that.
+      </span>
+    );
+
     return (
 			<div className="page">
-          <MinmaxHeader onOptionChangeCB={this.onOptionChange} />
+          <Header onOptionChangeCB={this.onOptionChange}
+            headerTitle="iv.minmax2" faqText={faqText} />
         <div className="middle-section">
           <MinmaxInput onNameChangeCB={this.onNameChange} onLevelChangeCB={this.onLevelChange}
             onWildChangeCB={this.onWildChange} />

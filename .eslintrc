@@ -11,6 +11,7 @@
     "react/jsx-closing-bracket-location": [1, 'after-props'],
     "new-cap": [0],
     "react/prefer-stateless-function": 0,
+    "no-multiple-empty-lines": 0,
     # "import/no-unresolved": [2, { ignore: ['\~*'] }],
   }
 }
