@@ -67,7 +67,7 @@ export default class Minmax extends Component {
     return (
 			<div className="page">
           <Header onOptionChangeCB={this.onOptionChange}
-            headerTitle="iv.minmax2" faqText={faqText} />
+            headerTitle="iv.minmax" faqText={faqText} />
         <div className="middle-section">
           <MinmaxInput onNameChangeCB={this.onNameChange} onLevelChangeCB={this.onLevelChange}
             onWildChangeCB={this.onWildChange} />

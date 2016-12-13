@@ -15,41 +15,26 @@ class Input extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: '',
-      cp: '',
-      hp: '',
-      dust: '',
-      overallAppraisal: '',
-      stamBest: false,
-      atkBest: false,
-      defBest: false,
-      ivAppraisal: '',
-      isNewSearch: true,
-      wild: true,
-      filterSearch: false,
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onNewSearchSubmit = this.onNewSearchSubmit.bind(this);
-    this.onFilterSubmit = this.onFilterSubmit.bind(this);
-    this.onReset = this.onReset.bind(this);
-    this.onNameChange = this.onNameChange.bind(this);
-    this.onCPChange = this.onCPChange.bind(this);
-    this.onHPChange = this.onHPChange.bind(this);
-    this.onDustChange = this.onDustChange.bind(this);
-    this.onStamBestChange = this.onStamBestChange.bind(this);
-    this.onAtkBestChange = this.onAtkBestChange.bind(this);
-    this.onDefBestChange = this.onDefBestChange.bind(this);
-    this.onWildChange = this.onWildChange.bind(this);
-    this.onOverallAnalysisChange = this.onOverallAnalysisChange.bind(this);
-    this.onIVAppraisalChange = this.onIVAppraisalChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-
     this.pokemonList = Helper.getPokemonList();
     this.dustList = Helper.getDustList();
   }
 
-  onReset() {
+  state = {
+    name: '',
+    cp: '',
+    hp: '',
+    dust: '',
+    overallAppraisal: '',
+    stamBest: false,
+    atkBest: false,
+    defBest: false,
+    ivAppraisal: '',
+    isNewSearch: true,
+    wild: true,
+    filterSearch: false,
+  };
+
+  onReset = () => {
     this.setState({
       name: '',
       cp: '',
@@ -64,7 +49,7 @@ class Input extends Component {
     });
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const { name, cp, hp, dust } = this.state;
@@ -78,7 +63,7 @@ class Input extends Component {
     this.onNewSearchSubmit(valid);
   }
 
-  onNewSearchSubmit(valid) {
+  onNewSearchSubmit = (valid) => {
     const { name, cp, hp, dust, wild,
       atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
 
@@ -93,7 +78,7 @@ class Input extends Component {
     }
   }
 
-  onFilterSubmit(valid) {
+  onFilterSubmit = (valid) => {
     const { name, cp, hp, dust,
       atkBest, defBest, stamBest, overallAppraisal, ivAppraisal } = this.state;
 
@@ -104,67 +89,19 @@ class Input extends Component {
     }
   }
 
-  onNameChange(e) {
+  onTextChange = (e) => {
     this.setState({
-      name: e.target.value,
+      [e.target.name]: e.target.value,
     });
   }
 
-  onCPChange(e) {
+  onCheckboxChange = (e) => {
     this.setState({
-      cp: e.target.value,
+      [e.target.name]: e.target.checked,
     });
   }
 
-  onHPChange(e) {
-    this.setState({
-      hp: e.target.value,
-    });
-  }
-
-  onDustChange(e) {
-    this.setState({
-      dust: e.target.value,
-    });
-  }
-
-  onWildChange(e) {
-    this.setState({
-      wild: e.target.checked,
-    });
-  }
-
-  onAtkBestChange(e) {
-    this.setState({
-      atkBest: e.target.checked,
-    });
-  }
-
-  onDefBestChange(e) {
-    this.setState({
-      defBest: e.target.checked,
-    });
-  }
-
-  onStamBestChange(e) {
-    this.setState({
-      stamBest: e.target.checked,
-    });
-  }
-
-  onOverallAnalysisChange(e) {
-    this.setState({
-      overallAppraisal: e.target.value,
-    });
-  }
-
-  onIVAppraisalChange(e) {
-    this.setState({
-      ivAppraisal: e.target.value,
-    });
-  }
-
-  handleFocus(e) {
+  handleFocus = (e) => {
     e.target.select();
   }
 
@@ -200,10 +137,10 @@ class Input extends Component {
 
     if (Modernizr.datalistelem) {
       nameElement = (
-        <input onChange={this.onNameChange} className="form-input input-lg"
+        <input onChange={this.onTextChange} className="form-input input-lg"
           onFocus={this.handleFocus}
           onMouseUp={(e) => {e.preventDefault();}}
-          value={name} type="text" list="pokemon"></input>);
+          name="name" value={name} type="text" list="pokemon"></input>);
       nameDataList = (
         <datalist id="pokemon">
         {pokemonList.map((pokemon) => (
@@ -212,8 +149,8 @@ class Input extends Component {
       </datalist>);
 
       dustElement = (
-        <input onChange={this.onDustChange} className="form-input input-lg" type="number"
-          onFocus={this.handleFocus} pattern="[0-9]*"
+        <input onChange={this.onTextChange} className="form-input input-lg" type="number"
+          onFocus={this.handleFocus} pattern="[0-9]*" name="dust"
           onMouseUp={(e) => {e.preventDefault();}} value={dust} type="text" list="dust"></input>);
       dustDataList = (
         <datalist id="dust">
@@ -223,8 +160,8 @@ class Input extends Component {
       </datalist>);
     } else {
       nameElement = (
-        <select className="form-select select-lg selector" onChange={this.onNameChange}
-          value={name}>
+        <select className="form-select select-lg selector" onChange={this.onTextChange}
+          value={name} name="name">
          <option value="" disabled></option>
            {pokemonList.map((pokemon) => (
              <PokemonSelection name={pokemon} key={pokemon} />
@@ -233,8 +170,8 @@ class Input extends Component {
      );
 
       dustElement = (
-       <select className="form-select select-lg selector" onChange={this.onDustChange}
-         value={dust}>
+       <select className="form-select select-lg selector" onChange={this.onTextChange}
+         value={dust} name="dust">
         <option value="" disabled></option>
           {dustList.map((d) => (
             <DustSelection dust={d} key={d} />
@@ -279,24 +216,24 @@ class Input extends Component {
 
     const stamCheck = (
       <label className="form-checkbox">
-        <input type="checkbox" onChange={this.onStamBestChange}
-          checked={stamBest} />
+        <input type="checkbox" onChange={this.onCheckboxChange}
+          checked={stamBest} name="stamBest" />
         <i className="form-icon"></i>
         <span className="checkbox-text">hp</span>
       </label>
     );
     const atkCheck = (
       <label className="form-checkbox">
-        <input type="checkbox" onChange={this.onAtkBestChange}
-          checked={atkBest} />
+        <input type="checkbox" onChange={this.onCheckboxChange}
+          checked={atkBest} name="atkBest" />
         <i className="form-icon"></i>
         <span className="checkbox-text">atk</span>
       </label>
     );
     const defCheck = (
       <label className="form-checkbox">
-        <input type="checkbox" onChange={this.onDefBestChange}
-          checked={defBest} />
+        <input type="checkbox" onChange={this.onCheckboxChange}
+          checked={defBest} name="defBest" />
         <i className="form-icon"></i>
         <span className="checkbox-text">def</span>
       </label>
@@ -330,15 +267,15 @@ class Input extends Component {
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">cp</span>
-          <input onChange={this.onCPChange} className="form-input input-lg" type="number"
-            onFocus={this.handleFocus} pattern="[0-9]*"
+          <input onChange={this.onTextChange} className="form-input input-lg" type="number"
+            onFocus={this.handleFocus} pattern="[0-9]*" name="cp"
             onMouseUp={(e) => {e.preventDefault();}} value={cp}></input>
           <span className="input-group-addon addon-lg right-addon">{cpStatus}</span>
         </div>
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">hp</span>
-          <input onChange={this.onHPChange} className="form-input input-lg" type="number"
-            onFocus={this.handleFocus} pattern="[0-9]*"
+          <input onChange={this.onTextChange} className="form-input input-lg" type="number"
+            onFocus={this.handleFocus} pattern="[0-9]*" name="hp"
             onMouseUp={(e) => {e.preventDefault();}} value={hp}></input>
           <span className="input-group-addon addon-lg right-addon">{hpStatus}</span>
         </div>
@@ -352,7 +289,7 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">appraisal 1</span>
             <select className="form-select select-lg selector"
-              onChange={this.onOverallAnalysisChange}
+              onChange={this.onTextChange} name="overallAppraisal"
               value={overallAppraisal}>
              <option value=""></option>
              <option value="great">{greatOverallValue}</option>
@@ -367,7 +304,7 @@ class Input extends Component {
         <div className="input-group">
           <span className="input-group-addon addon-lg left-addon">appraisal 2</span>
             <select className="form-select select-lg selector"
-              onChange={this.onIVAppraisalChange}
+              onChange={this.onTextChange} name="ivAppraisal"
               value={ivAppraisal}>
              <option value=""></option>
              <option value="great">{greatIvValue}</option>
@@ -380,7 +317,8 @@ class Input extends Component {
         <div className="new-section">
           <div className="checkbox-item">
             <label className="form-switch">
-              <input type="checkbox" onChange={this.onWildChange} checked={wild} />
+              <input type="checkbox" onChange={this.onCheckboxChange}
+                name="wild" checked={wild} />
               <i className="form-icon"></i>
               <span className="checkbox-text">untrained wild</span>
             </label>
