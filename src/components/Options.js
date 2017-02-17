@@ -112,6 +112,7 @@ class Options extends Component {
 
     return (
       <span>
+          {toast}
           <button className="btn btn-lrg button-item" onClick={this.onModalOpen}>
             options
           </button>
@@ -157,7 +158,6 @@ class Options extends Component {
               </div>
             </div>
           </div>
-          {toast}
       </span>
     );
   }
