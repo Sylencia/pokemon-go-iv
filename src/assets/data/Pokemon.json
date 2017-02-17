@@ -1173,8 +1173,8 @@
     "name": "Lapras",
     "number": 131,
     "baseStam": 260,
-    "baseAtk": 186,
-    "baseDef": 190,
+    "baseAtk": 165,
+    "baseDef": 180,
     "finalEvolution": "Lapras",
     "isActive": true
   },
@@ -1365,7 +1365,7 @@
     "baseAtk": 92,
     "baseDef": 122,
     "finalEvolution": "Meganium",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Bayleef",
@@ -1374,7 +1374,7 @@
     "baseAtk": 122,
     "baseDef": 155,
     "finalEvolution": "Meganium",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Meganium",
@@ -1383,7 +1383,7 @@
     "baseAtk": 168,
     "baseDef": 202,
     "finalEvolution": "Meganium",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Cyndaquil",
@@ -1392,7 +1392,7 @@
     "baseAtk": 116,
     "baseDef": 96,
     "finalEvolution": "Typhlosion",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Quilava",
@@ -1401,7 +1401,7 @@
     "baseAtk": 158,
     "baseDef": 129,
     "finalEvolution": "Typhlosion",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Typhlosion",
@@ -1410,7 +1410,7 @@
     "baseAtk": 223,
     "baseDef": 176,
     "finalEvolution": "Typhlosion",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Totodile",
@@ -1419,7 +1419,7 @@
     "baseAtk": 117,
     "baseDef": 116,
     "finalEvolution": "Feraligatr",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Croconaw",
@@ -1428,7 +1428,7 @@
     "baseAtk": 150,
     "baseDef": 151,
     "finalEvolution": "Feraligatr",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Feraligatr",
@@ -1437,7 +1437,7 @@
     "baseAtk": 205,
     "baseDef": 197,
     "finalEvolution": "Feraligatr",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Sentret",
@@ -1446,7 +1446,7 @@
     "baseAtk": 79,
     "baseDef": 77,
     "finalEvolution": "Furret",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Furret",
@@ -1455,7 +1455,7 @@
     "baseAtk": 148,
     "baseDef": 130,
     "finalEvolution": "Furret",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Hoothoot",
@@ -1464,7 +1464,7 @@
     "baseAtk": 67,
     "baseDef": 101,
     "finalEvolution": "Noctowl",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Noctowl",
@@ -1473,7 +1473,7 @@
     "baseAtk": 145,
     "baseDef": 179,
     "finalEvolution": "Noctowl",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ledyba",
@@ -1482,7 +1482,7 @@
     "baseAtk": 72,
     "baseDef": 142,
     "finalEvolution": "Ledian",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ledian",
@@ -1491,7 +1491,7 @@
     "baseAtk": 107,
     "baseDef": 209,
     "finalEvolution": "Ledian",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Spinarak",
@@ -1500,7 +1500,7 @@
     "baseAtk": 105,
     "baseDef": 73,
     "finalEvolution": "Ariados",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ariados",
@@ -1509,7 +1509,7 @@
     "baseAtk": 161,
     "baseDef": 128,
     "finalEvolution": "Ariados",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Crobat",
@@ -1518,7 +1518,7 @@
     "baseAtk": 194,
     "baseDef": 178,
     "finalEvolution": "Crobat",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Chinchou",
@@ -1527,7 +1527,7 @@
     "baseAtk": 106,
     "baseDef": 106,
     "finalEvolution": "Chinchou",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Lanturn",
@@ -1536,7 +1536,7 @@
     "baseAtk": 146,
     "baseDef": 146,
     "finalEvolution": "Lanturn",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Pichu",
@@ -1590,7 +1590,7 @@
     "baseAtk": 134,
     "baseDef": 89,
     "finalEvolution": "Xatu",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Xatu",
@@ -1599,7 +1599,7 @@
     "baseAtk": 192,
     "baseDef": 146,
     "finalEvolution": "Xatu",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Mareep",
@@ -1608,7 +1608,7 @@
     "baseAtk": 114,
     "baseDef": 82,
     "finalEvolution": "Ampharos",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Flaaffy",
@@ -1617,7 +1617,7 @@
     "baseAtk": 145,
     "baseDef": 112,
     "finalEvolution": "Ampharos",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ampharos",
@@ -1626,7 +1626,7 @@
     "baseAtk": 211,
     "baseDef": 172,
     "finalEvolution": "Ampharos",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Bellossom",
@@ -1635,7 +1635,7 @@
     "baseAtk": 169,
     "baseDef": 189,
     "finalEvolution": "Bellossom",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Marill",
@@ -1644,7 +1644,7 @@
     "baseAtk": 37,
     "baseDef": 93,
     "finalEvolution": "Azumarill",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Azumarill",
@@ -1653,7 +1653,7 @@
     "baseAtk": 112,
     "baseDef": 152,
     "finalEvolution": "Azumarill",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Sudowoodo",
@@ -1662,7 +1662,7 @@
     "baseAtk": 167,
     "baseDef": 198,
     "finalEvolution": "Sudowoodo",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Politoed",
@@ -1671,7 +1671,7 @@
     "baseAtk": 174,
     "baseDef": 192,
     "finalEvolution": "Politoed",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Hoppip",
@@ -1680,7 +1680,7 @@
     "baseAtk": 67,
     "baseDef": 101,
     "finalEvolution": "Jumpluff",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Skiploom",
@@ -1689,7 +1689,7 @@
     "baseAtk": 91,
     "baseDef": 127,
     "finalEvolution": "Jumpluff",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Jumpluff",
@@ -1698,7 +1698,7 @@
     "baseAtk": 118,
     "baseDef": 197,
     "finalEvolution": "Jumpluff",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Aipom",
@@ -1707,7 +1707,7 @@
     "baseAtk": 136,
     "baseDef": 112,
     "finalEvolution": "Aipom",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Sunkern",
@@ -1716,7 +1716,7 @@
     "baseAtk": 55,
     "baseDef": 55,
     "finalEvolution": "Sunflora",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Sunflora",
@@ -1725,7 +1725,7 @@
     "baseAtk": 185,
     "baseDef": 148,
     "finalEvolution": "Sunflora",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Yanma",
@@ -1734,7 +1734,7 @@
     "baseAtk": 154,
     "baseDef": 94,
     "finalEvolution": "Yanma",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Wooper",
@@ -1743,7 +1743,7 @@
     "baseAtk": 75,
     "baseDef": 75,
     "finalEvolution": "Quagsire",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Quagsire",
@@ -1752,7 +1752,7 @@
     "baseAtk": 152,
     "baseDef": 152,
     "finalEvolution": "Quagsire",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Espeon",
@@ -1761,7 +1761,7 @@
     "baseAtk": 261,
     "baseDef": 194,
     "finalEvolution": "Espeon",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Umbreon",
@@ -1770,7 +1770,7 @@
     "baseAtk": 126,
     "baseDef": 250,
     "finalEvolution": "Umbreon",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Murkrow",
@@ -1779,7 +1779,7 @@
     "baseAtk": 175,
     "baseDef": 87,
     "finalEvolution": "Murkrow",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Slowking",
@@ -1788,7 +1788,7 @@
     "baseAtk": 177,
     "baseDef": 194,
     "finalEvolution": "Slowking",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Misdreavus",
@@ -1797,7 +1797,7 @@
     "baseAtk": 167,
     "baseDef": 167,
     "finalEvolution": "Misdreavus",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Unown",
@@ -1806,7 +1806,7 @@
     "baseAtk": 136,
     "baseDef": 91,
     "finalEvolution": "Unown",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Wobbuffet",
@@ -1815,7 +1815,7 @@
     "baseAtk": 60,
     "baseDef": 106,
     "finalEvolution": "Wobbuffet",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Girafarig",
@@ -1824,7 +1824,7 @@
     "baseAtk": 182,
     "baseDef": 133,
     "finalEvolution": "Girafarig",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Pineco",
@@ -1833,7 +1833,7 @@
     "baseAtk": 108,
     "baseDef": 146,
     "finalEvolution": "Forretress",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Forretress",
@@ -1842,7 +1842,7 @@
     "baseAtk": 161,
     "baseDef": 242,
     "finalEvolution": "Forretress",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Dunsparce",
@@ -1851,7 +1851,7 @@
     "baseAtk": 131,
     "baseDef": 131,
     "finalEvolution": "Dunsparce",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Gligar",
@@ -1860,7 +1860,7 @@
     "baseAtk": 143,
     "baseDef": 204,
     "finalEvolution": "Gligar",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Steelix",
@@ -1869,7 +1869,7 @@
     "baseAtk": 148,
     "baseDef": 333,
     "finalEvolution": "Steelix",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Snubbull",
@@ -1878,7 +1878,7 @@
     "baseAtk": 137,
     "baseDef": 89,
     "finalEvolution": "Granbull",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Granbull",
@@ -1887,7 +1887,7 @@
     "baseAtk": 212,
     "baseDef": 137,
     "finalEvolution": "Granbull",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Qwilfish",
@@ -1896,7 +1896,7 @@
     "baseAtk": 184,
     "baseDef": 148,
     "finalEvolution": "Qwilfish",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Scizor",
@@ -1905,7 +1905,7 @@
     "baseAtk": 236,
     "baseDef": 191,
     "finalEvolution": "Scizor",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Shuckle",
@@ -1914,7 +1914,7 @@
     "baseAtk": 17,
     "baseDef": 396,
     "finalEvolution": "Shuckle",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Heracross",
@@ -1923,7 +1923,7 @@
     "baseAtk": 234,
     "baseDef": 189,
     "finalEvolution": "Heracross",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Sneasel",
@@ -1932,7 +1932,7 @@
     "baseAtk": 189,
     "baseDef": 157,
     "finalEvolution": "Sneasel",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Teddiursa",
@@ -1941,7 +1941,7 @@
     "baseAtk": 142,
     "baseDef": 93,
     "finalEvolution": "Ursaring",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ursaring",
@@ -1950,7 +1950,7 @@
     "baseAtk": 236,
     "baseDef": 144,
     "finalEvolution": "Ursaring",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Slugma",
@@ -1959,7 +1959,7 @@
     "baseAtk": 118,
     "baseDef": 71,
     "finalEvolution": "Magcargo",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Magcargo",
@@ -1968,7 +1968,7 @@
     "baseAtk": 139,
     "baseDef": 209,
     "finalEvolution": "Magcargo",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Swinub",
@@ -1977,7 +1977,7 @@
     "baseAtk": 90,
     "baseDef": 74,
     "finalEvolution": "Piloswine",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Piloswine",
@@ -1986,7 +1986,7 @@
     "baseAtk": 181,
     "baseDef": 147,
     "finalEvolution": "Piloswine",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Corsola",
@@ -1995,7 +1995,7 @@
     "baseAtk": 118,
     "baseDef": 156,
     "finalEvolution": "Corsola",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Remoraid",
@@ -2004,7 +2004,7 @@
     "baseAtk": 127,
     "baseDef": 69,
     "finalEvolution": "Octillery",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Octillery",
@@ -2013,7 +2013,7 @@
     "baseAtk": 197,
     "baseDef": 141,
     "finalEvolution": "Octillery",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Delibird",
@@ -2022,7 +2022,7 @@
     "baseAtk": 128,
     "baseDef": 90,
     "finalEvolution": "Delibird",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Mantine",
@@ -2031,7 +2031,7 @@
     "baseAtk": 148,
     "baseDef": 260,
     "finalEvolution": "Mantine",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Skarmory",
@@ -2040,7 +2040,7 @@
     "baseAtk": 148,
     "baseDef": 260,
     "finalEvolution": "Skarmory",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Houndour",
@@ -2049,7 +2049,7 @@
     "baseAtk": 152,
     "baseDef": 93,
     "finalEvolution": "Houndoom",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Houndoom",
@@ -2058,7 +2058,7 @@
     "baseAtk": 224,
     "baseDef": 159,
     "finalEvolution": "Houndoom",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Kingdra",
@@ -2067,7 +2067,7 @@
     "baseAtk": 194,
     "baseDef": 194,
     "finalEvolution": "Kingdra",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Phanpy",
@@ -2076,7 +2076,7 @@
     "baseAtk": 107,
     "baseDef": 107,
     "finalEvolution": "Donphan",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Donphan",
@@ -2085,7 +2085,7 @@
     "baseAtk": 214,
     "baseDef": 214,
     "finalEvolution": "Donphan",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Porygon2",
@@ -2094,7 +2094,7 @@
     "baseAtk": 198,
     "baseDef": 183,
     "finalEvolution": "Porygon2",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Stantler",
@@ -2103,7 +2103,7 @@
     "baseAtk": 192,
     "baseDef": 132,
     "finalEvolution": "Stantler",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Smeargle",
@@ -2112,7 +2112,7 @@
     "baseAtk": 40,
     "baseDef": 88,
     "finalEvolution": "Smeargle",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Tyrogue",
@@ -2121,7 +2121,7 @@
     "baseAtk": 64,
     "baseDef": 64,
     "finalEvolution": "Tyrogue",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Hitmontop",
@@ -2166,7 +2166,7 @@
     "baseAtk": 157,
     "baseDef": 211,
     "finalEvolution": "Miltank",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Blissey",
@@ -2175,7 +2175,7 @@
     "baseAtk": 129,
     "baseDef": 229,
     "finalEvolution": "Blissey",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Raikou",
@@ -2184,7 +2184,7 @@
     "baseAtk": 241,
     "baseDef": 210,
     "finalEvolution": "Raikou",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Entei",
@@ -2193,7 +2193,7 @@
     "baseAtk": 235,
     "baseDef": 176,
     "finalEvolution": "Entei",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Suicune",
@@ -2202,7 +2202,7 @@
     "baseAtk": 180,
     "baseDef": 235,
     "finalEvolution": "Suicune",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Larvitar",
@@ -2211,7 +2211,7 @@
     "baseAtk": 115,
     "baseDef": 93,
     "finalEvolution": "Tyranitar",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Pupitar",
@@ -2220,7 +2220,7 @@
     "baseAtk": 155,
     "baseDef": 133,
     "finalEvolution": "Tyranitar",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Tyranitar",
@@ -2229,7 +2229,7 @@
     "baseAtk": 251,
     "baseDef": 212,
     "finalEvolution": "Tyranitar",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Lugia",
