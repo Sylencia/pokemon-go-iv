@@ -55,12 +55,16 @@ class Info extends Component {
           <div className={changelogClass}>
             <u>Dec 13 2016</u>
             <ul>
-              <li>All: Added Baby Pokemon from Generation 2.</li>
+              <li>Added Baby Pokemon from Generation 2.</li>
               <li>Misc: Added changelog.</li>
             </ul>
             <u>Nov 22 2016</u>
             <ul>
-              <li>All: Updated stats for latest update.</li>
+              <li>Updated stats for latest update.</li>
+            </ul>
+            <u>Feb 27 2017</u>
+            <ul>
+              <li>Simplified site.</li>
             </ul>
             <div className="new-section">{changelogButton}</div>
           </div>
