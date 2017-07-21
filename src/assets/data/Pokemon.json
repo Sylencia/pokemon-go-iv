@@ -1293,7 +1293,7 @@
     "baseAtk": 192,
     "baseDef": 249,
     "finalEvolution": "Articuno",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Zapdos",
@@ -1302,7 +1302,7 @@
     "baseAtk": 253,
     "baseDef": 188,
     "finalEvolution": "Zapdos",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Moltres",
@@ -1311,7 +1311,7 @@
     "baseAtk": 251,
     "baseDef": 184,
     "finalEvolution": "Moltres",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Dratini",
@@ -1347,7 +1347,7 @@
     "baseAtk": 330,
     "baseDef": 200,
     "finalEvolution": "Mewtwo",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Mew",
@@ -1356,7 +1356,7 @@
     "baseAtk": 210,
     "baseDef": 210,
     "finalEvolution": "Mew",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Chikorita",
@@ -2238,7 +2238,7 @@
     "baseAtk": 193,
     "baseDef": 323,
     "finalEvolution": "Lugia",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Ho-Oh",
@@ -2247,7 +2247,7 @@
     "baseAtk": 263,
     "baseDef": 301,
     "finalEvolution": "Ho-Oh",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Celebi",
@@ -2256,6 +2256,6 @@
     "baseAtk": 210,
     "baseDef": 210,
     "finalEvolution": "Celebi",
-    "isActive": false
+    "isActive": true
   }
 ]
