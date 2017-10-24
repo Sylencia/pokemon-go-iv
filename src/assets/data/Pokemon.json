@@ -2257,8 +2257,6 @@
     "baseDef": 210,
     "finalEvolution": "Celebi",
     "isActive": true
-<<<<<<< Updated upstream
-=======
   },
   {
     "name": "Treecko",
@@ -3474,6 +3472,5 @@
     "baseDef": 115,
     "finalEvolution": "Deoxys",
     "isActive": false
->>>>>>> Stashed changes
   }
 ]
