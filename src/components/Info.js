@@ -66,6 +66,10 @@ class Info extends Component {
             <ul>
               <li>Simplified site.</li>
             </ul>
+            <u>Oct 252017</u>
+            <ul>
+              <li>Added Generation 3.</li>
+            </ul>
             <div className="new-section">{changelogButton}</div>
           </div>
           <div className={faqClass}>
