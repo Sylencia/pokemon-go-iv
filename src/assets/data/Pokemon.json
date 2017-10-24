@@ -1343,9 +1343,9 @@
   {
     "name": "Mewtwo",
     "number": 150,
-    "baseStam": 212,
-    "baseAtk": 330,
-    "baseDef": 200,
+    "baseStam": 193,
+    "baseAtk": 300,
+    "baseDef": 182,
     "finalEvolution": "Mewtwo",
     "isActive": true
   },
@@ -1354,7 +1354,7 @@
     "number": 151,
     "baseStam": 200,
     "baseAtk": 210,
-    "baseDef": 210,
+    "baseDef": 209,
     "finalEvolution": "Mew",
     "isActive": true
   },
@@ -2243,9 +2243,9 @@
   {
     "name": "Ho-Oh",
     "number": 250,
-    "baseStam": 212,
-    "baseAtk": 263,
-    "baseDef": 301,
+    "baseStam": 193,
+    "baseAtk": 239,
+    "baseDef": 274,
     "finalEvolution": "Ho-Oh",
     "isActive": true
   },
@@ -2257,5 +2257,1223 @@
     "baseDef": 210,
     "finalEvolution": "Celebi",
     "isActive": true
+<<<<<<< Updated upstream
+=======
+  },
+  {
+    "name": "Treecko",
+    "number": 252,
+    "baseStam": 80,
+    "baseAtk": 124,
+    "baseDef": 104,
+    "finalEvolution": "Sceptile",
+    "isActive": true
+  },
+  {
+    "name": "Grovyle",
+    "number": 253,
+    "baseStam": 100,
+    "baseAtk": 172,
+    "baseDef": 130,
+    "finalEvolution": "Sceptile",
+    "isActive": true
+  },
+  {
+    "name": "Sceptile",
+    "number": 254,
+    "baseStam": 140,
+    "baseAtk": 223,
+    "baseDef": 180,
+    "finalEvolution": "Sceptile",
+    "isActive": true
+  },
+  {
+    "name": "Torchic",
+    "number": 255,
+    "baseStam": 90,
+    "baseAtk": 130,
+    "baseDef": 92,
+    "finalEvolution": "Blaziken",
+    "isActive": true
+  },
+  {
+    "name": "Combusken",
+    "number": 256,
+    "baseStam": 120,
+    "baseAtk": 163,
+    "baseDef": 115,
+    "finalEvolution": "Blaziken",
+    "isActive": true
+  },
+  {
+    "name": "Blaziken",
+    "number": 257,
+    "baseStam": 160,
+    "baseAtk": 240,
+    "baseDef": 141,
+    "finalEvolution": "Blaziken",
+    "isActive": true
+  },
+  {
+    "name": "Mudkip",
+    "number": 258,
+    "baseStam": 100,
+    "baseAtk": 126,
+    "baseDef": 93,
+    "finalEvolution": "Swampert",
+    "isActive": true
+  },
+  {
+    "name": "Marshtomp",
+    "number": 259,
+    "baseStam": 140,
+    "baseAtk": 156,
+    "baseDef": 133,
+    "finalEvolution": "Swampert",
+    "isActive": true
+  },
+  {
+    "name": "Swampert",
+    "number": 260,
+    "baseStam": 200,
+    "baseAtk": 208,
+    "baseDef": 175,
+    "finalEvolution": "Swampert",
+    "isActive": true
+  },
+  {
+    "name": "Poochyena",
+    "number": 261,
+    "baseStam": 70,
+    "baseAtk": 96,
+    "baseDef": 63,
+    "finalEvolution": "Mightyena",
+    "isActive": true
+  },
+  {
+    "name": "Mightyena",
+    "number": 262,
+    "baseStam": 140,
+    "baseAtk": 171,
+    "baseDef": 137,
+    "finalEvolution": "Mightyena",
+    "isActive": true
+  },
+  {
+    "name": "Zigzagoon",
+    "number": 263,
+    "baseStam": 76,
+    "baseAtk": 58,
+    "baseDef": 80,
+    "finalEvolution": "Linoone",
+    "isActive": true
+  },
+  {
+    "name": "Linoone",
+    "number": 264,
+    "baseStam": 156,
+    "baseAtk": 142,
+    "baseDef": 128,
+    "finalEvolution": "Linoone",
+    "isActive": true
+  },
+  {
+    "name": "Wurmple",
+    "number": 265,
+    "baseStam": 90,
+    "baseAtk": 75,
+    "baseDef": 61,
+    "finalEvolution": "Beautifly",
+    "isActive": true
+  },
+  {
+    "name": "Silcoon",
+    "number": 266,
+    "baseStam": 100,
+    "baseAtk": 60,
+    "baseDef": 91,
+    "finalEvolution": "Beautifly",
+    "isActive": true
+  },
+  {
+    "name": "Beautifly",
+    "number": 267,
+    "baseStam": 120,
+    "baseAtk": 189,
+    "baseDef": 98,
+    "finalEvolution": "Beautifly",
+    "isActive": true
+  },
+  {
+    "name": "Cascoon",
+    "number": 268,
+    "baseStam": 100,
+    "baseAtk": 60,
+    "baseDef": 91,
+    "finalEvolution": "Dustox",
+    "isActive": true
+  },
+  {
+    "name": "Dustox",
+    "number": 269,
+    "baseStam": 120,
+    "baseAtk": 98,
+    "baseDef": 172,
+    "finalEvolution": "Dustox",
+    "isActive": true
+  },
+  {
+    "name": "Lotad",
+    "number": 270,
+    "baseStam": 80,
+    "baseAtk": 71,
+    "baseDef": 86,
+    "finalEvolution": "Ludicolo",
+    "isActive": true
+  },
+  {
+    "name": "Lombre",
+    "number": 271,
+    "baseStam": 120,
+    "baseAtk": 112,
+    "baseDef": 128,
+    "finalEvolution": "Ludicolo",
+    "isActive": true
+  },
+  {
+    "name": "Ludicolo",
+    "number": 272,
+    "baseStam": 160,
+    "baseAtk": 173,
+    "baseDef": 191,
+    "finalEvolution": "Ludicolo",
+    "isActive": true
+  },
+  {
+    "name": "Seedot",
+    "number": 273,
+    "baseStam": 80,
+    "baseAtk": 71,
+    "baseDef": 86,
+    "finalEvolution": "Shiftry",
+    "isActive": true
+  },
+  {
+    "name": "Nuzleaf",
+    "number": 274,
+    "baseStam": 140,
+    "baseAtk": 134,
+    "baseDef": 78,
+    "finalEvolution": "Shiftry",
+    "isActive": true
+  },
+  {
+    "name": "Shiftry",
+    "number": 275,
+    "baseStam": 180,
+    "baseAtk": 200,
+    "baseDef": 121,
+    "finalEvolution": "Shiftry",
+    "isActive": true
+  },
+  {
+    "name": "Taillow",
+    "number": 276,
+    "baseStam": 80,
+    "baseAtk": 106,
+    "baseDef": 61,
+    "finalEvolution": "Swellow",
+    "isActive": true
+  },
+  {
+    "name": "Swellow",
+    "number": 277,
+    "baseStam": 120,
+    "baseAtk": 185,
+    "baseDef": 130,
+    "finalEvolution": "Swellow",
+    "isActive": true
+  },
+  {
+    "name": "Wingull",
+    "number": 278,
+    "baseStam": 80,
+    "baseAtk": 106,
+    "baseDef": 61,
+    "finalEvolution": "Pelipper",
+    "isActive": true
+  },
+  {
+    "name": "Pelipper",
+    "number": 279,
+    "baseStam": 120,
+    "baseAtk": 175,
+    "baseDef": 189,
+    "finalEvolution": "Pelipper",
+    "isActive": true
+  },
+  {
+    "name": "Ralts",
+    "number": 280,
+    "baseStam": 56,
+    "baseAtk": 79,
+    "baseDef": 63,
+    "finalEvolution": "Gardevoir",
+    "isActive": true
+  },
+  {
+    "name": "Kirlia",
+    "number": 281,
+    "baseStam": 76,
+    "baseAtk": 117,
+    "baseDef": 100,
+    "finalEvolution": "Gardevoir",
+    "isActive": true
+  },
+  {
+    "name": "Gardevoir",
+    "number": 282,
+    "baseStam": 136,
+    "baseAtk": 237,
+    "baseDef": 220,
+    "finalEvolution": "Gardevoir",
+    "isActive": true
+  },
+  {
+    "name": "Surskit",
+    "number": 283,
+    "baseStam": 80,
+    "baseAtk": 93,
+    "baseDef": 97,
+    "finalEvolution": "Masquerain",
+    "isActive": true
+  },
+  {
+    "name": "Masquerain",
+    "number": 284,
+    "baseStam": 140,
+    "baseAtk": 192,
+    "baseDef": 161,
+    "finalEvolution": "Masquerain",
+    "isActive": true
+  },
+  {
+    "name": "Shroomish",
+    "number": 285,
+    "baseStam": 120,
+    "baseAtk": 74,
+    "baseDef": 110,
+    "finalEvolution": "Breloom",
+    "isActive": true
+  },
+  {
+    "name": "Breloom",
+    "number": 286,
+    "baseStam": 120,
+    "baseAtk": 241,
+    "baseDef": 153,
+    "finalEvolution": "Breloom",
+    "isActive": true
+  },
+  {
+    "name": "Slakoth",
+    "number": 287,
+    "baseStam": 120,
+    "baseAtk": 104,
+    "baseDef": 104,
+    "finalEvolution": "Slaking",
+    "isActive": true
+  },
+  {
+    "name": "Vigoroth",
+    "number": 288,
+    "baseStam": 160,
+    "baseAtk": 159,
+    "baseDef": 159,
+    "finalEvolution": "Slaking",
+    "isActive": true
+  },
+  {
+    "name": "Slaking",
+    "number": 289,
+    "baseStam": 300,
+    "baseAtk": 319,
+    "baseDef": 201,
+    "finalEvolution": "Slaking",
+    "isActive": true
+  },
+  {
+    "name": "Nincada",
+    "number": 290,
+    "baseStam": 62,
+    "baseAtk": 80,
+    "baseDef": 153,
+    "finalEvolution": "Ninjask",
+    "isActive": true
+  },
+  {
+    "name": "Ninjask",
+    "number": 291,
+    "baseStam": 122,
+    "baseAtk": 196,
+    "baseDef": 114,
+    "finalEvolution": "Ninjask",
+    "isActive": true
+  },
+  {
+    "name": "Shedinja",
+    "number": 292,
+    "baseStam": 2,
+    "baseAtk": 153,
+    "baseDef": 80,
+    "finalEvolution": "Shedinja",
+    "isActive": true
+  },
+  {
+    "name": "Whismur",
+    "number": 293,
+    "baseStam": 128,
+    "baseAtk": 92,
+    "baseDef": 42,
+    "finalEvolution": "Exploud",
+    "isActive": true
+  },
+  {
+    "name": "Loudred",
+    "number": 294,
+    "baseStam": 168,
+    "baseAtk": 134,
+    "baseDef": 81,
+    "finalEvolution": "Exploud",
+    "isActive": true
+  },
+  {
+    "name": "Exploud",
+    "number": 295,
+    "baseStam": 208,
+    "baseAtk": 179,
+    "baseDef": 142,
+    "finalEvolution": "Exploud",
+    "isActive": true
+  },
+  {
+    "name": "Makuhita",
+    "number": 296,
+    "baseStam": 144,
+    "baseAtk": 99,
+    "baseDef": 54,
+    "finalEvolution": "Hariyama",
+    "isActive": true
+  },
+  {
+    "name": "Hariyama",
+    "number": 297,
+    "baseStam": 288,
+    "baseAtk": 209,
+    "baseDef": 114,
+    "finalEvolution": "Hariyama",
+    "isActive": true
+  },
+  {
+    "name": "Azurill",
+    "number": 298,
+    "baseStam": 100,
+    "baseAtk": 36,
+    "baseDef": 71,
+    "finalEvolution": "Azumarill",
+    "isActive": true
+  },
+  {
+    "name": "Nosepass",
+    "number": 299,
+    "baseStam": 60,
+    "baseAtk": 82,
+    "baseDef": 236,
+    "finalEvolution": "Nosepass",
+    "isActive": true
+  },
+  {
+    "name": "Skitty",
+    "number": 300,
+    "baseStam": 100,
+    "baseAtk": 84,
+    "baseDef": 84,
+    "finalEvolution": "Delcatty",
+    "isActive": true
+  },
+  {
+    "name": "Delcatty",
+    "number": 301,
+    "baseStam": 140,
+    "baseAtk": 132,
+    "baseDef": 132,
+    "finalEvolution": "Delcatty",
+    "isActive": true
+  },
+  {
+    "name": "Sableye",
+    "number": 302,
+    "baseStam": 100,
+    "baseAtk": 141,
+    "baseDef": 141,
+    "finalEvolution": "Sableye",
+    "isActive": true
+  },
+  {
+    "name": "Mawile",
+    "number": 303,
+    "baseStam": 100,
+    "baseAtk": 155,
+    "baseDef": 155,
+    "finalEvolution": "Mawile",
+    "isActive": true
+  },
+  {
+    "name": "Aron",
+    "number": 304,
+    "baseStam": 100,
+    "baseAtk": 121,
+    "baseDef": 168,
+    "finalEvolution": "Aggron",
+    "isActive": true
+  },
+  {
+    "name": "Lairon",
+    "number": 305,
+    "baseStam": 120,
+    "baseAtk": 158,
+    "baseDef": 240,
+    "finalEvolution": "Aggron",
+    "isActive": true
+  },
+  {
+    "name": "Aggron",
+    "number": 306,
+    "baseStam": 140,
+    "baseAtk": 198,
+    "baseDef": 314,
+    "finalEvolution": "Aggron",
+    "isActive": true
+  },
+  {
+    "name": "Meditite",
+    "number": 307,
+    "baseStam": 60,
+    "baseAtk": 78,
+    "baseDef": 107,
+    "finalEvolution": "Medicham",
+    "isActive": true
+  },
+  {
+    "name": "Medicham",
+    "number": 308,
+    "baseStam": 120,
+    "baseAtk": 121,
+    "baseDef": 152,
+    "finalEvolution": "Medicham",
+    "isActive": true
+  },
+  {
+    "name": "Electrike",
+    "number": 309,
+    "baseStam": 80,
+    "baseAtk": 123,
+    "baseDef": 78,
+    "finalEvolution": "Manectric",
+    "isActive": true
+  },
+  {
+    "name": "Manectric",
+    "number": 310,
+    "baseStam": 140,
+    "baseAtk": 215,
+    "baseDef": 127,
+    "finalEvolution": "Manectric",
+    "isActive": true
+  },
+  {
+    "name": "Plusle",
+    "number": 311,
+    "baseStam": 120,
+    "baseAtk": 167,
+    "baseDef": 147,
+    "finalEvolution": "Plusle",
+    "isActive": true
+  },
+  {
+    "name": "Minun",
+    "number": 312,
+    "baseStam": 120,
+    "baseAtk": 147,
+    "baseDef": 167,
+    "finalEvolution": "Minun",
+    "isActive": true
+  },
+  {
+    "name": "Volbeat",
+    "number": 313,
+    "baseStam": 130,
+    "baseAtk": 143,
+    "baseDef": 171,
+    "finalEvolution": "Volbeat",
+    "isActive": true
+  },
+  {
+    "name": "Illumise",
+    "number": 314,
+    "baseStam": 130,
+    "baseAtk": 143,
+    "baseDef": 171,
+    "finalEvolution": "Illumise",
+    "isActive": true
+  },
+  {
+    "name": "Roselia",
+    "number": 315,
+    "baseStam": 100,
+    "baseAtk": 186,
+    "baseDef": 148,
+    "finalEvolution": "Roselia",
+    "isActive": true
+  },
+  {
+    "name": "Gulpin",
+    "number": 316,
+    "baseStam": 140,
+    "baseAtk": 80,
+    "baseDef": 99,
+    "finalEvolution": "Swalot",
+    "isActive": true
+  },
+  {
+    "name": "Swalot",
+    "number": 317,
+    "baseStam": 200,
+    "baseAtk": 140,
+    "baseDef": 159,
+    "finalEvolution": "Swalot",
+    "isActive": true
+  },
+  {
+    "name": "Carvanha",
+    "number": 318,
+    "baseStam": 90,
+    "baseAtk": 171,
+    "baseDef": 39,
+    "finalEvolution": "Sharpedo",
+    "isActive": true
+  },
+  {
+    "name": "Sharpedo",
+    "number": 319,
+    "baseStam": 140,
+    "baseAtk": 243,
+    "baseDef": 83,
+    "finalEvolution": "Sharpedo",
+    "isActive": true
+  },
+  {
+    "name": "Wailmer",
+    "number": 320,
+    "baseStam": 260,
+    "baseAtk": 136,
+    "baseDef": 68,
+    "finalEvolution": "Wailord",
+    "isActive": true
+  },
+  {
+    "name": "Wailord",
+    "number": 321,
+    "baseStam": 340,
+    "baseAtk": 175,
+    "baseDef": 87,
+    "finalEvolution": "Wailord",
+    "isActive": true
+  },
+  {
+    "name": "Numel",
+    "number": 322,
+    "baseStam": 120,
+    "baseAtk": 119,
+    "baseDef": 82,
+    "finalEvolution": "Camerupt",
+    "isActive": true
+  },
+  {
+    "name": "Camerupt",
+    "number": 323,
+    "baseStam": 140,
+    "baseAtk": 194,
+    "baseDef": 139,
+    "finalEvolution": "Camerupt",
+    "isActive": true
+  },
+  {
+    "name": "Torkoal",
+    "number": 324,
+    "baseStam": 140,
+    "baseAtk": 151,
+    "baseDef": 234,
+    "finalEvolution": "Torkoal",
+    "isActive": true
+  },
+  {
+    "name": "Spoink",
+    "number": 325,
+    "baseStam": 120,
+    "baseAtk": 125,
+    "baseDef": 145,
+    "finalEvolution": "Grumpig",
+    "isActive": true
+  },
+  {
+    "name": "Grumpig",
+    "number": 326,
+    "baseStam": 160,
+    "baseAtk": 171,
+    "baseDef": 211,
+    "finalEvolution": "Grumpig",
+    "isActive": true
+  },
+  {
+    "name": "Spinda",
+    "number": 327,
+    "baseStam": 120,
+    "baseAtk": 116,
+    "baseDef": 116,
+    "finalEvolution": "Spinda",
+    "isActive": true
+  },
+  {
+    "name": "Trapinch",
+    "number": 328,
+    "baseStam": 90,
+    "baseAtk": 162,
+    "baseDef": 78,
+    "finalEvolution": "Flygon",
+    "isActive": true
+  },
+  {
+    "name": "Vibrava",
+    "number": 329,
+    "baseStam": 100,
+    "baseAtk": 134,
+    "baseDef": 99,
+    "finalEvolution": "Flygon",
+    "isActive": true
+  },
+  {
+    "name": "Flygon",
+    "number": 330,
+    "baseStam": 160,
+    "baseAtk": 205,
+    "baseDef": 168,
+    "finalEvolution": "Flygon",
+    "isActive": true
+  },
+  {
+    "name": "Cacnea",
+    "number": 331,
+    "baseStam": 100,
+    "baseAtk": 156,
+    "baseDef": 74,
+    "finalEvolution": "Cacturne",
+    "isActive": true
+  },
+  {
+    "name": "Cacturne",
+    "number": 332,
+    "baseStam": 140,
+    "baseAtk": 221,
+    "baseDef": 115,
+    "finalEvolution": "Cacturne",
+    "isActive": true
+  },
+  {
+    "name": "Swablu",
+    "number": 333,
+    "baseStam": 90,
+    "baseAtk": 76,
+    "baseDef": 139,
+    "finalEvolution": "Altaria",
+    "isActive": true
+  },
+  {
+    "name": "Altaria",
+    "number": 334,
+    "baseStam": 150,
+    "baseAtk": 141,
+    "baseDef": 208,
+    "finalEvolution": "Altaria",
+    "isActive": true
+  },
+  {
+    "name": "Zangoose",
+    "number": 335,
+    "baseStam": 146,
+    "baseAtk": 222,
+    "baseDef": 124,
+    "finalEvolution": "Zangoose",
+    "isActive": true
+  },
+  {
+    "name": "Seviper",
+    "number": 336,
+    "baseStam": 146,
+    "baseAtk": 196,
+    "baseDef": 118,
+    "finalEvolution": "Seviper",
+    "isActive": true
+  },
+  {
+    "name": "Lunatone",
+    "number": 337,
+    "baseStam": 180,
+    "baseAtk": 178,
+    "baseDef": 163,
+    "finalEvolution": "Lunatone",
+    "isActive": true
+  },
+  {
+    "name": "Solrock",
+    "number": 338,
+    "baseStam": 180,
+    "baseAtk": 178,
+    "baseDef": 163,
+    "finalEvolution": "Solrock",
+    "isActive": true
+  },
+  {
+    "name": "Barboach",
+    "number": 339,
+    "baseStam": 100,
+    "baseAtk": 93,
+    "baseDef": 83,
+    "finalEvolution": "Whiscash",
+    "isActive": true
+  },
+  {
+    "name": "Whiscash",
+    "number": 340,
+    "baseStam": 220,
+    "baseAtk": 151,
+    "baseDef": 142,
+    "finalEvolution": "Whiscash",
+    "isActive": true
+  },
+  {
+    "name": "Corphish",
+    "number": 341,
+    "baseStam": 86,
+    "baseAtk": 141,
+    "baseDef": 113,
+    "finalEvolution": "Crawdaunt",
+    "isActive": true
+  },
+  {
+    "name": "Crawdaunt",
+    "number": 342,
+    "baseStam": 126,
+    "baseAtk": 224,
+    "baseDef": 156,
+    "finalEvolution": "Crawdaunt",
+    "isActive": true
+  },
+  {
+    "name": "Baltoy",
+    "number": 343,
+    "baseStam": 80,
+    "baseAtk": 77,
+    "baseDef": 131,
+    "finalEvolution": "Claydol",
+    "isActive": true
+  },
+  {
+    "name": "Claydol",
+    "number": 344,
+    "baseStam": 120,
+    "baseAtk": 140,
+    "baseDef": 236,
+    "finalEvolution": "Claydol",
+    "isActive": true
+  },
+  {
+    "name": "Lileep",
+    "number": 345,
+    "baseStam": 132,
+    "baseAtk": 105,
+    "baseDef": 154,
+    "finalEvolution": "Cradily",
+    "isActive": true
+  },
+  {
+    "name": "Cradily",
+    "number": 346,
+    "baseStam": 172,
+    "baseAtk": 152,
+    "baseDef": 198,
+    "finalEvolution": "Cradily",
+    "isActive": true
+  },
+  {
+    "name": "Anorith",
+    "number": 347,
+    "baseStam": 90,
+    "baseAtk": 176,
+    "baseDef": 100,
+    "finalEvolution": "Armaldo",
+    "isActive": true
+  },
+  {
+    "name": "Armaldo",
+    "number": 348,
+    "baseStam": 150,
+    "baseAtk": 222,
+    "baseDef": 183,
+    "finalEvolution": "Armaldo",
+    "isActive": true
+  },
+  {
+    "name": "Feebas",
+    "number": 349,
+    "baseStam": 40,
+    "baseAtk": 29,
+    "baseDef": 102,
+    "finalEvolution": "Milotic",
+    "isActive": true
+  },
+  {
+    "name": "Milotic",
+    "number": 350,
+    "baseStam": 190,
+    "baseAtk": 192,
+    "baseDef": 242,
+    "finalEvolution": "Milotic",
+    "isActive": true
+  },
+  {
+    "name": "Castform",
+    "number": 351,
+    "baseStam": 140,
+    "baseAtk": 139,
+    "baseDef": 139,
+    "finalEvolution": "Castform",
+    "isActive": true
+  },
+  {
+    "name": "Kecleon",
+    "number": 352,
+    "baseStam": 120,
+    "baseAtk": 161,
+    "baseDef": 212,
+    "finalEvolution": "Kecleon",
+    "isActive": true
+  },
+  {
+    "name": "Shuppet",
+    "number": 353,
+    "baseStam": 88,
+    "baseAtk": 138,
+    "baseDef": 66,
+    "finalEvolution": "Banette",
+    "isActive": true
+  },
+  {
+    "name": "Banette",
+    "number": 354,
+    "baseStam": 128,
+    "baseAtk": 218,
+    "baseDef": 127,
+    "finalEvolution": "Banette",
+    "isActive": true
+  },
+  {
+    "name": "Duskull",
+    "number": 355,
+    "baseStam": 40,
+    "baseAtk": 70,
+    "baseDef": 162,
+    "finalEvolution": "Dusclops",
+    "isActive": true
+  },
+  {
+    "name": "Dusclops",
+    "number": 356,
+    "baseStam": 80,
+    "baseAtk": 124,
+    "baseDef": 234,
+    "finalEvolution": "Dusclops",
+    "isActive": true
+  },
+  {
+    "name": "Tropius",
+    "number": 357,
+    "baseStam": 198,
+    "baseAtk": 136,
+    "baseDef": 165,
+    "finalEvolution": "Tropius",
+    "isActive": true
+  },
+  {
+    "name": "Chimecho",
+    "number": 358,
+    "baseStam": 150,
+    "baseAtk": 175,
+    "baseDef": 174,
+    "finalEvolution": "Chimecho",
+    "isActive": true
+  },
+  {
+    "name": "Absol",
+    "number": 359,
+    "baseStam": 130,
+    "baseAtk": 246,
+    "baseDef": 120,
+    "finalEvolution": "Absol",
+    "isActive": true
+  },
+  {
+    "name": "Wynaut",
+    "number": 360,
+    "baseStam": 190,
+    "baseAtk": 41,
+    "baseDef": 86,
+    "finalEvolution": "Wobbuffet",
+    "isActive": true
+  },
+  {
+    "name": "Snorunt",
+    "number": 361,
+    "baseStam": 100,
+    "baseAtk": 95,
+    "baseDef": 95,
+    "finalEvolution": "Glalie",
+    "isActive": true
+  },
+  {
+    "name": "Glalie",
+    "number": 362,
+    "baseStam": 160,
+    "baseAtk": 162,
+    "baseDef": 162,
+    "finalEvolution": "Glalie",
+    "isActive": true
+  },
+  {
+    "name": "Spheal",
+    "number": 363,
+    "baseStam": 140,
+    "baseAtk": 95,
+    "baseDef": 90,
+    "finalEvolution": "Walrein",
+    "isActive": true
+  },
+  {
+    "name": "Sealeo",
+    "number": 364,
+    "baseStam": 180,
+    "baseAtk": 137,
+    "baseDef": 132,
+    "finalEvolution": "Walrein",
+    "isActive": true
+  },
+  {
+    "name": "Walrein",
+    "number": 365,
+    "baseStam": 220,
+    "baseAtk": 182,
+    "baseDef": 176,
+    "finalEvolution": "Walrein",
+    "isActive": true
+  },
+  {
+    "name": "Clamperl",
+    "number": 366,
+    "baseStam": 70,
+    "baseAtk": 133,
+    "baseDef": 149,
+    "finalEvolution": "Clamperl",
+    "isActive": true
+  },
+  {
+    "name": "Huntail",
+    "number": 367,
+    "baseStam": 110,
+    "baseAtk": 197,
+    "baseDef": 194,
+    "finalEvolution": "Huntail",
+    "isActive": true
+  },
+  {
+    "name": "Gorebyss",
+    "number": 368,
+    "baseStam": 110,
+    "baseAtk": 211,
+    "baseDef": 194,
+    "finalEvolution": "Gorebyss",
+    "isActive": true
+  },
+  {
+    "name": "Relicanth",
+    "number": 369,
+    "baseStam": 200,
+    "baseAtk": 162,
+    "baseDef": 234,
+    "finalEvolution": "Relicanth",
+    "isActive": true
+  },
+  {
+    "name": "Luvdisc",
+    "number": 370,
+    "baseStam": 86,
+    "baseAtk": 81,
+    "baseDef": 134,
+    "finalEvolution": "Luvdisc",
+    "isActive": true
+  },
+  {
+    "name": "Bagon",
+    "number": 371,
+    "baseStam": 90,
+    "baseAtk": 134,
+    "baseDef": 107,
+    "finalEvolution": "Salamence",
+    "isActive": true
+  },
+  {
+    "name": "Shelgon",
+    "number": 372,
+    "baseStam": 130,
+    "baseAtk": 172,
+    "baseDef": 179,
+    "finalEvolution": "Salamence",
+    "isActive": true
+  },
+  {
+    "name": "Salamence",
+    "number": 373,
+    "baseStam": 190,
+    "baseAtk": 277,
+    "baseDef": 168,
+    "finalEvolution": "Salamence",
+    "isActive": true
+  },
+  {
+    "name": "Beldum",
+    "number": 374,
+    "baseStam": 80,
+    "baseAtk": 96,
+    "baseDef": 141,
+    "finalEvolution": "Metagross",
+    "isActive": true
+  },
+  {
+    "name": "Metang",
+    "number": 375,
+    "baseStam": 120,
+    "baseAtk": 138,
+    "baseDef": 185,
+    "finalEvolution": "Metagross",
+    "isActive": true
+  },
+  {
+    "name": "Metagross",
+    "number": 376,
+    "baseStam": 160,
+    "baseAtk": 257,
+    "baseDef": 247,
+    "finalEvolution": "Metagross",
+    "isActive": true
+  },
+  {
+    "name": "Regirock",
+    "number": 377,
+    "baseStam": 160,
+    "baseAtk": 179,
+    "baseDef": 356,
+    "finalEvolution": "Regirock",
+    "isActive": false
+  },
+  {
+    "name": "Regice",
+    "number": 378,
+    "baseStam": 160,
+    "baseAtk": 179,
+    "baseDef": 356,
+    "finalEvolution": "Regice",
+    "isActive": false
+  },
+  {
+    "name": "Registeel",
+    "number": 379,
+    "baseStam": 160,
+    "baseAtk": 143,
+    "baseDef": 285,
+    "finalEvolution": "Registeel",
+    "isActive": false
+  },
+  {
+    "name": "Latias",
+    "number": 380,
+    "baseStam": 160,
+    "baseAtk": 228,
+    "baseDef": 268,
+    "finalEvolution": "Latias",
+    "isActive": false
+  },
+  {
+    "name": "Latios",
+    "number": 381,
+    "baseStam": 160,
+    "baseAtk": 268,
+    "baseDef": 228,
+    "finalEvolution": "Latios",
+    "isActive": false
+  },
+  {
+    "name": "Kyogre",
+    "number": 382,
+    "baseStam": 200,
+    "baseAtk": 297,
+    "baseDef": 276,
+    "finalEvolution": "Kyogre",
+    "isActive": false
+  },
+  {
+    "name": "Groudon",
+    "number": 383,
+    "baseStam": 200,
+    "baseAtk": 297,
+    "baseDef": 276,
+    "finalEvolution": "Groudon",
+    "isActive": false
+  },
+  {
+    "name": "Rayquaza",
+    "number": 384,
+    "baseStam": 210,
+    "baseAtk": 312,
+    "baseDef": 187,
+    "finalEvolution": "Rayquaza",
+    "isActive": false
+  },
+  {
+    "name": "Jirachi",
+    "number": 385,
+    "baseStam": 200,
+    "baseAtk": 210,
+    "baseDef": 210,
+    "finalEvolution": "Jirachi",
+    "isActive": false
+  },
+  {
+    "name": "Deoxys",
+    "number": 386,
+    "baseStam": 100,
+    "baseAtk": 345,
+    "baseDef": 115,
+    "finalEvolution": "Deoxys",
+    "isActive": false
+>>>>>>> Stashed changes
   }
 ]
