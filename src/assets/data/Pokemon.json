@@ -3431,27 +3431,27 @@
   {
     "name": "Kyogre",
     "number": 382,
-    "baseStam": 200,
-    "baseAtk": 297,
-    "baseDef": 276,
+    "baseStam": 182,
+    "baseAtk": 270,
+    "baseDef": 251,
     "finalEvolution": "Kyogre",
     "isActive": true
   },
   {
     "name": "Groudon",
     "number": 383,
-    "baseStam": 200,
-    "baseAtk": 297,
-    "baseDef": 276,
+    "baseStam": 182,
+    "baseAtk": 270,
+    "baseDef": 251,
     "finalEvolution": "Groudon",
     "isActive": true
   },
   {
     "name": "Rayquaza",
     "number": 384,
-    "baseStam": 210,
-    "baseAtk": 312,
-    "baseDef": 187,
+    "baseStam": 191,
+    "baseAtk": 284,
+    "baseDef": 170,
     "finalEvolution": "Rayquaza",
     "isActive": true
   },
@@ -3467,9 +3467,9 @@
   {
     "name": "Deoxys",
     "number": 386,
-    "baseStam": 100,
-    "baseAtk": 345,
-    "baseDef": 115,
+    "baseStam": 50,
+    "baseAtk": 150,
+    "baseDef": 50,
     "finalEvolution": "Deoxys",
     "isActive": true
   }
