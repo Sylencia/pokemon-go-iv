@@ -3390,7 +3390,7 @@
     "baseAtk": 179,
     "baseDef": 356,
     "finalEvolution": "Regirock",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Regice",
@@ -3399,7 +3399,7 @@
     "baseAtk": 179,
     "baseDef": 356,
     "finalEvolution": "Regice",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Registeel",
@@ -3408,7 +3408,7 @@
     "baseAtk": 143,
     "baseDef": 285,
     "finalEvolution": "Registeel",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Latias",
@@ -3417,7 +3417,7 @@
     "baseAtk": 228,
     "baseDef": 268,
     "finalEvolution": "Latias",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Latios",
@@ -3426,7 +3426,7 @@
     "baseAtk": 268,
     "baseDef": 228,
     "finalEvolution": "Latios",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Kyogre",
@@ -3435,7 +3435,7 @@
     "baseAtk": 297,
     "baseDef": 276,
     "finalEvolution": "Kyogre",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Groudon",
@@ -3444,7 +3444,7 @@
     "baseAtk": 297,
     "baseDef": 276,
     "finalEvolution": "Groudon",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Rayquaza",
@@ -3453,7 +3453,7 @@
     "baseAtk": 312,
     "baseDef": 187,
     "finalEvolution": "Rayquaza",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Jirachi",
@@ -3462,7 +3462,7 @@
     "baseAtk": 210,
     "baseDef": 210,
     "finalEvolution": "Jirachi",
-    "isActive": false
+    "isActive": true
   },
   {
     "name": "Deoxys",
@@ -3471,6 +3471,6 @@
     "baseAtk": 345,
     "baseDef": 115,
     "finalEvolution": "Deoxys",
-    "isActive": false
+    "isActive": true
   }
 ]
