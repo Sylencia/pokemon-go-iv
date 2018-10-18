@@ -66,9 +66,13 @@ class Info extends Component {
             <ul>
               <li>Simplified site.</li>
             </ul>
-            <u>Oct 252017</u>
+            <u>Oct 25 2017</u>
             <ul>
               <li>Added Generation 3.</li>
+            </ul>
+            <u>Oct 19 2018</u>
+            <ul>
+              <li>Added Generation 4 and Alolan Forms.</li>
             </ul>
             <div className="new-section">{changelogButton}</div>
           </div>
