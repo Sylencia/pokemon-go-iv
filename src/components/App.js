@@ -50,7 +50,7 @@ class App extends Component {
         {mainArea}
         <div className="footer">
           <span className="footer-item">
-            last updated: 25 oct 2017
+            last updated: 15 nov 2018
           </span>
         </div>
       </div>
