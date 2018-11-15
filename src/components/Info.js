@@ -74,6 +74,10 @@ class Info extends Component {
             <ul>
               <li>Added Generation 4 and Alolan Forms.</li>
             </ul>
+            <u>Nov 15 2018</u>
+            <ul>
+              <li>Updated stats from rebalance, added Melmetal line.</li>
+            </ul>
             <div className="new-section">{changelogButton}</div>
           </div>
           <div className={faqClass}>
